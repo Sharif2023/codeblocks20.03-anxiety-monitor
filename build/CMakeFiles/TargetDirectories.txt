@@ -1,7 +1,0 @@
-F:/CodeBlocks-AnxietyMonitor/build/CMakeFiles/AnxietyMonitor.dir
-F:/CodeBlocks-AnxietyMonitor/build/CMakeFiles/edit_cache.dir
-F:/CodeBlocks-AnxietyMonitor/build/CMakeFiles/rebuild_cache.dir
-F:/CodeBlocks-AnxietyMonitor/build/CMakeFiles/list_install_components.dir
-F:/CodeBlocks-AnxietyMonitor/build/CMakeFiles/install.dir
-F:/CodeBlocks-AnxietyMonitor/build/CMakeFiles/install/local.dir
-F:/CodeBlocks-AnxietyMonitor/build/CMakeFiles/install/strip.dir

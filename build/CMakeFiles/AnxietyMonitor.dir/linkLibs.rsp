@@ -1,1 +1,0 @@
- "E:/Program Files/CodeBlocks/codeblocks.dll" "E:/Program Files/CodeBlocks/wxmsw32u_gcc_custom.dll" -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

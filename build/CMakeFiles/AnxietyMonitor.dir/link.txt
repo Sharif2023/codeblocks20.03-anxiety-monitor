@@ -1,3 +1,0 @@
-"E:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\AnxietyMonitor.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\AnxietyMonitor.dir/objects.a @CMakeFiles\AnxietyMonitor.dir\objects1.rsp
-"E:\Program Files\CodeBlocks\MinGW\bin\g++.exe" -shared -o AnxietyMonitor.dll -Wl,--out-implib,libAnxietyMonitor.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\AnxietyMonitor.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\AnxietyMonitor.dir\linkLibs.rsp

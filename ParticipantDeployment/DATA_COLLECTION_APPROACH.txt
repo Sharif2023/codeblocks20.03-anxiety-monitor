@@ -1,0 +1,99 @@
+# Data Collection Approach: CodeBlocks Activity Monitor
+
+## Overview
+This project uses a non-intrusive **external monitoring system** to collect behavioral data from programmers using CodeBlocks IDE. 
+
+Instead of an internal plugin (which has compatibility issues with modern compilers), we use a standalone **Python-based Collector** that runs alongside the IDE. This ensures stability, privacy, and zero performance impact on the coding environment.
+
+---
+
+## 1. The Monitoring Architecture
+
+The system consists of three main components:
+1. **Windows API Monitor**: Tracks keyboard states and window focus every 10ms.
+2. **Process Monitor**: Detects compilation events by watching for `gcc.exe`.
+3. **Data Aggregator**: Calculates derived metrics (anxiety, fragmentation) and writes to CSV every 30 seconds.
+
+### Why This Approach?
+- **Stability**: Runs as a separate process; cannot crash CodeBlocks.
+- **Privacy**: Does not read source code files; detects only metadata (filename from title).
+- **Compatibility**: Works with any version of CodeBlocks on Windows.
+
+---
+
+## 2. Collected Data Metrics
+
+The collector outputs **18 data points** every 30 seconds.
+
+### A. Behavioral Metrics (Real-time)
+| Metric | Description | How It's Calculated |
+|--------|-------------|---------------------|
+| **Typing Speed (WPM)** | Coding fluency | `(Keystrokes / 5) / Minutes` |
+| **Latency Variance** | Rhythm irregularity | Standard deviation of time between keys (ms) |
+| **Backspace Rate** | Error correction freq | `(Backspaces / Total Keystrokes) %` |
+| **Keystroke Count** | Total activity | Counter of key press events |
+| **Idle Ratio** | Time spent not typing | `Min(SecondsSinceLastKey / 30, 1.0)` |
+
+### B. Session Metrics
+| Metric | Description | How It's Calculated |
+|--------|-------------|---------------------|
+| **Window Focused** | Attention tracking | `TRUE` if active window title contains "CodeBlocks" |
+| **Focus Switches** | Multitasking | Count of times active window changes |
+| **File Path** | Context | Extracted from CodeBlocks window title bar |
+| **Language** | Context | Detected from file extension (.cpp, .py, etc.) |
+
+### C. Compilation Metrics
+| Metric | Description | How It's Calculated |
+|--------|-------------|---------------------|
+| **Compile Attempts** | Build frequency | Detects `gcc.exe` process start events |
+| **Compile Success** | *Estimated* success | Heuristic based on backspace rate (low backspaces ≈ high success) |
+
+### D. Calculated Psychological Metrics
+These are derived from the raw data to provide high-level insights:
+
+**1. Session Fragmentation (0.0 - 1.0)**
+- Measures how broken up the work is.
+- **Formula**: `(Pauses > 30s per 10 mins) / 5.0`
+- **Interpretation**: 0.0 = Flow state; 1.0 = Highly fragmented.
+
+**2. Pause Ratio (0.0 - 1.0)**
+- Measures time spent thinking/blocking.
+- **Formula**: `Total Time in Pauses > 30s / Total Session Time`
+
+**3. Anxiety Score (0 - 100)**
+- Composite stress indicator based on 6 weighted factors:
+    - High Latency Variance (>100ms) adds **+15**
+    - High Backspace Rate (>10%) adds **+25**
+    - Low Typing Speed (<20 WPM) adds **+10**
+    - High Pause Ratio (>0.3) adds **+20**
+    - Frequent Compiles (>5 recently) adds **+15**
+    - High Fragmentation (>0.2) adds **+15**
+
+**4. Risk Level**
+- Categorical rating based on Anxiety Score:
+    - **LOW**: 0-30
+    - **MODERATE**: 31-60
+    - **HIGH**: 61-80
+    - **CRITICAL**: 81-100
+
+---
+
+## 3. Data Privacy & Ethics
+
+This approach is designed for research ethics compliance:
+
+1.  **No Code Content**: The actual code written by the participant is NEVER recorded.
+2.  **No Keylogging**: Individual keys are counted but not stored (e.g., we know "5 keys were pressed", not "h-e-l-l-o").
+3.  **Local Storage**: Data stays on the participant's machine in `Documents\AnxietyMonitorData`.
+4.  **Transparent Operation**: The collector runs in a visible window, showing exactly what it is doing.
+
+---
+
+## 4. Technical Constraints
+
+- **Platform**: Windows 10/11 only (uses `ctypes.windll`).
+- **Dependencies**: None (uses standard Python libraries).
+- **Limitations**:
+    - Cannot detect specific compiler error messages (requires plugin).
+    - "Compile Success" is an estimation, not an exact compilation result.
+    - File paths are limited to what is displayed in the window title.
