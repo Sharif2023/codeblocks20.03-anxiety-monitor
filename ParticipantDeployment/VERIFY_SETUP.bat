@@ -19,7 +19,7 @@ if errorlevel 1 (
     exit /b 1
 ) else (
     python --version
-    echo    ✓ Python is installed
+    echo    [OK] Python is installed
 )
 echo.
 
@@ -30,14 +30,14 @@ if errorlevel 1 (
     echo    WARNING: CodeBlocks not in system PATH
     echo    If CodeBlocks is installed, you can ignore this
 ) else (
-    echo    ✓ CodeBlocks found
+    echo    [OK] CodeBlocks found
 )
 echo.
 
 REM Check 3: Collector script
 echo [3/4] Checking collector script...
 if exist "clean_collector.py" (
-    echo    ✓ Collector script found
+    echo    [OK] Collector script found
 ) else (
     echo    ERROR: clean_collector.py missing!
     pause
@@ -52,7 +52,7 @@ if not exist "%USERPROFILE%\Documents" (
     pause
     exit /b 1
 ) else (
-    echo    ✓ Documents folder accessible
+    echo    [OK] Documents folder accessible
 )
 echo.
 

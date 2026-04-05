@@ -9,9 +9,13 @@ Research Foundation:
 - Perera (2023): Real-time stress detection systems (83.6% accuracy)
 
 Outputs 18 validated behavioral metrics every 30 seconds
+
+Usage:
+  python clean_collector.py [student_id]
 """
 
 import csv
+import sys
 import time
 import datetime
 import os
@@ -22,19 +26,25 @@ import threading
 import statistics
 
 class ResearchValidatedCollector:
-    def __init__(self, output_dir=None):
+    def __init__(self, student_id=None, output_dir=None):
         if output_dir is None:
             documents = os.path.expanduser("~/Documents")
             output_dir = os.path.join(documents, "AnxietyMonitorData")
         
         os.makedirs(output_dir, exist_ok=True)
         self.output_dir = output_dir
-        
-        date_str = datetime.datetime.now().strftime("%Y%m%d")
-        self.csv_path = os.path.join(output_dir, f"data_{date_str}.csv")
+        self.student_id = student_id
         
         time_str = datetime.datetime.now().strftime("%H%M%S")
-        self.session_id = f"session_{time_str}"
+        
+        if student_id:
+            # CSV named after the student ID for easy identification
+            self.csv_path = os.path.join(output_dir, f"{student_id}.csv")
+            self.session_id = f"{student_id}_{time_str}"
+        else:
+            date_str = datetime.datetime.now().strftime("%Y%m%d")
+            self.csv_path = os.path.join(output_dir, f"data_{date_str}.csv")
+            self.session_id = f"session_{time_str}"
         
         # Keystroke tracking - Lau (2018)
         self.keystroke_count = 0
@@ -155,6 +165,19 @@ class ResearchValidatedCollector:
                             self.backspace_count += 1
                     
                     self.last_key_states[vk] = is_pressed
+                
+                # FIX: Track focus switches in background thread (100 Hz) so
+                # every window change is captured, not just 30s snapshots.
+                # Perera (2023): real-time attention tracking.
+                try:
+                    current_title = self.get_window_title()
+                    if current_title != self.last_window_title:
+                        if self.last_window_title:
+                            self.focus_switch_count += 1
+                        self.active_file = self.extract_file_from_title(current_title)
+                        self.last_window_title = current_title
+                except:
+                    pass
                 
                 time.sleep(0.01)  # 100 Hz sampling
             except:
@@ -328,7 +351,8 @@ class ResearchValidatedCollector:
                 score += 20
             
             # Becker (2016): Frequent compiles indicate debugging
-            if self.compile_count > 5:
+            # FIX: use the already-recorded metrics dict value for consistency
+            if int(metrics.get('compile_attempts', 0)) > 5:
                 score += 15
             
             # Yu (2025): Fragmentation indicates distraction
@@ -359,21 +383,19 @@ class ResearchValidatedCollector:
         timestamp_batch = now.strftime("%Y-%m-%d_%H%M")
         self.row_count += 1
         
-        # Window tracking
-        window_title = self.get_window_title()
-        if window_title != self.last_window_title:
-            if self.last_window_title:
-                self.focus_switch_count += 1
-            self.active_file = self.extract_file_from_title(window_title)
-            self.last_window_title = window_title
-        
+        # Window tracking — focus_switches and active_file are updated
+        # in real-time by the background thread. Here we only read the
+        # current focused state for the window_focused column.
+        window_title = self.last_window_title  # already kept current by bg thread
         cb_focused = self.is_codeblocks_focused(window_title)
         self.check_gcc_compile()
         
         # Calculate behavioral metrics
         typing_speed = self.calculate_typing_speed()
         latency_var = self.calculate_latency_variance()
-        backspace_rate = (self.backspace_count / max(self.keystroke_count, 1)) * 100
+        # FIX: avoid cold-start inflation (was dividing by max(count,1) which
+        # gives 100% rate if a backspace fires before any normal key)
+        backspace_rate = (self.backspace_count / self.keystroke_count * 100) if self.keystroke_count > 0 else 0.0
         pause_ratio = self.calculate_pause_ratio()
         session_frag = self.calculate_session_fragmentation()
         idle_time = time.time() - self.last_keystroke_time
@@ -453,5 +475,6 @@ class ResearchValidatedCollector:
             print(f"{'='*70}")
 
 if __name__ == "__main__":
-    collector = ResearchValidatedCollector()
+    student_id = sys.argv[1] if len(sys.argv) > 1 else None
+    collector = ResearchValidatedCollector(student_id=student_id)
     collector.run()
