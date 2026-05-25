@@ -1,0 +1,55 @@
+POST-SESSION PROGRAMMING ANXIETY SURVEY
+========================================
+
+Title: Programming Session - Experience Survey
+Description: Thank you for participating! This short survey helps us validate the data collected during your session. Your honest feedback is crucial for our research. This will only take 1-2 minutes.
+
+---
+
+SECTION 1: Participant Information
+
+1. Student ID:
+[Short Answer text] (Required)
+Help text: "Please enter the same ID you used for the data collector."
+
+---
+
+SECTION 2: Session Experience
+(We want to know how you felt during the coding session)
+
+2. Overall, how anxious or stressed did you feel during this programming session?
+[Linear Scale: 1 to 5] (Required)
+1 = Not stressed at all (Completely relaxed)
+5 = Highly stressed/anxious
+
+3. Did you experience any moments where you felt completely "stuck" or blocked?
+[Multiple Choice] (Required)
+( ) No, things went smoothly
+( ) Yes, for a short time
+( ) Yes, for a significant part of the session
+
+4. How difficult was the programming task you were working on?
+[Linear Scale: 1 to 5] (Required)
+1 = Very Easy
+5 = Very Difficult
+
+5. Were there any external factors that caused you stress or distraction during the session? (Check all that apply)
+[Checkboxes]
+[ ] IDE/Compiler issues (e.g., CodeBlocks errors)
+[ ] Tiredness or fatigue
+[ ] Lack of understanding of the topic
+[ ] Noise/distractions in the lab
+[ ] Time pressure
+[ ] None of the above
+[ ] Other: ___________
+
+---
+
+SECTION 3: Final Thoughts (Optional but helpful)
+
+6. If you felt stressed at any point, what specifically triggered it? (Optional)
+[Paragraph text]
+Help text: "E.g., syntax errors, a complex algorithm, trying to find a bug, etc."
+
+---
+Thank you message on submission: "Thank you for completing the survey! Your response has been recorded and is greatly appreciated for our research."

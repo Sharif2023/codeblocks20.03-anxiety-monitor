@@ -1,0 +1,522 @@
+-,Publicatons(Q1 - Q4),Author details ,Purpose,Algorithm/Process Used,Research Gap Addressed,Future Work,Solution,Datasets,Novelty of Work,Paper Link,Reviewer,,,,,,,,,,,Addressing The Gap
+, ,,,,,,,,,,,,,,,,,,,,,
+System for Detecting Learner Stuck in Programming Learning, Q1,,"The purpose of this study is to develop a system that can automatically detect when a learner is stuck during programming tasks and provide timely, adaptive support to improve learning outcomes, reduce frustration, and enhance retention.","Collect coding logs, extract features, train classification/rule-based models, integrate into IDE (e.g., VS Code), and evaluate with learners.","Current systems focus on correctness, not struggle detection; limited use of process-based metrics; lack of real-time adaptive feedback.","Use coding behavior data, machine learning/rule-based models, and IDE integration to detect stuck states and provide contextual support.",,,,https://www.mdpi.com/1424-8220/23/12/5739,Rahat Ahmed Shafi,,,,,,,,,,,
+Understanding Coding Behavior: An Incremental Process Mining Approach, ,"Pasquale Ardimento 1,*,†ORCID,Mario Luca Bernardi 2,†ORCID,Marta Cimitile 3,†ORCID,Domenico Redavid 1,†ORCID andStefano Ferilli 1,*,†ORCID
+1
+Department of Computer Science, University of Bari Aldo Moro, 70125 Bari, Italy
+2
+Department of Engineering, University of Sannio, 82100 Benevento, Italy
+3
+Department of Economy and Law, Unitelma Sapienza University of Rome, 00185 Rome, Italy
+*
+Authors to whom correspondence should be addressed.
+†
+These authors contributed equally to this work.",The purpose of this study is to analyze the coding activities of novice programmers in real-time by using an incremental process mining approach. The goal is to gain insights into how programmers handle coding tasks and provide them with timely feedback to improve their performance. The study also aims to evaluate if this approach provides relevant and useful information for understanding individual programmers' behavior.,"The framework uses an incremental and declarative process mining approach based on the WoMan framework. This framework's core components are:
+
+Log Processor: An Eclipse plugin that captures Human-Computer Interaction (HCI) events from the IDE and also interacts with a Version Control System (VCS) to capture commit events. It cleans and filters the captured data, removing interactions unrelated to the project and correcting inconsistencies, before merging the HCI and commit events.
+
+Log Exporter: This module converts the cleaned and merged logs into a specific format that the WoMan tool can process. The logs are structured as 6-tuples: (T, E, P, C, A, N) which include a timestamp, event type, programmer ID, development session ID, command name, and a progressive integer for concurrent activities.
+
+WoMan Miner Tool: The WoMan tool's Workflow Discovery subsystem is used to obtain a declarative process model for each individual programmer. The models are expressed as sets of first-order logic constraints, a key feature of a declarative approach. The models learn from transitions, which represent the sequences of activities carried out by the programmer. The incremental nature of WoMan allows it to process new data event by event and case by case, refining the model with each new development session. This process also enables conformance checking, where the system compares events to the model and issues warnings or errors for non-compliant behaviors.","Previous research has adopted a process mining approach to model coding activities from IDE interactions, but this paper's novelty lies in applying an incremental process mining approach for the first time. The paper points out that most existing process mining solutions work in ""batch mode,"" requiring the entire dataset to be available before analysis can begin. This is inefficient and prevents real-time responsiveness to changes. The proposed approach addresses this by using an incremental method that can refine a model after each development session without needing to learn from scratch.","The authors suggest several areas for future research:
+
+Automatizing feedback: The primary goal is to automate feedback to students based on the discovered models.
+
+Quantitative analysis of team dynamics: Applying process mining to analyze how teams work together.
+
+Conformance checking: Using the system to identify deviations in student activities from a pre-defined ""reference model"".
+
+Expanding data sources: Expanding the study to include programmer activities outside the IDE, such as forums or chats, to identify their attitudes toward specific topics.
+
+Larger subject pool: A larger number of experimental subjects is necessary to strengthen the validity of the results.","The paper proposes a framework to capture and analyze programmer interactions with an IDE and a Version Control System (VCS). The framework consists of three main components: a Log Processor, a Log Exporter, and the WoMan miner tool.
+
+Log Processor: An Eclipse plugin that captures low-level and high-level Human-Computer Interaction (HCI) events and VCS commits. The data is then cleaned, inconsistencies are corrected, and commits are merged with IDE events.
+
+Log Exporter: A module that converts the cleaned logs into the specific WoMan format.
+
+WoMan Miner Tool: This tool, an inherently incremental and declarative framework, takes the logs and discovers a process model for each programmer, trace by trace. The WoMan framework uses first-order logic constraints to represent process models and can refine them after every single case (development session). The framework can identify non-compliant events and provide a ""warning"" or ""error"" output, which could be used to provide immediate feedback to the programmer.","The preliminary evaluation of the approach was performed on data collected from six novice students in a Java academic programming course at the University of Bari Aldo Moro, Italy. The students were tasked with implementing a simple software system over three months. A total of 427 logs were collected from all students after they completed their projects.","The primary novelty of this work is the application of an incremental process mining approach to analyze a programmer's coding behavior for the first time. While previous research had used process mining to model coding activities from IDE interactions, these typically used a ""batch mode"" approach that requires the entire dataset to be available before analysis begins. The incremental approach proposed in this paper can refine an existing model after every single development session, eliminating the need to learn from scratch with each new set of data. This allows for the timely provision of feedback to programmers about their behavior.
+
+Additionally, the study is novel because it uses data from both the Integrated Development Environment (IDE) and the Version Control System (VCS), whereas other studies have typically focused only on IDE data. The paper also notes that none of the studies known in the literature have been conducted for a time comparable to the one presented in this paper.",https://www.mdpi.com/2079-9292/11/3/389,Md Mahmudul Hasan,,,,,,,,,,,
+"The impact of AI-assisted pair programming on student motivation, programming anxiety, collaborative learning, and programming performance: a comparative study with traditional pair programming and individual approaches",Q1 journal,"1.Yonghong Peng, Taiyuan University of Science and Technology, China
+
+2.Yanzhen Qu, Taiyuan University of Science and Technology, China
+
+3.Shengyu Zhang, Taiyuan University of Science and Technology, China
+
+4.Liang Li, Taiyuan University of Science and Technology, China","To investigate how AI-assisted pair programming affects intrinsic motivation, programming anxiety, collaboration, and performance compared with human–human pair programming and individual programming.","1.Quasi-experimental design
+
+2.Participants: 234 undergraduates (Java web application course, 2023–2024)
+
+3.Groups: AI-assisted pair programming, Human–human pair programming, Individual programming
+
+4.Data collected via:
+
+i.IMI (Intrinsic Motivation Inventory)
+
+ii.PAS (Programming Anxiety Scale)
+
+iii.CLS (Collaborative Learning Scale)
+
+iv.SPQ (Social Presence Questionnaire)
+
+vTAM (Technology Acceptance Model for AI usefulness)
+
+5.Analyses: Mixed ANOVA, MANOVA, SEM mediation analysis","Lack of quantitative research on the affective (motivation, anxiety) and collaborative impacts of AI-assisted pair programming.","- Study long-term impacts of AI-assisted programming.
+- Investigate risks of over-reliance on AI (loss of problem-solving, critical thinking).
+- Develop balanced pedagogy combining AI + human interaction.
+- Address ethical, training, and accessibility issues in adoption.","1.Introduced AI-assisted pair programming with GPT-3.5 and Claude 3 as “AI partners.”
+
+2.Compared performance with traditional pair programming and individual coding.
+
+3.Found:
+
+i.AI-assisted groups showed higher intrinsic motivation
+
+ii.Reduced programming anxiety
+
+iii.Improved collaborative learning perceptions
+
+iv.Comparable or better programming performance
+
+4. AI served as a consistent partner that provided instant feedback, reduced coding stress, and enhanced confidence.","Data: Surveys (IMI, PAS, CLS, SPQ, TAM), programming assignments, code quality rubrics, error rates, GPA records, AI usage logs.","1.First large-scale empirical study comparing AI-assisted pair programming vs. traditional methods.
+
+2.Cross-model comparison (GPT-3.5 vs Claude 3).
+
+3.Combines educational psychology and AI in programming education.
+
+4.Provides quantitative evidence that AI can partially fill the role of a human partner in collaborative programming.",https://stemeducationjournal.springeropen.com/articles/10.1186/s40594-025-00537-3,Md. Ashiquzzaman Khan,,,,,,,,,,,
+"I spent 14 hours debugging just one assignment"": Toward Computer-Mediated Personal Informatics for Computer Science Student Mental Health ",,,"The purpose of this research is to address the mental health challenges faced by Computer Science (CS) students, particularly related to stress and anxiety caused by academic tasks like debugging. It aims to develop a computer-mediated Personal Informatics (PI) tool, EmotionStream, to monitor emotional states and stress in real-time based on individual behaviors in programming environments. The tool integrates both automated emotion recognition (AER) and self-reported data to promote self-reflection and self-awareness, ultimately helping students manage stress and avoid burnout.","1. Automated Emotion Recognition (AER): Two models—DeepFace and Residual Masking Network (RMN)—were employed to analyze facial expressions and detect emotions (e.g., happy, sad, angry, neutral). These models use computer vision to capture facial features at the frame level to determine emotional states during programming activities.
+2. Experience Sampling Method (ESM): This method collects self-reported data at regular intervals during coding sessions, asking participants to rate their emotional state, stress levels, and the context of their work. This method complements the passive AER data.
+3. Keystroke and Mouse Metrics: Data on keystroke and mouse interaction patterns (e.g., keystrokes per minute, average keypress duration, mouse speed) are logged to correlate with emotional states and stress levels. These metrics provide context on the intensity of the programming task.
+4. Stress Prediction Models: Machine learning models, like Random Forest classifiers, were trained using a combination of self-reported emotional data, AER predictions, and contextual features (keystroke data, mouse movement, application use) to predict stress levels.","Lack of Real-Time Monitoring Tools: There are few tools that allow real-time, passive, and contextual monitoring of mental health during academic tasks like programming.
+Bias in AER Tools: Existing AER tools suffer from misalignment between predicted emotions and self-reported emotions, with many tools underperforming in detecting non-neutral emotions, especially for diverse groups (e.g., gender or cultural differences).
+Privacy Concerns: Tools that track emotional and behavioral data may raise privacy concerns, particularly in academic settings where students are wary of continuous monitoring.","Improving AER Accuracy: Future work includes refining emotion recognition models to reduce bias and improve the accuracy of detecting emotional states, especially for non-neutral emotions like anger and sadness.
+Longitudinal Studies: Conducting longer-term studies to assess the impact of continuous mental health monitoring on students' well-being and academic performance.
+Platform Expansion: Expanding EmotionStream’s compatibility to other platforms and operating systems beyond Windows to increase its accessibility.",,,,,Shariful Islam,,,,,,,,,,,"Hybrid Approach: EmotionStream adopts a hybrid model, combining passive emotion recognition with self-reported emotional data, which improves real-time stress prediction and offers personalized insights.
+Context-Aware Monitoring: By integrating contextual features (e.g., activity type, time of day, application use), EmotionStream is able to provide more accurate and meaningful stress predictions tailored to individual experiences.
+Privacy by Design: The system prioritizes user privacy by ensuring that no personally identifiable information is collected. All data is stored locally, and users have control over their data."
+Anxiety Prediction and Analysis  A Machine Learning based approach,,,"To build a machine learning-based predictive model for identifying and analyzing anxiety levels, aiming to provide early detection and better intervention strategies .","1. Data preprocessing (cleaning, normalization, feature extraction).
+2.Machine Learning models applied for classification and prediction (likely Decision Trees, Random Forest, SVM, or similar).
+3.Performance evaluation using accuracy, precision, recall, and F1-score .","1. Limited prior research integrating machine learning specifically for anxiety prediction.
+
+2. Lack of comprehensive datasets capturing diverse psychological, behavioral, and physiological factors.
+
+3. Existing studies often focus only on depression or stress, ignoring anxiety as a standalone category .","1. Use larger and more diverse datasets.
+
+2. Apply deep learning and advanced ensemble models for better prediction accuracy.
+
+3. Develop real-time anxiety detection systems (e.g., mobile health applications).
+
+4. Integrate with wearable sensors and IoT devices for continuous monitoring","1. Developed an ML-based prediction model for detecting anxiety levels.
+
+2. Compared multiple algorithms → found Random Forest and SVM to provide higher accuracy.
+
+3. The system helps in early detection, enabling timely interventions for mental health support.","1. The paper mentions using an anxiety-related dataset (survey/questionnaire-based, with labeled categories of anxiety levels).
+
+2. Features include demographic, behavioral, and psychological attributes.
+
+3. Size of dataset is relatively small, highlighting a limitation .","1. Unlike traditional survey-based methods, this research integrates machine learning for automated anxiety prediction.
+
+2. Provides a comparative study of multiple algorithms to establish best-performing models.
+
+3. Bridges the gap between computer science and psychology by offering a data-driven framework for mental health.",https://www.researchgate.net/publication/372269481_Anxiety_Prediction_and_Analysis-_A_Machine_Learning_Based_Approach,Md. Ashiquzzaman Khan,,,,,,,,,,,
+The role of anxiety when learning to program: Asystematic review of the literature,,,"This study focuses on investigating the role of anxiety in learning programming. The goal is to understand the various factors contributing to anxiety, especially in the context of Computer Science (CS) students, and to assess the relationship between anxiety and the process of learning to program.","A systematic literature review method was used, based on Kitchenham’s guidelines for software engineering reviews. The process involved:
+- Identifying the need for a review and defining research questions.
+- Conducting an exhaustive search for relevant studies.
+- Assessing the quality of studies.
+- Extracting and synthesizing data from the accepted studies.","The review highlights a lack of real-time, physiological measurement of anxiety during programming tasks. While there is valuable data, the studies primarily use self-reports and surveys, which may not capture the real-time emotional responses of students.","- Further empirical studies are needed to validate these findings.
+- Experimental studies with real-time physiological monitoring, such as measuring heart rate or electrodermal activity during programming tasks, should be conducted to gain more insight into the sources of anxiety in real-time learning scenarios.",,,,https://dl.acm.org/doi/abs/10.1145/2999541.2999557,Shariful Islam,,,,,,,,,,,"- Implement wearable technologies that measure physiological signs of anxiety, like heart rate or skin conductance, during programming tasks.
+- Develop more interactive and supportive learning environments where students can engage with tasks without exacerbating anxiety.
+- Further explore the role of peer feedback and collaborative learning in reducing anxiety through clearer communication and reduced perceived task complexity."
+"Machine Learning based Stress Detection using
+Keyboard Typing Behavior",Journal,"Abhishek Chunawale
+Affiliation: School of Computer Engineering and Technology,
+Dr. Vishwanath Karad MIT World Peace University, Pune, India    
+Dr. Mangesh Bedekar
+Affiliation: School of Computer Engineering and Technology,
+Dr. Vishwanath Karad MIT World Peace University, Pune, India",The purpose is to show that keyboard typing behavior can effectively reflect user stress levels and can be leveraged to build a machine learning-based stress detection model.,K-Nearest Neighbor (KNN),"There has been limited research on using keyboard typing behavior as a non-intrusive, low-cost, and everyday activity to detect stress.","1. Improve dataset size and diversity.
+2.Test with other advanced ML algorithms beyond KNN.
+3. Build a real-time stress detection system for practical use.","1. Extract relevant keystroke features.
+2. Train ML models → K-Nearest Neighbor (KNN) gave best result","1. Typing behavior data (keystroke dynamics) collected from users.
+
+2. Features extracted: typing speed, key press duration, latency between keystrokes, etc.",Stress detection without sensors,https://core.ac.uk/download/pdf/579951358.pdf,Rahat Ahmed Shafi,,,,,,,,,,,
+Panic Detection Using Machine Learning and Real-Time Biometric and Spatiotemporal Data,ISPRS International Journal of Geo-Information (MDPI)    Q1 journal ,"Ilias Lazarou, Anastasios L. Kesidis, George Hloupis, Andreas Tsatsaris","Traditional panic detection systems are limited:
+
+CCTV-based surveillance is spatially constrained.
+
+Community engagement methods depend on human reporting, which often fails during emergencies.
+
+The paper addresses the need for real-time, spatially unrestricted detection of panic using biometric and spatiotemporal data from wearables and smartphones",Wearable + smartphone data → dataset → ML/DL models; HRMAD feature,"Existing approaches:
+
+CCTV methods lack coverage and rely on visual detection.
+
+Community methods rely on human reporting, which is not reliable during emergencies.
+
+There was a lack of real-time, wearable-based panic detection systems that integrate geospatial and biometric data to overcome these limitations.",,"Introduced a novel multimodal geospatial dataset combining biometric, spatiotemporal, and demographic features.
+
+Proposed the HRMAD derived feature, boosting detection accuracy.
+
+Built and tested ML and DL models, finding Gaussian SVM (with HRMAD60) achieved 94.5% accuracy, while LSTM reached up to 94.0%.
+
+Demonstrated that even with only HRV and HRMAD60 features, classifiers retained high performance.
+
+Visualizations illustrated practical detection capability and potential crowd-level deployment.
+
+Proposed future work: scaling to crowd-level, real-time geospatial emergency response systems (ERSs)","The dataset is multimodal, combining biometric (HR, HRV), spatiotemporal (GPS, activity, speed), demographic, and derived HRMAD features, with both real and synthetic samples to enrich diversity.",,https://www.mdpi.com/2220-9964/11/11/552,Pulok Sikdar,,,,,,,,,,,
+Emotional Expressions Reconsidered: Challenges to Inferring Emotion From Human Facial Movements,,"Nigel Bosch1
+, Sidney D’Mello1,2, and Caitlin Mills2
+1 Departments of Computer Science 2 Psychology, University of Notre Dame, Notre Dame, IN 46556
+{pbosch1,sdmello,cmills4}@nd.edu ","To investigate which emotions novice programmers experience in their first coding session, how these emotions relate to behavior, and how they impact performance.","Experimental design with two phases:
+
+Scaffolding (with hints/explanations)
+
+Fadeout (without hints, harder problems)
+
+Retrospective affect judgment (self-reports while watching session recordings).
+
+Tracked emotions, behaviors (idling, constructing, running), and performance.","Prior studies were coarse-grained and included experienced learners.
+
+Social/lab settings influenced emotions.
+
+Weak understanding of fine-grained links between specific emotions, coding behaviors, and outcomes.","Larger and more diverse samples.
+
+Use multimodal emotion detection (keystrokes, facial expressions, sensors) beyond self-report.
+
+Build automated emotion detectors to trigger adaptive interventions in programming environments.","Fine-grained tracking of emotions (every ~20s) in 29 true novices.
+
+Identified key emotions: flow, confusion, frustration, boredom.
+
+Showed how these emotions shift with scaffolding vs. fadeout and how they relate to performance.
+
+Proposed emotion-aware learning environments.","29 novice undergraduates (no prior programming).
+
+~3,035 emotion judgments across 40-minute programming sessions.
+
+Performance scores from coding/debugging tasks.","First fine-grained, individual-focused analysis of novices’ emotions in programming.
+
+Clear mapping between emotion ↔ behavior ↔ performance.
+
+Basis for designing affect-sensitive learning systems.",https://link.springer.com/chapter/10.1007/978-3-642-39112-5_2,Md Mahmudul Hasan,,,,,,,,,,,
+Detection and classification of anxiety in university students through the application of machine learning,Procedia Computer Science is a conference proceedings series published by Elsevier,"S. Bhatnagar, J. Agarwal, and O. R. Sharma","University students increasingly suffer from anxiety, which often remains unrecognized. The study aims to assess and classify the level of anxiety among engineering students using machine learning techniques to enhance mental health detection","Data Gathering: Administered a Likert-scale questionnaire to engineering students, capturing anxiety levels and related effects 
+Colab
+Scribd
+.
+
+Statistical Validation: Confirmed internal consistency (Cronbach’s α = 0.723) and construct validity (Pearson’s r = 0.823) of the dataset 
+Colab
+.
+
+Machine Learning Models:
+
+Tested classifiers: Naïve Bayes, Decision Tree, Random Forest, and Support Vector Machine (SVM).
+
+Performance:
+
+Naïve Bayes: 71.05%
+
+Decision Tree: 71.05%
+
+Random Forest: 78.9%
+
+SVM: 75.5%","Limited studies have focused on machine learning–based anxiety classification among university student populations using psychometric survey data validated for reliability, and directly compared multiple ML models on that basis.", ,"The researchers developed a validated, questionnaire-based dataset for anxiety detection among engineering students and applied multiple ML classifiers.
+
+Among them, Random Forest delivered the highest accuracy at 78.9%, demonstrating effectiveness in classifying anxiety levels based on self-reported effects","Participants: 127 engineering students.
+
+Data Collection: A questionnaire based on Likert scale measurements designed to quantify anxiety and its effects.
+
+Validation: Dataset reliability and validity confirmed via Cronbach’s alpha of 0.723 and Pearson correlation coefficient of 0.823",,,Pulok Sikdar,,,,,,,,,,,
+Real-time Emotional Self-regulation and Stress Monitoring System,,,"To design a real-time stress and emotion monitoring system using facial recognition, physiological data, and questionnaires to detect and regulate stress levels effectively.","Datasets: FER2013 (30,000 facial images of expressions), self-assessment questionnaires (DASS21, STAI, POMS).
+
+Techniques:
+
+1.Decision Trees
+2.Support Vector Machine (SVM)
+3.Naïve Bayes
+3.K-Nearest Neighbors (KNN)
+4.Random Forest
+5.CNN (Convolutional Neural Networks)
+6.RMDL (Random Multi-model Deep Learning)
+
+Inputs: facial images (via webcam), heart rate, body temperature, and questionnaire responses.","1.Limited real-time, cost-effective systems for stress detection.
+2.Need for integration of multimodal data (facial, physiological, and psychological).
+3.Lack of systems that provide continuous self-awareness and monitoring for individuals outside of clinical environments.","1. Explore physiological stress detection more deeply (EEG, ECG, cortisol signals).
+
+2.Integrate edge-cloud frameworks for large-scale, multi-user deployment.
+
+3.Expand applications to gaming, education, special needs, and smart homes.
+
+4.Provide customized real-time feedback for users","#Built a system combining facial expression recognition + questionnaires + physiological inputs.
+
+#Machine Learning models tested:
+
+1.KNN (max accuracy: 85.32%)
+2.Naïve Bayes (~83.47%)
+3.Decision Tree (~83.04%)
+4.Random Forest (~64.34%)
+5.SVM (Linear/RBF: ~38%)
+
+#Deep learning approaches (CNN, RMDL) provided additional robustness for classification.
+
+#Confusion matrix and precision-recall metrics used for evaluation.
+
+#Final system achieved real-time monitoring and feedback for stress/emotion regulation.","FER2013 dataset (~30,000 labeled facial RGB images, 48×48 resolution).
+
+Self-assessment questionnaires (DASS21, STAI, POMS).
+
+Physiological data (heart rate, temperature, GSR, EEG, ECG)","1.Combines facial expression, physiological signals, and self-assessment questionnaires in a single stress monitoring system.
+
+2.Uses ensemble ML + deep learning models (Decision Tree, CNN, RMDL) for higher robustness.
+
+3.Focuses on real-time and cost-effective monitoring, unlike purely clinical or offline studies.
+
+4.Application potential in healthcare, education, workplace productivity, and smart environments.",https://www.researchgate.net/publication/370058898_Real-time_Emotional_Self-regulation_and_Stress_Monitoring_System,Md. Ashiquzzaman Khan,,,,,,,,,,,
+Understanding and Effectively Mitigating Code Review Delays,,,"To analyze the causes of code review delays in software development and propose effective strategies to mitigate them, thereby improving developer productivity and software quality.","1.Mixed-method approach:
+i.Empirical analysis of GitHub and Gerrit datasets.
+ii.Mining software repositories to detect review bottlenecks.
+iii.Developer surveys and qualitative studies.
+2.Statistical modeling to identify factors contributing to review delays.
+3.Evaluation of proposed mitigation techniques.","1.Prior studies focused mainly on benefits of code review, but less on delays and inefficiencies.
+
+2.Lack of large-scale quantitative + qualitative analysis of causes of review delays.
+
+3.Limited guidance on actionable solutions to mitigate delays.","1.Explore AI-assisted automation in code reviews (e.g., reviewer recommendation, priority setting).
+
+2.Study organizational and cultural factors influencing delays.
+
+3.Extend analysis to industrial closed-source projects beyond open-source datasets.","1.Identified key causes of delays: reviewer workload imbalance, poor reviewer assignment, lack of review prioritization, and organizational practices.
+
+2.Proposed strategies:
+i.Automated reviewer recommendation systems.
+ii.Workload balancing techniques.
+iii.Improving review prioritization to handle critical changes faster.
+iv.Enhancing team awareness of pending reviews through tooling support.
+
+3.Showed that mitigation strategies reduce turnaround time and improve software delivery pipelines.","1.Large-scale mining of GitHub pull requests and Gerrit code review data.
+
+2.Surveys of active developers to validate findings.","1.First comprehensive study combining large-scale quantitative mining + qualitative developer insights on review delays.
+
+2.Provides actionable mitigation techniques, not just descriptive analysis.
+
+3.Bridges the gap between academic research and practical development challenges.
+
+4.Establishes a framework for improving developer productivity and collaboration in modern code review practices.",https://www.researchgate.net/publication/384668139_Understanding_and_effectively_mitigating_code_review_anxiety,Md. Ashiquzzaman Khan,,,,,,,,,,,
+Associations Between Smartphone Keystroke Metadata and Mental Health Symptoms in Adolescents:Findings From the Future Proofing Study,"Q1 (Scopus, 2023)
+Published in: JMIR Mental Health (Vol. 10, e44986)","Taylor A. Braund, PhD – Faculty of Medicine and Health, UNSW, and Black Dog Institute, Australia
+Bridianne O’Dea, PhD – Faculty of Medicine and Health, UNSW, and Black Dog Institute
+Debopriyo Bal, BSc – Black Dog Institute
+Kate Maston, MPsych – Black Dog Institute
+Mark Larsen, DPhil – Faculty of Medicine and Health, UNSW, and Black Dog Institute
+Aliza Werner-Seidler, PhD – Faculty of Medicine and Health, UNSW, and Black Dog Institute
+Gabriel Tillman, PhD – Institute of Health and Wellbeing, Federation University, Australia
+Helen Christensen, PhD – Faculty of Medicine and Health, UNSW, and Black Dog Institute","- To investigate whether smartphone keystroke metadata (typing speed, timing, frequency) is associated with adolescent mental health symptoms (depression, anxiety, distress, insomnia).
+- To test if gender differences exist in these associations.
+- To evaluate whether machine learning models using keystroke features can predict mental health symptoms.","1. Data Collection:
+934 adolescents (mean age 13.8).
+- Two typing tasks via the Future Proofing App:
+    - Prose task (copy text in 30 seconds).
+    - Composition task (type ~200–250 characters on a given topic).
+- Extracted 54 keystroke features (timing → dwell, latency, interval, up-up, down-down; frequency → keystrokes, spaces, backspaces, etc.).
+2. Statistical Analysis:
+- Pearson Correlation (r): associations between keystroke features and mental health scores.
+- False Discovery Rate (FDR): adjusted p-values into q-values using Benjamini–Hochberg method.
+3. Machine Learning Models (implemented in R):
+- Support Vector Machines (linear & nonlinear), Neural Networks, Random Forest, XGBoost, Elastic Net (best performer).
+- Removed highly correlated features (r > 0.95), kept 34 features.
+- 80% training, 20% testing split.
+- Metrics: correlation between predicted vs. observed test values, RMSE (Root Mean Squared Error), MAE (Mean Absolute Error).
+
+ 
+
+
+
+
+
+","Previous Studies:
+- Very small samples (n ≤ 25).
+- Mostly adults with bipolar disorder.
+- Focused on depression/mania only, not anxiety/insomnia.
+- Relied mainly on data from the BiAffect app, limiting generalizability.
+This Study Limitations:
+- Cross-sectional only, no longitudinal follow-up.
+- Based on structured typing tasks, not real-world smartphone usage.
+- Machine learning models with keystroke data alone showed poor predictive power.","Longitudinal studies: collect typing data over time to track changes.
+Multimodal digital phenotyping: combine keystroke metadata with GPS, app usage, sleep, and other smartphone sensors.
+Gender-specific models: since males and females showed different associations.
+Contextual/real-world typing data: analyze natural messaging & social media typing instead of only tasks.
+Clinical application: integrate predictive models into health systems for early detection of depression and anxiety.",,,"- First large-scale study in adolescents (n=934) using keystroke data.
+- Examined multiple symptoms (depression, anxiety, distress, insomnia) instead of only depression/mania.
+- Provided gender-specific insights (different typing–symptom patterns for males vs. females).
+- Used structured typing tasks for controlled measurement, unlike prior passive data.
+- Offered a realistic machine learning evaluation, showing keystroke data alone is weak for prediction, highlighting the need for multimodal approaches.",https://www.researchgate.net/publication/369470866_Associations_Between_Smartphone_Keystroke_Metadata_and_Mental_Health_Symptoms_in_Adolescents_Findings_from_the_Future_Proofing_Study_Preprint,Shariful Islam,,,,,,,,,,,
+Real-time Monitoring of Behavioural Parameters Related to Psychological Stress,,,"To design a low-cost, real-time system for automatic detection of behavioural correlates of psychological stress using gesture monitoring instead of intrusive biosensors.","1.Input: Microsoft Kinect video (upper body).
+2.Motion History Images (MHIs) generated in real-time.
+3.Algorithms detect gestures and activities (e.g., hand-to-head).
+4.Calculation of 8 behavioural parameters (activity energy, randomness, frequency of specific gestures, etc.).
+5.Statistical correlation with self-reported stress.","1.Existing methods relied on intrusive biosensors (ECG, GSR, EEG).
+
+2.Lack of unobtrusive, video-based systems for stress detection.","1.Larger-scale trials with more participants.
+
+2.Refinement of detection algorithms for broader stress indicators.
+
+3.Application in psychotherapy, rehabilitation, gaming, and training environments.","1.Developed a real-time, unobtrusive system that calculates 8 behavioural stress parameters from video streams.
+
+2.Found 5 parameters significantly correlated with stress (p < .05).
+
+3.Achieved 10 fps frame rate on normal PC hardware, showing feasibility of real-time monitoring.","1.Pilot study with 3 participants.
+2.Each did 7 trials, including Stroop test (button press & speech recognition versions) and stress induction games.
+
+3.Total: 21 trials with stress levels reported on Likert scale (1–5).","1.First attempt to use low-cost Kinect video + MHIs for real-time behavioural stress monitoring.
+2.Demonstrated unobtrusive stress detection by correlating body movement patterns with self-reported stress.
+3.Showed feasibility of replacing traditional biosensors with vision-based methods.
+4.The 8 behavioural parameters are:
+i.Activity Energy (Upper Body) – overall movement intensity of torso and arms.
+ii.Activity Energy (Head) – intensity of head movements.
+iii.Activity Energy (Arms) – intensity of hand/arm movements.
+iv.Activity Randomness – variation/unpredictability in movement patterns.
+v.Hand-to-Head Gestures Frequency – number of times hands move toward face/head (e.g., scratching, touching).
+vi.Repetitive Gesture Frequency – occurrence of repeated movements (linked to nervous behaviour).
+vii.Posture Instability – shifts in upper body posture during task.
+viii.Movement Distribution Balance – imbalance between left/right side movements (stress often causes uneven patterns).",https://www.researchgate.net/publication/230810313_Real-time_Monitoring_of_Behavioural_Parameters_Related_to_Psychological_Stress,Md. Ashiquzzaman Khan,,,,,,,,,,,
+"AQualitative Study of Emotions Experienced by First-year
+Engineering Students during Programming Tasks","Q1 (in Education and Computer Science, Education category).","Zahra Atiq – Department of Computer Science and Engineering, The Ohio State University, USA.
+Research interests: Computing education, affective computing, human–computer interaction, and engineering pedagogy.
+Email: atiq.2@osu.edu
+Michael C. Loui – Department of Electrical and Computer Engineering, University of Illinois at Urbana–Champaign, USA.
+Research interests: Engineering ethics, computer science education, learning environments, and cognitive psychology in engineering education.
+Email: loui@illinois.edu","The study explores:
+- What emotions first-year engineering students experience during introductory programming tasks.
+- Why students experience these emotions.
+- The work is grounded in Control-Value Theory (CVT) of achievement emotions, which links students’ perceived control and task value to emotional outcomes.
+This addresses the psychological and educational dimensions of learning to program, emphasizing that emotional states strongly affect persistence and success in computer science education","While this is a qualitative study (not algorithmic), it followed a structured empirical process using multi-modal data and grounded theory methods:
+
+1. Framework:
+-Based on Pekrun’s Control-Value Theory (CVT) of Achievement Emotions.
+- Integrates emotional, cognitive, and motivational components.
+
+2. Data Collection:
+
+- Conducted at Purdue University with 18 novice first-year engineering students (ENGR 132 – MATLAB programming).
+- Two sessions per participant:
+ 1.Programming session (30 min): Students solved MATLAB problems while screen capture, EDA (biometrics), and gaze data were recorded.
+ 2. Retrospective think-aloud interview (2 min segments): Students watched their recording and described emotions felt at each point.
+
+Tools: iMotions platform, MATLAB, and electrodermal activity sensors
+
+3. Analysis Method:
+- Thematic analysis using NVivo.
+- Mixed deductive (based on CVT) and inductive (emergent themes) coding.
+- Codebook validation with an independent researcher for reliability.
+
+4. Data Outcome:
+
+515 emotional instances identified across six coding stages:
+
+i. Getting Started
+ii. Typing Code
+iii. Encountering Difficulties
+iv. Dealing with Difficulties
+v. Succeeding
+vi. Stopping","- Previous studies on programming emotions (e.g., Kinnunen & Simon; Lishinski et al.) lacked theoretical grounding and often used only one data source (e.g., surveys or logs).
+
+- Limited exploration of students’ self-reported emotional reasoning during programming.
+
+- Few studies examined positive emotions or the temporal evolution of emotions while coding.
+
+The authors addressed these gaps by:
+1. Using CVT as a theoretical base.
+2. Combining multi-modal data (biometrics, screen, interviews).
+3. Focusing on both positive and negative emotions in authentic programming contexts",,"- Developed a process model showing emotional transitions during programming:
+
+Getting Started → Typing Code → Encountering Difficulties → Dealing with Difficulties → Succeeding → Stopping
+
+- Used retrospective think-aloud with synchronized biometrics and gaze as a novel qualitative triangulation method to accurately capture emotional shifts.
+
+- Provided rich contextual understanding of student emotions for instructors to design emotionally supportive pedagogy.",,"- First application of Control-Value Theory (CVT) in computer programming education research.
+- Multi-modal data triangulation (video, EDA, and verbal reflection) within a qualitative framework.
+- Introduced a new “Typing Code” stage in the programming process model to capture emotions during code composition (absent in prior frameworks).
+- Uncovered emotional complexity, such as co-occurrence of frustration and pride, anxiety and relief, and dynamic emotional transitions.
+- Provides actionable insights for designing emotion-aware learning environments and intelligent tutoring systems.",https://dl.acm.org/doi/full/10.1145/3507696,Shariful Islam,,,,,,,,,,,
+"Stress Detection Using Eye Tracking Data:
+An Evaluation of Full Parameters",Q1 (according to Scimago Journal Rank,"Mansoureh Seyed Yousefi – M.Sc. in Biomedical Engineering (IUST, 2020).
+Research: Cognitive science, biomedical signal processing, eye-tracking.
+
+Farnoush Reisi – M.Sc. in Biomedical Engineering (IUST, 2020).
+Research: Cognitive neuroscience, eye-tracking, biomedical signal processing.
+
+Mohammad Reza Daliri (Corresponding Author) – Ph.D. in Cognitive Neuroscience (SISSA, Italy, 2007); Professor at IUST.
+Research: Neural signal processing, BCI, cognitive neuroscience, pattern recognition.
+
+Vahid Shalchyan – Ph.D. in Biomedical Science and Engineering (Aalborg University, 2013); Assistant Professor at IUST.
+Research: Biomedical signal processing, neural signals, brain–computer interfaces.","- Develop an accurate, non-invasive method for detecting stress versus relaxation using eye-tracking (pupil diameter features) and electrodermal activity (EDA) signals.
+- Evaluate full pupil diameter (PD) features rather than the limited features used in prior studies.
+- Introduce a novel Stroop task and mathematical stressor task to differentiate multiple stress levels.","1. Experimental Design
+15 healthy participants.
+
+Tasks:
+Modified Stroop Task: Differentiates stress (incongruent) vs relaxation (congruent) phases.
+Mathematical Task: Three difficulty levels inducing incremental stress through time pressure and auditory cues.
+
+2. Data Acquisition
+
+Eye Tracker: SR Research EyeLink 1000 Plus.
+EDA Sensor: Custom-developed at IUST Neuroscience Lab.
+Pupil diameter (PD) and skin conductance recorded simultaneously.
+
+3. Signal Processing
+
+Preprocessing: Blink detection, interpolation, z-score normalization.
+Feature Extraction: 22 PD features (max, min, mean, skewness, kurtosis, etc.) and mean EDA.
+Feature Selection: Wilcoxon signed-rank test for non-normal data distribution.
+
+Classification Algorithms:
+
+Linear Discriminant Analysis (LDA)
+Support Vector Machine (SVM, Gaussian kernel)
+k-Nearest Neighbors (KNN, K=3)
+
+4. Validation
+
+10-fold cross-validation (Stroop task)
+Leave-One-Out cross-validation (Mathematical task)","- Prior works used only a few PD features (e.g., mean or mean-max) and limited stressors.
+- No studies had examined all PD features in combination with EDA during a mathematical stressor task.
+- Addressed the need for higher-accuracy, non-invasive, multi-modal stress detection models applicable to real-time scenarios.","- Extend stress detection to real-world environments beyond controlled laboratory conditions.
+- Explore real-time stress monitoring integrated into human–computer interaction (HCI) systems.
+- Potential clinical applications using the developed software integrated with an eye-tracker system for psychological or neurological assessments.","- Comprehensive extraction of 22 PD features + EDA combined with optimized classification (LDA).
+- Enhanced experimental design with time pressure, auditory cues, and scoring feedback to improve stress induction and measurement consistency.
+- Achieved high accuracy stress classification:
+Stroop Task: 88.43% (LDA, PD + EDA)
+Mathematical Task: 91.10% (LDA, PD + EDA)
+- The study demonstrated that PD features outperform EDA and serve as reliable indicators of mental stress.",,"- First study to evaluate all pupil diameter features for stress classification.
+- Dual-task paradigm (Stroop + mathematical task) providing more robust stress induction.
+- Novel stress induction mechanism: combining visual, auditory, and temporal cues.
+- High discrimination accuracy surpassing prior research.
+- Gender-independent model (accuracy difference between male and female participants was statistically insignificant).","Stress Detection Using Eye Tracking Data:
+An Evaluation of Full Parameters",Shariful Islam,,,,,,,,,,,
+"Plan More, Debug Less: Applying Metacognitive Theory to AI-Assisted Programming Education",,,,,,,,,,https://link.springer.com/chapter/10.1007/978-3-031-98414-3_1,Shariful Islam,,,,,,,,,,,
+Avoiding Help Avoidance: Using Interface Design Changes to Promote Unsolicited Hint Usage in an Intelligent Tutor,,,,,,,,,,https://link.springer.com/article/10.1007/s40593-020-00213-3,Shariful Islam,,,,,,,,,,,
+Conquering Coding Fears: A Systematic Review of Programming Anxiety in Higher Education,,,,,,,,,,https://www.researchgate.net/publication/393589131_Understanding_and_Mitigating_Programming_Anxiety_in_Higher_Education_A_Systematic_Literature_Review,Shariful Islam,,,,,,,,,,,
+"The impact of AI-assisted pair programming on student motivation, programming anxiety, collaborative learning, and programming performance: a comparative study with traditional pair programming and individual approaches",,,,,,,,,,https://link.springer.com/article/10.1186/s40594-025-00537-3,Shariful Islam,,,,,,,,,,,
+Iris: An AI-Driven Virtual Tutor For Computer Science Education,,,,,,,,,,https://dl.acm.org/doi/abs/10.1145/3649217.3653543,Shariful Islam,,,,,,,,,,,
+A Survey of Automated Programming Hint Generation — The HINTS Framework,,,,,,,,,,https://dl.acm.org/doi/abs/10.1145/3469885,Shariful Islam,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+"Machine Learning based Stress Detection using
+Keyboard Typing Behavior",,,,,,,,,,,,,,,,,,,,,,
+The Development and Validation of the Programming Anxiety Scale ,,,,,,,,,,https://files.eric.ed.gov/fulltext/EJ1345555.pdf,Shariful Islam,,,,,,,,,,,
+Keystroke Dynamic Based Stress Detection System Using an Incremental Learning Based Approach for IT Professionals ,,,,,,,,,,https://www.irjiet.com/common_src/article_file/1699016912_c4e9f035ba_7_irjiet.pdf,Shariful Islam,,,,,,,,,,,
+Cognitive Stress Detection Using Keystroke Dynamics ,,,,,,,,,,https://www.jetir.org/papers/JETIR2107296.pdf,Shariful Islam,,,,,,,,,,,
+136M keystroke datasets,,,,,,,,,https://huggingface.co/datasets/dishamodi/Keystroke_Processed,,Shariful Islam,,,,,,,,,,,
+Psychometric properties of the generalized anxiety disorder-7 (GAD-7) in a sample of workers,,,,,,,,,,https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2023.999242/full,Shariful Islam,,,,,,,,,,,
+Beyond the current state of just-in-time adaptive interventions in mental health: a qualitative systematic review,,,,,,,,,,https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2025.1460167/full,Shariful Islam,,,,,,,,,,,
+"Effectiveness of just-in-time adaptive interventions
+for improving mental health and psychological wellbeing: a systematic review and meta-analysis",,,,,,,,,,https://mentalhealth.bmj.com/content/ebmental/28/1/e301641.full.pdf,Shariful Islam,,,,,,,,,,,
+Working mechanisms of the use and acceptability of ecological momentary interventions: a realist evaluation of a guided self-help ecological momentary intervention targeting self-esteem,,,,,,,,,,https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-024-19143-z,Shariful Islam,,,,,,,,,,,
+Mobile-based ecological momentary assessment and intervention: bibliometric analysis,,,,,,,,,,https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1300739/full,Shariful Islam,,,,,,,,,,,
+,,,FOR NEW PARAMETERS ,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+Gold Standard Comparison,https://drive.google.com/drive/folders/1Q0IoLqVc7MipcBA_2Wo1lPtXb9KqnR8c?usp=sharing,,,,,,,,,,Md Mahmudul Hasan,,,,,,,,,,,
+"IDENTIFYING EMOTIONAL STATES THROUGH
+KEYSTROKE DYNAMICS",https://harvest.usask.ca/server/api/core/bitstreams/1b9dcee1-3ca3-479e-9e0a-5592a249f9e5/content,,,,,,,,,,Rahat Ahmed Shafi,,,,,,,,,,,
+Methods and tools for exploring novice compilation behaviou,https://www.researchgate.net/publication/228655971_Methods_and_tools_for_exploring_novice_compilation_behaviour,,,,,,,,,,Rahat Ahmed Shafi,,,,,,,,,,,
+"Investigating Boredom and Engagement during Writing
+Using Multiple Sources of Information:
+The Essay, The Writer, and Keystrokes",https://dl.acm.org/doi/pdf/10.1145/2883851.2883939,,,,,,,,,,Rahat Ahmed Shafi,,,,,,,,,,,

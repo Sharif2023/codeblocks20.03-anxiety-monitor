@@ -1,0 +1,3 @@
+--- Statistical Validation ---
+Pearson Correlation (Average System Anxiety vs Self-Reported): 0.247 (p-value: 0.1802)
+Spearman Correlation (Average System Anxiety vs Self-Reported): 0.331 (p-value: 0.0688)

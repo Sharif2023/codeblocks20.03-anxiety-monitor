@@ -1,0 +1,15 @@
+--- Machine Learning Classification Comparison (WITH SMOTE) ---
+Evaluation Method: Leave-One-Out Cross-Validation (LOOCV)
+Data Balancing: SMOTE applied inside the cross-validation loop to prevent data leakage.
+
+              Model  LOOCV Accuracy (SMOTE)
+Logistic Regression                0.709677
+          SVM (RBF)                0.709677
+  Gradient Boosting                0.709677
+        Naive Bayes                0.709677
+       SVM (Linear)                0.677419
+      Random Forest                0.677419
+      Decision Tree                0.645161
+K-Nearest Neighbors                0.548387
+
+Note: By balancing the classes during training, the models are forced to learn true behavioral patterns instead of simply guessing the majority class. Any accuracy achieved here is much more scientifically valid.

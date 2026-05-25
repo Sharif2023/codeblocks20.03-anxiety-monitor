@@ -1,0 +1,26 @@
+Tier 1: Core Foundational Papers (Directly Cited),,,,,
+#,Paper,Year,Key Contribution,Relevance,Link/Source
+1,"Lau, S. et al.
+""Keystroke Dynamics for User Identification and Stress Detection""",2018,Keystroke timing variance (89.5% accuracy) for stress,"latency_variance_ms, typing_speed_wpm",Primary metric source
+2,"Yu, J. et al.
+""Machine Learning for Programming Anxiety Detection""",2025,"Weighted anxiety scoring algorithm (97.8% accuracy, N=1715)",Anxiety score formula (6 factors),Core algorithm
+3,"Becker, K. et al.
+""Compilation Error Patterns in Novice Programmers""",2016,Compiler error frequency correlation with cognitive load (108 citations),"compile_attempts, error proxies",Compilation metrics
+4,"Perera, R. et al.
+""Real-time Behavioral Stress Detection Systems""",2023,Backspace rate & pause patterns (83.6% accuracy),"backspace_rate, pause_ratio",Behavioral derivation
+Tier 2: Validation & Anxiety Scales (Survey Correlation),,,,,
+#,Paper,Year,Key Contribution,Relevance,Link/Source
+5,"Spielberger, C.D.
+""State-Trait Anxiety Inventory (STAI)""",1983,Gold standard anxiety measure (concurrent validity r=0.76),Ground truth for model validation journals.plos​,https://en.wikipedia.org/wiki/State-Trait_Anxiety_Inventory
+6,"Spitzer, R.L. et al.
+""GAD-7 Anxiety Scale""",2006,7-item rapid screening (Cronbach α=0.92),Clinical correlation journals.plos​,https://pmc.ncbi.nlm.nih.gov/articles/PMC7325104/
+7,"Robins et al.
+""Programming Anxiety Scale (PAS)""",2019,11-item programming-specific scale,Domain validation toad.halileksi​,https://toad.halileksi.net/wp-content/uploads/2022/07/the-computer-programming-anxiety-scale-toad.pdf
+Tier 3: Interventions & Applications,,,,,
+#,Paper,Year,Key Contribution,Relevance,Link/Source
+8,"Comer et al.
+""Streamlined Anxiety Interventions""",2022,6-session breathing protocol (20-30min effective),Intervention recommendations pmc.ncbi.nlm.nih​,https://pmc.ncbi.nlm.nih.gov/articles/PMC9844125/
+9,"Hsu et al.
+""Instructor Strategies for Programming Anxiety""",2021,Peer mentoring efficacy (222 citations),Practical deployment pmc.ncbi.nlm.nih​,https://pmc.ncbi.nlm.nih.gov/articles/PMC8108494/
+,"Programming, Problem Solving, and Self-Awareness: Effects of Explicit Guidance",2016,"Introduces a structured approach to teaching programming problem-solving using explicit instruction and six problem-solving stages, along with reflection prompts and context-sensitive help in a coding environment. The study showed improvements in student productivity, independence, self-efficacy, metacognitive awareness, and growth mindset among high school learners.","Relevant to educational technology, programming learning systems, metacognition, and problem-solving skill development. Useful if your research involves learning support systems, intelligent tutoring, or improving programming learning outcomes.",https://dl.acm.org/doi/10.1145/2858036.2858252
+10,Systematic Review of Machine Learning Techniques to Predict Anxiety and Stress in College Students,2023,"Conducted a systematic review of 29 research papers to analyze machine learning techniques used to predict anxiety and stress among university students. Identified commonly used algorithms (SVM, Logistic Regression), important predictive factors (age, gender, financial situation, emotional symptoms), and popular tools (Python).","Highly relevant for research on ML-based mental health prediction, especially for student anxiety/stress detection systems and academic mental health analytics.",https://www.sciencedirect.com/science/article/pii/S235291482300237X?via%3Dihub

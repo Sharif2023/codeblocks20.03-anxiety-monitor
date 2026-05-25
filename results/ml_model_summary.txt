@@ -1,0 +1,20 @@
+--- Random Forest Classification (High vs Low Stress) ---
+                precision    recall  f1-score   support
+
+Low/Mod Stress       0.00      0.00      0.00         3
+   High Stress       0.70      1.00      0.82         7
+
+      accuracy                           0.70        10
+     macro avg       0.35      0.50      0.41        10
+  weighted avg       0.49      0.70      0.58        10
+
+--- Feature Importances ---
+                 Feature  Importance
+0       typing_speed_wpm    0.145688
+6   compile_success_rate    0.138702
+2            pause_ratio    0.138523
+7  session_fragmentation    0.137690
+5         focus_switches    0.123601
+3         backspace_rate    0.118152
+1    latency_variance_ms    0.113734
+4             idle_ratio    0.083910
