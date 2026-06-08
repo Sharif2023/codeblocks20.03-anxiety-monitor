@@ -1,109 +1,109 @@
-Timestamp,Student ID,What is your current year of study?,How would you rate your C/C++ programming experience?,"How anxious do you typically feel during programming tests or exams? (1=Not at all, 5=Extremely)","When you are stuck on a programming problem, do you frequently switch between windows or tabs to search for help?",How often do you compile your code while working to check for errors?,Does your typing become slower or more erratic when you feel stressed during coding?,"How would you rate your ability to stay focused on a coding task under time pressure? (1=Very Poor, 5=Excellent)",Have you previously experienced significant anxiety or stress during a timed programming task?
-3/15/2026 10:11:00,0112530043,1st Year,Intermediate (6-12 months),4,Sometimes,Frequently (after every small block),Sometimes,3,Yes
-3/15/2026 11:12:00,0112530132,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",2,Yes
-3/15/2026 12:13:00,0112530192,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
-3/15/2026 13:14:00,0112530126,1st Year,Intermediate (6-12 months),3,"Yes, frequently",Frequently (after every small block),Sometimes,3,Yes
-3/15/2026 14:15:00,0112530110,3rd Year,Intermediate (6-12 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
-3/15/2026 15:16:00,0112530164,3rd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
-3/15/2026 16:17:00,0112310431,1st Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,3,No
-3/15/2026 9:18:00,0112510044,1st Year,Elementary (3-6 months),4,Sometimes,Frequently (after every small block),"Yes, definitely",2,Yes
-3/15/2026 10:19:00,0112530120,2nd Year,Intermediate (6-12 months),3,"Yes, frequently",Sometimes (after completing a section),"Yes, definitely",2,No
-3/15/2026 11:20:00,0112510394,3rd Year,Intermediate (6-12 months),2,Rarely,Frequently (after every small block),Sometimes,3,No
-3/15/2026 12:21:00,0112530115,3rd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",2,Yes
-3/15/2026 13:22:00,0112530013,3rd Year,Intermediate (6-12 months),3,Sometimes,Sometimes (after completing a section),Rarely,3,Yes
-3/15/2026 14:23:00,0112510152,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Sometimes (after completing a section),Sometimes,2,No
-3/15/2026 15:24:00,0112420378,3rd Year,Intermediate (6-12 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
-3/15/2026 16:25:00,0112530139,1st Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
-3/15/2026 9:26:00,0112520207,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
-3/15/2026 10:27:00,0112530101,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Very Frequently (after every few lines),Sometimes,2,Yes
-3/15/2026 11:28:00,0112530149,2nd Year,Beginner (1-2 months),4,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
-3/15/2026 12:29:00,0112530196,2nd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
-3/15/2026 13:30:00,0112530133,2nd Year,Proficient (1-2 years),1,No,Sometimes (after completing a section),Rarely,4,No
-4/20/2026 14:31:00,0112430454,1st Year,Beginner (1-2 months),5,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
-4/20/2026 15:32:00,0112510322,1st Year,Intermediate (6-12 months),3,Sometimes,Sometimes (after completing a section),Rarely,4,No
-4/20/2026 16:33:00,0112510181,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",2,Yes
-4/20/2026 9:34:00,0112530185,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
-4/20/2026 10:35:00,0112510077,2nd Year,Intermediate (6-12 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
-4/20/2026 11:36:00,0112430320,1st Year,Beginner (1-2 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
-4/20/2026 12:37:00,0112420164,1st Year,Intermediate (6-12 months),4,Sometimes,Sometimes (after completing a section),Sometimes,2,Yes
-4/20/2026 13:38:00,0112510269,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
-4/20/2026 14:39:00,0112530136,3rd Year,Intermediate (6-12 months),2,Sometimes,Frequently (after every small block),Sometimes,3,No
-4/20/2026 15:40:00,0112520294,3rd Year,Beginner (1-2 months),4,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
-4/20/2026 16:41:00,0112520219,1st Year,Elementary (3-6 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
-5/25/2026 9:42:00,0112430146,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
-5/25/2026 10:43:00,0112510249,2nd Year,Intermediate (6-12 months),4,Sometimes,Very Frequently (after every few lines),"Yes, definitely",2,No
-5/25/2026 11:44:00,0112510374,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),Sometimes,1,Yes
-5/25/2026 12:45:00,0112530009,2nd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,3,Yes
-5/25/2026 13:46:00,0112530018,2nd Year,Intermediate (6-12 months),3,Sometimes,Very Frequently (after every few lines),Sometimes,2,No
-5/25/2026 14:47:00,0112530032,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
-5/25/2026 15:48:00,0112530036,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Very Frequently (after every few lines),Sometimes,2,Yes
-5/25/2026 16:49:00,0112530042,2nd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
-5/25/2026 9:50:00,0112530047,2nd Year,Beginner (1-2 months),4,"Yes, frequently",Frequently (after every small block),Sometimes,1,Yes
-5/25/2026 10:51:00,0112530077,1st Year,Elementary (3-6 months),4,Sometimes,Frequently (after every small block),"Yes, definitely",2,Yes
-5/25/2026 11:52:00,0112530122,2nd Year,Proficient (1-2 years),3,Rarely,Sometimes (after completing a section),Sometimes,3,No
-5/25/2026 12:53:00,0112530181,2nd Year,Proficient (1-2 years),2,Sometimes,Frequently (after every small block),Sometimes,4,No
-5/25/2026 13:54:00,0112530190,2nd Year,Beginner (1-2 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,1,Yes
-5/25/2026 14:55:00,0112530200,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,1,Yes
-3/15/2026 15:56:00,0112530201,3rd Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
-3/15/2026 16:57:00,0112530202,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
-4/20/2026 9:58:00,0112530203,1st Year,Intermediate (6-12 months),5,"Yes, frequently",Very Frequently (after every few lines),Sometimes,1,Yes
-3/15/2026 10:59:00,0112530204,2nd Year,Elementary (3-6 months),3,"Yes, frequently",Frequently (after every small block),Sometimes,2,Yes
-5/25/2026 11:10:00,0112530205,3rd Year,Beginner (1-2 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
-5/25/2026 12:11:00,0112530206,2nd Year,Beginner (1-2 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
-5/25/2026 13:12:00,0112530207,2nd Year,Intermediate (6-12 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
-4/20/2026 14:13:00,0112530208,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,No
-5/25/2026 15:14:00,0112530209,2nd Year,Beginner (1-2 months),4,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
-4/20/2026 16:15:00,0112530210,3rd Year,Intermediate (6-12 months),5,"Yes, frequently",Very Frequently (after every few lines),Sometimes,1,Yes
-4/20/2026 9:16:00,0112530211,3rd Year,Intermediate (6-12 months),4,Sometimes,Frequently (after every small block),Sometimes,3,Yes
-4/20/2026 10:17:00,0112530212,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
-5/25/2026 11:18:00,0112530213,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
-3/15/2026 12:19:00,0112530214,1st Year,Intermediate (6-12 months),3,Sometimes,Frequently (after every small block),Sometimes,2,Yes
-5/25/2026 13:20:00,0112530215,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Frequently (after every small block),Sometimes,1,Yes
-5/25/2026 14:21:00,0112530216,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),Sometimes,2,No
-4/20/2026 15:22:00,0112530217,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
-5/25/2026 16:23:00,0112530218,2nd Year,Beginner (1-2 months),4,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
-3/15/2026 9:24:00,0112530219,3rd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),"Yes, definitely",3,Yes
-5/25/2026 10:25:00,0112530220,1st Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,1,Yes
-5/25/2026 11:26:00,0112430221,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
-4/20/2026 12:27:00,0112430222,1st Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
-4/20/2026 13:28:00,0112430223,2nd Year,Intermediate (6-12 months),5,Sometimes,Frequently (after every small block),Sometimes,1,Yes
-5/25/2026 14:29:00,0112430224,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
-5/25/2026 15:30:00,0112430225,2nd Year,Elementary (3-6 months),3,"Yes, frequently",Sometimes (after completing a section),Sometimes,2,Yes
-5/25/2026 16:31:00,0112430226,2nd Year,Beginner (1-2 months),5,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
-3/15/2026 9:32:00,0112420227,3rd Year,Elementary (3-6 months),3,"Yes, frequently",Frequently (after every small block),Sometimes,2,Yes
-3/15/2026 10:33:00,0112420228,2nd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
-3/15/2026 11:34:00,0112420229,3rd Year,Elementary (3-6 months),4,Sometimes,Frequently (after every small block),Sometimes,2,Yes
-4/20/2026 12:35:00,0112510230,2nd Year,Beginner (1-2 months),4,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
-4/20/2026 13:36:00,0112510231,1st Year,Intermediate (6-12 months),4,Sometimes,Sometimes (after completing a section),Sometimes,2,No
-3/15/2026 14:37:00,0112510232,2nd Year,Beginner (1-2 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
-3/15/2026 15:38:00,0112510233,3rd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
-3/15/2026 16:39:00,0112510234,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",2,Yes
-3/15/2026 9:40:00,0112510235,3rd Year,Intermediate (6-12 months),4,"Yes, frequently",Very Frequently (after every few lines),Sometimes,3,Yes
-5/25/2026 10:41:00,0112510236,2nd Year,Intermediate (6-12 months),5,Sometimes,Frequently (after every small block),"Yes, definitely",2,Yes
-5/25/2026 11:42:00,0112510237,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Sometimes (after completing a section),Sometimes,3,No
-3/15/2026 12:43:00,0112510238,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
-5/25/2026 13:44:00,0112520239,2nd Year,Elementary (3-6 months),4,Sometimes,Frequently (after every small block),Sometimes,2,Yes
-5/25/2026 14:45:00,0112520240,2nd Year,Beginner (1-2 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
-4/20/2026 15:46:00,0112520241,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
-3/15/2026 16:47:00,0112530241,2nd Year,Intermediate (6-12 months),3,Sometimes,Sometimes (after completing a section),Sometimes,2,No
-3/15/2026 9:48:00,0112530242,2nd Year,Intermediate (6-12 months),4,Sometimes,Frequently (after every small block),Sometimes,2,Yes
-5/25/2026 10:49:00,0112530243,1st Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
-5/25/2026 11:50:00,0112530244,2nd Year,Elementary (3-6 months),3,"Yes, frequently",Sometimes (after completing a section),Sometimes,2,Yes
-3/15/2026 12:51:00,0112530245,1st Year,Intermediate (6-12 months),4,Sometimes,Very Frequently (after every few lines),"Yes, definitely",3,Yes
-3/15/2026 13:52:00,0112430246,1st Year,Intermediate (6-12 months),4,"Yes, frequently",Sometimes (after completing a section),Sometimes,2,Yes
-4/20/2026 14:53:00,0112430247,1st Year,Intermediate (6-12 months),4,"Yes, frequently",Sometimes (after completing a section),Sometimes,3,No
-3/15/2026 15:54:00,0112510248,3rd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),Sometimes,2,Yes
-3/15/2026 16:55:00,0112510250,2nd Year,Intermediate (6-12 months),3,Sometimes,Very Frequently (after every few lines),Sometimes,2,No
-5/25/2026 9:56:00,0112520251,2nd Year,Elementary (3-6 months),4,Sometimes,Frequently (after every small block),Sometimes,2,Yes
-4/20/2026 10:57:00,0112520252,3rd Year,Elementary (3-6 months),3,Sometimes,Sometimes (after completing a section),Sometimes,2,No
-4/20/2026 11:58:00,0112530253,2nd Year,Intermediate (6-12 months),3,Sometimes,Sometimes (after completing a section),Sometimes,3,No
-3/15/2026 12:59:00,0112530254,1st Year,Intermediate (6-12 months),3,Rarely,Sometimes (after completing a section),Sometimes,3,No
-4/20/2026 13:10:00,0112530255,2nd Year,Intermediate (6-12 months),2,Rarely,Sometimes (after completing a section),Sometimes,3,No
-4/20/2026 14:11:00,0112430256,2nd Year,Intermediate (6-12 months),3,Sometimes,Sometimes (after completing a section),Sometimes,3,Yes
-5/25/2026 15:12:00,0112510257,1st Year,Intermediate (6-12 months),2,Sometimes,Frequently (after every small block),Sometimes,3,No
-3/15/2026 16:13:00,0112510258,1st Year,Intermediate (6-12 months),3,Sometimes,Sometimes (after completing a section),Rarely,3,Yes
-3/15/2026 9:14:00,0112520259,2nd Year,Intermediate (6-12 months),3,Rarely,Sometimes (after completing a section),Rarely,3,No
-3/15/2026 10:15:00,0112530260,2nd Year,Advanced (2+ years),2,Rarely,Rarely (only when done),No,4,No
-3/15/2026 11:16:00,0112530261,2nd Year,Proficient (1-2 years),1,Rarely,Sometimes (after completing a section),Rarely,4,Yes
-4/20/2026 12:17:00,0112430262,2nd Year,Proficient (1-2 years),1,Rarely,Sometimes (after completing a section),No,5,No
-3/15/2026 13:18:00,0112510263,2nd Year,Advanced (2+ years),2,Rarely,Rarely (only when done),No,4,No
+Timestamp,What is your current year of study?,How would you rate your C/C++ programming experience?,"How anxious do you typically feel during programming tests or exams? (1=Not at all, 5=Extremely)","When you are stuck on a programming problem, do you frequently switch between windows or tabs to search for help?",How often do you compile your code while working to check for errors?,Does your typing become slower or more erratic when you feel stressed during coding?,"How would you rate your ability to stay focused on a coding task under time pressure? (1=Very Poor, 5=Excellent)",Have you previously experienced significant anxiety or stress during a timed programming task?
+12/1/2025 13:15:00,1st Year,Intermediate (6-12 months),4,Sometimes,Frequently (after every small block),Sometimes,3,Yes
+12/6/2025 10:43:00,2nd Year,Beginner (1-2 months),5,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
+12/1/2025 15:02:00,3rd Year,Intermediate (6-12 months),4,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/2/2025 12:32:00,1st Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
+12/5/2025 12:45:00,1st Year,Elementary (3-6 months),3,Sometimes,Frequently (after every small block),Sometimes,2,Yes
+12/4/2025 12:28:00,3rd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
+12/7/2025 9:48:00,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Very Frequently (after every few lines),Sometimes,2,No
+12/3/2025 13:09:00,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Frequently (after every small block),Sometimes,2,No
+12/1/2025 10:24:00,2nd Year,Intermediate (6-12 months),3,"Yes, frequently",Sometimes (after completing a section),"Yes, definitely",2,No
+12/3/2025 13:51:00,2nd Year,Intermediate (6-12 months),3,Sometimes,Sometimes (after completing a section),Rarely,3,Yes
+12/5/2025 10:59:00,2nd Year,Intermediate (6-12 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/5/2025 13:53:00,1st Year,Intermediate (6-12 months),3,Sometimes,Sometimes (after completing a section),Rarely,4,No
+12/3/2025 12:45:00,3rd Year,Elementary (3-6 months),4,"Yes, frequently",Sometimes (after completing a section),Sometimes,3,Yes
+12/6/2025 12:49:00,1st Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
+12/2/2025 10:24:00,1st Year,Beginner (1-2 months),4,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
+12/6/2025 14:10:00,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/2/2025 13:44:00,2nd Year,Intermediate (6-12 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",2,Yes
+12/5/2025 11:34:00,1st Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,1,Yes
+12/2/2025 16:24:00,2nd Year,Intermediate (6-12 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,3,Yes
+12/2/2025 14:53:00,3rd Year,Proficient (1-2 years),2,Rarely,Sometimes (after completing a section),Rarely,5,No
+12/2/2025 9:51:00,1st Year,Beginner (1-2 months),5,Sometimes,Frequently (after every small block),"Yes, definitely",2,Yes
+12/3/2025 10:13:00,2nd Year,Intermediate (6-12 months),3,Rarely,Sometimes (after completing a section),Sometimes,3,No
+12/2/2025 16:25:00,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Frequently (after every small block),"Yes, definitely",2,Yes
+12/2/2025 13:08:00,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/5/2025 13:47:00,3rd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/5/2025 15:23:00,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
+12/5/2025 16:05:00,2nd Year,Intermediate (6-12 months),4,Sometimes,Very Frequently (after every few lines),"Yes, definitely",3,Yes
+12/1/2025 11:40:00,1st Year,Elementary (3-6 months),4,"Yes, frequently",Frequently (after every small block),Sometimes,3,Yes
+12/5/2025 10:24:00,2nd Year,Intermediate (6-12 months),3,Sometimes,Frequently (after every small block),Sometimes,3,No
+12/4/2025 13:35:00,3rd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,1,Yes
+12/6/2025 13:49:00,1st Year,Intermediate (6-12 months),4,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
+12/1/2025 13:27:00,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
+12/1/2025 13:32:00,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),Sometimes,2,No
+12/5/2025 10:55:00,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Very Frequently (after every few lines),Sometimes,1,Yes
+12/6/2025 12:09:00,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Sometimes (after completing a section),Sometimes,3,Yes
+12/5/2025 9:38:00,2nd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
+12/1/2025 10:59:00,2nd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,3,No
+12/2/2025 9:15:00,2nd Year,Beginner (1-2 months),4,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
+12/1/2025 16:52:00,1st Year,Beginner (1-2 months),4,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
+12/7/2025 11:08:00,3rd Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,Yes
+12/5/2025 11:16:00,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Very Frequently (after every few lines),Sometimes,3,Yes
+12/4/2025 12:59:00,3rd Year,Intermediate (6-12 months),2,Sometimes,Frequently (after every small block),Sometimes,3,No
+12/6/2025 13:25:00,2nd Year,Proficient (1-2 years),3,Sometimes,Sometimes (after completing a section),Rarely,3,No
+12/4/2025 16:07:00,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Frequently (after every small block),"Yes, definitely",2,Yes
+12/1/2025 14:01:00,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/2/2025 12:00:00,3rd Year,Elementary (3-6 months),4,"Yes, frequently",Very Frequently (after every few lines),Sometimes,2,Yes
+12/2/2025 10:57:00,1st Year,Elementary (3-6 months),5,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
+12/1/2025 12:17:00,2nd Year,Beginner (1-2 months),4,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/2/2025 11:46:00,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Very Frequently (after every few lines),Sometimes,2,No
+12/4/2025 12:50:00,3rd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,2,Yes
+12/2/2025 10:06:00,2nd Year,Intermediate (6-12 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",2,Yes
+12/3/2025 15:26:00,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Very Frequently (after every few lines),Sometimes,1,Yes
+12/6/2025 10:03:00,1st Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,3,Yes
+12/7/2025 10:15:00,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/5/2025 16:08:00,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/3/2025 16:15:00,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",2,No
+12/7/2025 10:03:00,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Frequently (after every small block),Sometimes,1,Yes
+12/1/2025 10:59:00,3rd Year,Elementary (3-6 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
+12/2/2025 15:31:00,2nd Year,Elementary (3-6 months),3,Sometimes,Frequently (after every small block),"Yes, definitely",3,Yes
+12/4/2025 9:10:00,2nd Year,Intermediate (6-12 months),4,Sometimes,Very Frequently (after every few lines),"Yes, definitely",2,Yes
+12/4/2025 13:59:00,1st Year,Elementary (3-6 months),4,"Yes, frequently",Frequently (after every small block),Sometimes,3,Yes
+12/4/2025 16:09:00,2nd Year,Beginner (1-2 months),4,"Yes, frequently",Frequently (after every small block),Sometimes,1,Yes
+12/2/2025 9:37:00,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/1/2025 14:03:00,3rd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
+12/4/2025 11:03:00,3rd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/2/2025 10:38:00,1st Year,Beginner (1-2 months),4,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
+12/4/2025 10:56:00,2nd Year,Elementary (3-6 months),3,"Yes, frequently",Frequently (after every small block),Sometimes,2,No
+12/5/2025 9:39:00,2nd Year,Elementary (3-6 months),4,"Yes, frequently",Frequently (after every small block),"Yes, definitely",2,Yes
+12/6/2025 14:59:00,2nd Year,Beginner (1-2 months),5,"Yes, frequently",Very Frequently (after every few lines),Sometimes,1,Yes
+12/6/2025 14:15:00,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),Sometimes,3,Yes
+12/2/2025 13:29:00,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Frequently (after every small block),Sometimes,1,Yes
+12/1/2025 16:39:00,1st Year,Intermediate (6-12 months),3,Sometimes,Very Frequently (after every few lines),Sometimes,3,Yes
+12/1/2025 12:32:00,1st Year,Elementary (3-6 months),4,"Yes, frequently",Frequently (after every small block),"Yes, definitely",2,Yes
+12/3/2025 10:56:00,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),Sometimes,3,Yes
+12/3/2025 11:28:00,2nd Year,Elementary (3-6 months),5,Sometimes,Very Frequently (after every few lines),"Yes, definitely",1,Yes
+12/5/2025 9:42:00,2nd Year,Elementary (3-6 months),3,"Yes, frequently",Sometimes (after completing a section),Sometimes,2,Yes
+12/6/2025 10:56:00,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
+12/1/2025 10:47:00,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",3,Yes
+12/3/2025 13:38:00,2nd Year,Elementary (3-6 months),5,"Yes, frequently",Frequently (after every small block),"Yes, definitely",1,Yes
+12/2/2025 13:32:00,2nd Year,Elementary (3-6 months),3,Sometimes,Very Frequently (after every few lines),"Yes, definitely",2,Yes
+12/1/2025 10:40:00,2nd Year,Beginner (1-2 months),5,Sometimes,Very Frequently (after every few lines),Sometimes,1,Yes
+12/1/2025 9:21:00,2nd Year,Elementary (3-6 months),4,Sometimes,Very Frequently (after every few lines),Sometimes,3,No
+12/6/2025 13:10:00,2nd Year,Beginner (1-2 months),5,Sometimes,Frequently (after every small block),"Yes, definitely",2,Yes
+12/5/2025 15:35:00,2nd Year,Intermediate (6-12 months),4,Sometimes,Frequently (after every small block),Sometimes,2,No
+12/1/2025 11:34:00,1st Year,Intermediate (6-12 months),4,Sometimes,Frequently (after every small block),"Yes, definitely",1,Yes
+12/5/2025 11:27:00,2nd Year,Intermediate (6-12 months),3,"Yes, frequently",Frequently (after every small block),Sometimes,3,Yes
+12/3/2025 14:57:00,1st Year,Intermediate (6-12 months),4,Sometimes,Sometimes (after completing a section),Sometimes,2,Yes
+12/2/2025 12:42:00,2nd Year,Intermediate (6-12 months),4,Sometimes,Sometimes (after completing a section),"Yes, definitely",2,Yes
+12/7/2025 15:39:00,2nd Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),Sometimes,2,Yes
+12/2/2025 11:51:00,2nd Year,Elementary (3-6 months),4,Sometimes,Frequently (after every small block),Sometimes,2,Yes
+12/1/2025 11:47:00,2nd Year,Intermediate (6-12 months),4,Sometimes,Sometimes (after completing a section),Sometimes,3,No
+12/7/2025 12:17:00,2nd Year,Intermediate (6-12 months),4,"Yes, frequently",Frequently (after every small block),Sometimes,2,Yes
+12/4/2025 9:54:00,1st Year,Elementary (3-6 months),4,Sometimes,Sometimes (after completing a section),Sometimes,2,No
+12/2/2025 16:22:00,2nd Year,Elementary (3-6 months),3,"Yes, frequently",Frequently (after every small block),Sometimes,3,Yes
+12/2/2025 9:42:00,2nd Year,Intermediate (6-12 months),3,Sometimes,Very Frequently (after every few lines),Sometimes,3,Yes
+12/3/2025 13:55:00,2nd Year,Intermediate (6-12 months),3,Sometimes,Frequently (after every small block),"Yes, definitely",2,No
+12/3/2025 15:43:00,2nd Year,Elementary (3-6 months),3,"Yes, frequently",Frequently (after every small block),Sometimes,2,No
+12/1/2025 10:56:00,2nd Year,Intermediate (6-12 months),3,Sometimes,Frequently (after every small block),Sometimes,3,Yes
+12/5/2025 13:02:00,2nd Year,Proficient (1-2 years),3,Sometimes,Sometimes (after completing a section),Sometimes,3,Yes
+12/4/2025 14:46:00,3rd Year,Intermediate (6-12 months),2,Sometimes,Frequently (after every small block),Sometimes,3,No
+12/5/2025 10:24:00,2nd Year,Intermediate (6-12 months),3,Sometimes,Frequently (after every small block),Sometimes,3,No
+12/3/2025 9:45:00,2nd Year,Intermediate (6-12 months),3,Rarely,Frequently (after every small block),Sometimes,3,No
+12/5/2025 12:23:00,1st Year,Intermediate (6-12 months),3,Sometimes,Frequently (after every small block),Sometimes,3,Yes
+12/6/2025 14:39:00,1st Year,Intermediate (6-12 months),2,Sometimes,Sometimes (after completing a section),Sometimes,3,No
+12/6/2025 13:32:00,1st Year,Advanced (2+ years),2,Rarely,Rarely (only when done),No,5,No
+12/3/2025 15:44:00,2nd Year,Advanced (2+ years),2,Rarely,Rarely (only when done),Rarely,4,No
+12/2/2025 12:26:00,3rd Year,Advanced (2+ years),2,Rarely,Rarely (only when done),Rarely,4,No
+12/6/2025 11:39:00,2nd Year,Proficient (1-2 years),2,No,Rarely (only when done),No,4,Yes

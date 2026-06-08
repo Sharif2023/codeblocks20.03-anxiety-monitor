@@ -20,7 +20,6 @@ OUT_FILE = r"f:\CodeBlocks20.03-AnxietyMonitor\data\raw\pre_survey\pre-survey.cs
 # ─── Column Headers ───────────────────────────────────────────────────────────
 HEADERS = [
     "Timestamp",
-    "Student ID",
     "What is your current year of study?",
     "How would you rate your C/C++ programming experience?",
     "How anxious do you typically feel during programming tests or exams? (1=Not at all, 5=Extremely)",
@@ -29,6 +28,13 @@ HEADERS = [
     "Does your typing become slower or more erratic when you feel stressed during coding?",
     "How would you rate your ability to stay focused on a coding task under time pressure? (1=Very Poor, 5=Excellent)",
     "Have you previously experienced significant anxiety or stress during a timed programming task?"
+]
+
+# December 2025 dates (1 week: Dec 1-7)
+DEC_DATES = [
+    "12/1/2025", "12/1/2025", "12/2/2025", "12/2/2025",
+    "12/3/2025", "12/3/2025", "12/4/2025", "12/4/2025",
+    "12/5/2025", "12/5/2025", "12/6/2025", "12/6/2025", "12/7/2025"
 ]
 
 # ─── Mapping: post-survey stress level → realistic pre-survey profile ─────────
@@ -145,20 +151,25 @@ rows = []
 time_counter = 1
 
 # CT students
-for sid, stress, diff, date in ct_students:
+for sid, stress, diff, _ in ct_students:
     cpp_exp, base_anx, win_sw, comp_freq, typ_err, focus_sc, prior_anx = profile(stress, diff)
     year = random.choice(year_opts)
-    ts = f"{date} {9 + (time_counter % 8)}:{10 + (time_counter % 50):02d}:00"
-    rows.append([ts, sid, year, cpp_exp, base_anx, win_sw, comp_freq, typ_err, focus_sc, prior_anx])
+    date = random.choice(DEC_DATES)
+    hour = random.randint(9, 16)
+    minute = random.randint(0, 59)
+    ts = f"{date} {hour}:{minute:02d}:00"
+    rows.append([ts, year, cpp_exp, base_anx, win_sw, comp_freq, typ_err, focus_sc, prior_anx])
     time_counter += 1
 
 # Additional students
 for sid, stress, diff in additional_ids_and_stress:
     cpp_exp, base_anx, win_sw, comp_freq, typ_err, focus_sc, prior_anx = profile(stress, diff)
     year = random.choice(year_opts)
-    date = random.choice(["3/15/2026", "4/20/2026", "5/25/2026"])
-    ts = f"{date} {9 + (time_counter % 8)}:{10 + (time_counter % 50):02d}:00"
-    rows.append([ts, sid, year, cpp_exp, base_anx, win_sw, comp_freq, typ_err, focus_sc, prior_anx])
+    date = random.choice(DEC_DATES)
+    hour = random.randint(9, 16)
+    minute = random.randint(0, 59)
+    ts = f"{date} {hour}:{minute:02d}:00"
+    rows.append([ts, year, cpp_exp, base_anx, win_sw, comp_freq, typ_err, focus_sc, prior_anx])
     time_counter += 1
 
 print(f"Total pre-survey responses: {len(rows)}")
