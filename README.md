@@ -178,10 +178,12 @@ timestamp,session_id,file_path,language,typing_speed_wpm,latency_variance_ms,...
 
 ### For Researchers
 
-1. **Setup Participants**: Copy `ParticipantDeployment` folder to each machine
-2. **Brief Participants**: Explain privacy and operation (see `PARAMETER_GUIDE.txt`)
-3. **Collect Data**: Retrieve CSV files from `Documents\AnxietyMonitorData`
-4. **Analysis**: Load CSV into R/Python for statistical analysis
+1. **Baseline Assessment**: Administer the Pre-Survey to establish experiential and psychological baseline profiles for participants.
+2. **Setup Participants**: Copy `ParticipantDeployment` folder to each machine.
+3. **Brief Participants**: Explain privacy and operation (see `PARAMETER_GUIDE.txt`).
+4. **Collect Data**: Retrieve behavioral CSV files from `Documents\AnxietyMonitorData` after the coding session.
+5. **Ground Truth Verification**: Administer the Post-Survey (`POST_SESSION_SURVEY_TEMPLATE.txt`) immediately after the session to capture self-reported stress.
+6. **Analysis**: Use the provided ML scripts (`scripts/`) to clean, merge, and statistically validate the behavioral data against the survey ground truth.
 
 ### For Developers
 

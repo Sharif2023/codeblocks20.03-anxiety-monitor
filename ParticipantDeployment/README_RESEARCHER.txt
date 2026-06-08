@@ -8,25 +8,33 @@ This folder contains everything needed for participant data collection.
 DEPLOYMENT STEPS
 ========================================
 
-1. COPY TO PARTICIPANT PC
+1. ADMINISTER PRE-SURVEY
+   - Have the participant fill out the pre-survey form
+   - This establishes their baseline programming experience and baseline anxiety
+
+2. COPY TO PARTICIPANT PC
    - Copy this entire folder to participant's Desktop
    - No installation needed
 
-2. RUN VERIFICATION (RECOMMENDED)
+3. RUN VERIFICATION (RECOMMENDED)
    - Double-click: VERIFY_SETUP.bat
    - Checks Python and folder permissions
    - Fix any errors before proceeding
 
-3. START DATA COLLECTION
+4. START DATA COLLECTION
    - Participant double-clicks: START_CLEAN_COLLECTOR.bat
    - Black window opens and stays open
    - They open CodeBlocks and code normally
 
-4. COLLECT DATA AFTER SESSION
+5. COLLECT DATA AFTER SESSION
    - Participant presses Ctrl+C to stop
    - Navigate to: Documents\AnxietyMonitorData\
    - Copy CSV file: data_YYYYMMDD.csv
    - Rename immediately: P[ID]_data_YYYYMMDD.csv
+
+6. ADMINISTER POST-SURVEY
+   - Have the participant fill out the post-survey immediately after coding
+   - This provides the ground truth stress label for machine learning
 
 ========================================
 FILES IN THIS FOLDER

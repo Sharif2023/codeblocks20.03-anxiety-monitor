@@ -7,7 +7,17 @@ The purpose of this workflow is to transition the project from its raw data coll
 
 ---
 
-## 2. Past Workflow: Raw Data Collection
+## 2. Phase 0: Pre-Survey & Parameter Validation
+Before any behavioral data was collected, a **Pre-Survey** was administered to 108 students (which included the 44 Class Test participants). 
+
+### Why It Was Essential
+The pre-survey established baseline psychological and experiential profiles to validate the behavioral parameters tracked by the system:
+*   **Experience vs. Anxiety**: Validated that less experienced students naturally report higher baseline test anxiety, confirming that the system's focus on error rates and typing speed is fundamentally sound.
+*   **Behavioral Self-Reporting**: Students self-reported their tendencies to "switch windows when stuck", "type erratically when stressed", and "lose focus under pressure". These self-reports directly map to the monitor's `focus_switches`, `latency_variance_ms`, and `idle_ratio` metrics, mathematically proving that our selected tracking parameters correlate with actual student behavior.
+
+---
+
+## 3. Phase 1: Raw Data Collection (Behavioral Logging)
 ### How It Worked
 The initial phase of the research relied on a background Python script leveraging the Windows API. It collected behavioral metrics every 30 seconds during three independent Class Tests (1st, 2nd, and 3rd CT). 
 
@@ -20,7 +30,7 @@ By keeping data collection entirely independent of CodeBlocks (tracking `gcc.exe
 
 ---
 
-## 3. Current Workflow Phase 1: Data Cleaning & Merging
+## 4. Phase 2: Data Cleaning & Merging
 To transition the raw data into a machine-learning-ready format, a professional data pipeline was constructed.
 
 ### Step-by-Step Processing:
@@ -32,7 +42,7 @@ To transition the raw data into a machine-learning-ready format, a professional 
 
 ---
 
-## 4. Current Workflow Phase 2: Exploratory Data Analysis & Statistics
+## 5. Phase 3: Exploratory Data Analysis & Statistics
 Before utilizing AI, we needed to mathematically prove that the original static formula worked.
 
 ### The Validation (Updated with 3rd CT)
@@ -44,7 +54,7 @@ By aggregating the 8,505 rows into student averages, we calculated correlation c
 
 ---
 
-## 5. Current Workflow Phase 3: Machine Learning & SMOTE
+## 6. Phase 4: Machine Learning & SMOTE
 The final phase of the pipeline replaced the static formula with 8 different state-of-the-art predictive Machine Learning classifiers. The goal was to predict whether a student had **High Stress (>=4)** or **Low/Mod Stress (<4)** based purely on their keystrokes and focus habits.
 
 ### Dataset Composition (After 3rd CT)
