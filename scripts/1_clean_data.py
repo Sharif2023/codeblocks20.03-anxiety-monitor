@@ -11,6 +11,7 @@ CLEANED_DIR = os.path.join(BASE_DIR, "data", "processed", "cleaned_sessions")
 # Ensure output directories exist
 os.makedirs(os.path.join(CLEANED_DIR, "1st_ct"), exist_ok=True)
 os.makedirs(os.path.join(CLEANED_DIR, "2nd_ct"), exist_ok=True)
+os.makedirs(os.path.join(CLEANED_DIR, "3rd_ct"), exist_ok=True)
 
 def load_survey_data():
     survey_dict = {}
@@ -102,5 +103,6 @@ if __name__ == "__main__":
     
     process_ct_folder("1st_ct", survey_data)
     process_ct_folder("2nd_ct", survey_data)
+    process_ct_folder("3rd_ct", survey_data)
     
     print("Data cleaning complete. Cleaned files saved to data/processed/cleaned_sessions.")

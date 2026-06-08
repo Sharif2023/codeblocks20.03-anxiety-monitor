@@ -6,7 +6,7 @@ BASE_DIR = r"f:\CodeBlocks20.03-AnxietyMonitor"
 CLEANED_DIR = os.path.join(BASE_DIR, "data", "processed", "cleaned_sessions")
 MASTER_CSV = os.path.join(BASE_DIR, "data", "processed", "master_dataset.csv")
 
-folders_to_merge = ["1st_ct", "2nd_ct"]
+folders_to_merge = ["1st_ct", "2nd_ct", "3rd_ct"]
 
 all_rows = []
 fieldnames = []
