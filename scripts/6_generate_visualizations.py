@@ -6,7 +6,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import pearsonr, spearmanr
-from sklearn.model_selection import cross_validate, LeaveOneOut
+from sklearn.model_selection import RepeatedStratifiedKFold, cross_validate
 from sklearn.preprocessing import StandardScaler
 from imblearn.pipeline import Pipeline
 from imblearn.over_sampling import SMOTE
@@ -131,26 +131,27 @@ models = {
     'Decision Tree': DecisionTreeClassifier(random_state=42),
     'Naive Bayes': GaussianNB()
 }
-loo = LeaveOneOut()
+rskf = RepeatedStratifiedKFold(n_splits=10, n_repeats=10, random_state=42)
 results_plain = []
-print("\nRunning LOOCV (No SMOTE)...")
+print("\nRunning 10x10 Repeated CV (No SMOTE)...")
 for name, model in models.items():
     pipe = Pipeline([('scaler', StandardScaler()), ('clf', model)])
-    cv = cross_validate(pipe, X, y_class, cv=loo, scoring=['accuracy'])
+    cv = cross_validate(pipe, X, y_class, cv=rskf, scoring=['accuracy'], n_jobs=-1)
     acc = np.mean(cv['test_accuracy'])
-    results_plain.append({'Model': name, 'Accuracy': acc})
-    print(f"  {name}: {acc:.3f}")
+    std = np.std(cv['test_accuracy'])
+    results_plain.append({'Model': name, 'Accuracy': acc, 'Std': std})
+    print(f"  {name}: {acc:.3f} ± {std:.3f}")
 
 df_plain = pd.DataFrame(results_plain).sort_values('Accuracy', ascending=True)
 
 fig, ax = plt.subplots(figsize=(10, 6))
 colors = ['#2ecc71' if a > baseline else '#e74c3c' for a in df_plain['Accuracy']]
-bars = ax.barh(df_plain['Model'], df_plain['Accuracy'], color=colors, edgecolor='white', height=0.6)
+bars = ax.barh(df_plain['Model'], df_plain['Accuracy'], xerr=df_plain['Std'], color=colors, edgecolor='white', height=0.6, error_kw={'ecolor': '#34495e', 'capsize': 4, 'elinewidth': 1.5})
 ax.axvline(x=baseline, color='#e74c3c', linestyle='--', linewidth=2, label=f'Imbalanced Baseline ({baseline:.1%})')
 for bar, val in zip(bars, df_plain['Accuracy']):
-    ax.text(val + 0.005, bar.get_y() + bar.get_height()/2, f'{val:.1%}', va='center', fontsize=10, fontweight='bold')
-ax.set_xlabel('LOOCV Accuracy')
-ax.set_title('ML Model Comparison — LOOCV Accuracy (Without SMOTE)\n44 Students | 3 Class Tests | Task: Predict High Stress (≥4) vs Low Stress (<4)', fontsize=12)
+    ax.text(val + 0.015, bar.get_y() + bar.get_height()/2, f'{val:.1%}', va='center', fontsize=10, fontweight='bold', color='#2c3e50')
+ax.set_xlabel('Mean Accuracy over 100 Runs')
+ax.set_title('ML Model Comparison — 10x10 Repeated CV (Without SMOTE)\n44 Students | Predict High Stress (≥4) | Error Bars = Std Deviation', fontsize=12)
 ax.set_xlim(0, 1.05)
 ax.legend()
 plt.tight_layout()
@@ -163,24 +164,25 @@ print("[OK] Saved: model_comparison_bar.png")
 # ─────────────────────────────────────────────
 smote = SMOTE(k_neighbors=3, random_state=42)
 results_smote = []
-print("\nRunning LOOCV (With SMOTE)...")
+print("\nRunning 10x10 Repeated CV (With SMOTE)...")
 for name, model in models.items():
     pipe = Pipeline([('scaler', StandardScaler()), ('smote', smote), ('clf', model)])
-    cv = cross_validate(pipe, X, y_class, cv=loo, scoring=['accuracy'])
+    cv = cross_validate(pipe, X, y_class, cv=rskf, scoring=['accuracy'], n_jobs=-1)
     acc = np.mean(cv['test_accuracy'])
-    results_smote.append({'Model': name, 'Accuracy': acc})
-    print(f"  {name}: {acc:.3f}")
+    std = np.std(cv['test_accuracy'])
+    results_smote.append({'Model': name, 'Accuracy': acc, 'Std': std})
+    print(f"  {name}: {acc:.3f} ± {std:.3f}")
 
 df_smote = pd.DataFrame(results_smote).sort_values('Accuracy', ascending=True)
 
 fig, ax = plt.subplots(figsize=(10, 6))
 colors = ['#3498db' if a > 0.5 else '#e74c3c' for a in df_smote['Accuracy']]
-bars = ax.barh(df_smote['Model'], df_smote['Accuracy'], color=colors, edgecolor='white', height=0.6)
+bars = ax.barh(df_smote['Model'], df_smote['Accuracy'], xerr=df_smote['Std'], color=colors, edgecolor='white', height=0.6, error_kw={'ecolor': '#34495e', 'capsize': 4, 'elinewidth': 1.5})
 ax.axvline(x=0.5, color='#e74c3c', linestyle='--', linewidth=2, label='Random Guessing Baseline (50%)')
 for bar, val in zip(bars, df_smote['Accuracy']):
-    ax.text(val + 0.005, bar.get_y() + bar.get_height()/2, f'{val:.1%}', va='center', fontsize=10, fontweight='bold')
-ax.set_xlabel('LOOCV Accuracy')
-ax.set_title('ML Model Comparison — LOOCV Accuracy (With SMOTE Balancing)\n44 Students | 3 Class Tests | Balanced Classes | 50% = Random Guessing', fontsize=12)
+    ax.text(val + 0.015, bar.get_y() + bar.get_height()/2, f'{val:.1%}', va='center', fontsize=10, fontweight='bold', color='#2c3e50')
+ax.set_xlabel('Mean Accuracy over 100 Runs')
+ax.set_title('ML Model Comparison — 10x10 Repeated CV (With SMOTE Balancing)\n44 Students | Balanced Classes | Error Bars = Std Deviation', fontsize=12)
 ax.set_xlim(0, 1.05)
 ax.legend()
 plt.tight_layout()
