@@ -3,14 +3,14 @@ Evaluation Method: Leave-One-Out Cross-Validation (LOOCV)
 Task: Predicting High Stress (>=4) vs Low/Mod Stress (<4)
 
               Model  LOOCV Accuracy
-       SVM (Linear)        0.863636
-          SVM (RBF)        0.863636
-      Random Forest        0.863636
-K-Nearest Neighbors        0.863636
-Logistic Regression        0.840909
-        Naive Bayes        0.772727
-      Decision Tree        0.750000
-  Gradient Boosting        0.727273
+Logistic Regression        0.843750
+       SVM (Linear)        0.843750
+      Random Forest        0.843750
+  Gradient Boosting        0.828125
+K-Nearest Neighbors        0.812500
+          SVM (RBF)        0.796875
+        Naive Bayes        0.796875
+      Decision Tree        0.781250
 
 Note: Because the dataset has class imbalance (more High Stress than Low), a baseline model always predicting 'High Stress' would get around ~74% accuracy.
 Models scoring higher than the baseline have successfully learned behavioral patterns.
