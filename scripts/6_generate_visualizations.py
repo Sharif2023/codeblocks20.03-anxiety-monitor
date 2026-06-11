@@ -73,7 +73,7 @@ ax.plot(x_line, m*x_line + b, color='#c0392b', linewidth=2, linestyle='--', labe
 pearson_r, p_p = pearsonr(student_agg['anxiety_score'], student_agg['survey_reported_stress'])
 spearman_r, p_s = spearmanr(student_agg['anxiety_score'], student_agg['survey_reported_stress'])
 
-ax.set_title(f'System Anxiety Score vs. Self-Reported Stress\n(N=44 students | Pearson r={pearson_r:.3f}, p={p_p:.4f} | Spearman ρ={spearman_r:.3f}, p={p_s:.4f})', fontsize=12)
+ax.set_title(f'System Anxiety Score vs. Self-Reported Stress\n(N={len(student_agg)} students | Pearson r={pearson_r:.3f}, p={p_p:.4f} | Spearman ρ={spearman_r:.3f}, p={p_s:.4f})', fontsize=12)
 ax.set_xlabel('Average Computed Anxiety Score (0–100)')
 ax.set_ylabel('Self-Reported Stress Level (1–5)')
 ax.set_yticks([1, 2, 3, 4, 5])
@@ -103,7 +103,7 @@ sns.heatmap(corr, mask=mask, annot=True, fmt='.2f', cmap='coolwarm',
             center=0, vmin=-1, vmax=1, linewidths=0.5,
             xticklabels=labels, yticklabels=labels, ax=ax,
             annot_kws={'size': 9})
-ax.set_title('Behavioral Metrics Correlation Heatmap\n(Based on 8,505 rows across 44 students — 3 Class Tests)', fontsize=13)
+ax.set_title(f'Behavioral Metrics Correlation Heatmap\n(Based on {len(df):,} rows across {len(student_agg)} students — {len(student_agg["session_name"].unique())} Class Tests)', fontsize=13)
 plt.xticks(rotation=45, ha='right')
 plt.yticks(rotation=0)
 plt.tight_layout()
@@ -151,7 +151,7 @@ ax.axvline(x=baseline, color='#e74c3c', linestyle='--', linewidth=2, label=f'Imb
 for bar, val in zip(bars, df_plain['Accuracy']):
     ax.text(val + 0.015, bar.get_y() + bar.get_height()/2, f'{val:.1%}', va='center', fontsize=10, fontweight='bold', color='#2c3e50')
 ax.set_xlabel('Mean Accuracy over 100 Runs')
-ax.set_title('ML Model Comparison — 10x10 Repeated CV (Without SMOTE)\n44 Students | Predict High Stress (≥4) | Error Bars = Std Deviation', fontsize=12)
+ax.set_title(f'ML Model Comparison — 10x10 Repeated CV (Without SMOTE)\n{len(student_agg)} Students | Predict High Stress (≥4) | Error Bars = Std Deviation', fontsize=12)
 ax.set_xlim(0, 1.05)
 ax.legend()
 plt.tight_layout()
@@ -182,7 +182,7 @@ ax.axvline(x=0.5, color='#e74c3c', linestyle='--', linewidth=2, label='Random Gu
 for bar, val in zip(bars, df_smote['Accuracy']):
     ax.text(val + 0.015, bar.get_y() + bar.get_height()/2, f'{val:.1%}', va='center', fontsize=10, fontweight='bold', color='#2c3e50')
 ax.set_xlabel('Mean Accuracy over 100 Runs')
-ax.set_title('ML Model Comparison — 10x10 Repeated CV (With SMOTE Balancing)\n44 Students | Balanced Classes | Error Bars = Std Deviation', fontsize=12)
+ax.set_title(f'ML Model Comparison — 10x10 Repeated CV (With SMOTE Balancing)\n{len(student_agg)} Students | Balanced Classes | Error Bars = Std Deviation', fontsize=12)
 ax.set_xlim(0, 1.05)
 ax.legend()
 plt.tight_layout()
@@ -199,7 +199,7 @@ fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 stress_counts = student_agg['survey_reported_stress'].value_counts().sort_index()
 colors_bar = ['#2ecc71', '#f1c40f', '#e67e22', '#e74c3c', '#c0392b']
 axes[0].bar(stress_counts.index, stress_counts.values, color=colors_bar[:len(stress_counts)], edgecolor='white')
-axes[0].set_title('Distribution of Self-Reported Stress Levels\n(N=44 students)')
+axes[0].set_title(f'Distribution of Self-Reported Stress Levels\n(N={len(student_agg)} students)')
 axes[0].set_xlabel('Stress Level (1=Low, 5=High)')
 axes[0].set_ylabel('Number of Students')
 axes[0].set_xticks([1,2,3,4,5])
@@ -211,7 +211,7 @@ session_avg = student_agg.groupby('session_name')['anxiety_score'].mean().reset_
 session_avg['session_name'] = session_avg['session_name'].str.replace('_', ' ').str.title()
 session_colors = ['#4C72B0', '#DD8452', '#55A868']
 axes[1].bar(session_avg['session_name'], session_avg['anxiety_score'], color=session_colors, edgecolor='white')
-axes[1].set_title('Average System Anxiety Score by Session\n(N=44 students across 3 Class Tests)')
+axes[1].set_title(f'Average System Anxiety Score by Session\n(N={len(student_agg)} students across {len(student_agg["session_name"].unique())} Class Tests)')
 axes[1].set_xlabel('Class Test Session')
 axes[1].set_ylabel('Average Anxiety Score (0–100)')
 axes[1].set_ylim(0, 100)
@@ -252,7 +252,7 @@ bars = ax.barh(importances['Feature'], importances['Importance'], color='#3498db
 for bar, val in zip(bars, importances['Importance']):
     ax.text(val + 0.002, bar.get_y() + bar.get_height()/2, f'{val:.3f}', va='center', fontsize=10)
 ax.set_xlabel('Feature Importance Score')
-ax.set_title('Random Forest — Feature Importances for Anxiety Prediction\n(Trained on 44 students | All 3 Class Tests)', fontsize=12)
+ax.set_title(f'Random Forest — Feature Importances for Anxiety Prediction\n(Trained on {len(student_agg)} students | All {len(student_agg["session_name"].unique())} Class Tests)', fontsize=12)
 plt.tight_layout()
 plt.savefig(os.path.join(VIS_DIR, 'feature_importance.png'), bbox_inches='tight')
 plt.close()
