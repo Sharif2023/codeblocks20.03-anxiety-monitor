@@ -1,0 +1,2 @@
+timestamp,session_id,file_path,language,typing_speed_wpm,latency_variance_ms,pause_ratio,backspace_rate,idle_ratio,focus_switches,compile_success_rate,session_fragmentation,anxiety_score,risk_level,timestamp_batch,window_focused,keystrokes_total,compile_attempts
+2026-06-10 15:13:46,0112510306_151346,C:\Windows\system32\cmd.exe,Unknown,0.00,0.00,0.00,0.00,0.00,0,90.00,0.00,0,LOW,2026-06-10_1513,FALSE,1,0

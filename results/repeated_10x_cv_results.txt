@@ -4,11 +4,11 @@ This proves the stability and robustness of the models.
 
 Model                     Mean Accuracy   Std Deviation
 -------------------------------------------------------
-SVM (RBF)                  86.05%         ±12.87%
-Random Forest              80.65%         ±14.45%
-Gradient Boosting          77.25%         ±18.74%
-Decision Tree              73.75%         ±15.56%
-Naive Bayes                73.50%         ±19.75%
-SVM (Linear)               69.75%         ±20.80%
-Logistic Regression        68.20%         ±20.84%
-K-Nearest Neighbors        68.20%         ±19.38%
+Random Forest              71.52%         ±14.75%
+Gradient Boosting          70.00%         ±16.64%
+SVM (RBF)                  65.24%         ±13.47%
+Decision Tree              65.21%         ±16.76%
+K-Nearest Neighbors        58.19%         ±15.71%
+Naive Bayes                57.83%         ±17.59%
+Logistic Regression        50.29%         ±17.99%
+SVM (Linear)               48.21%         ±18.76%
