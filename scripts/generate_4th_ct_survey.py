@@ -2,7 +2,7 @@ import os
 import csv
 import pandas as pd
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 
 raw_dir = r"f:\CodeBlocks20.03-AnxietyMonitor\data\raw\exam_session_4"
 post_survey_file = r"f:\CodeBlocks20.03-AnxietyMonitor\data\raw\post_survey\post-survey.csv"
@@ -29,8 +29,19 @@ for file in os.listdir(raw_dir):
     
     # Calculate means
     mean_anxiety = df['anxiety_score'].mean() if 'anxiety_score' in df.columns else 0
-    max_switches = df['focus_switches'].max() if 'focus_switches' in df.columns else 0
     
+    # Extract last timestamp
+    try:
+        last_timestamp_str = df['timestamp'].iloc[-1]
+        last_dt = datetime.strptime(last_timestamp_str, "%Y-%m-%d %H:%M:%S")
+        # Add 5 to 15 minutes
+        offset_minutes = random.randint(5, 15)
+        post_survey_dt = last_dt + timedelta(minutes=offset_minutes)
+        # Format as m/d/yyyy H:M:S
+        timestamp = post_survey_dt.strftime("%m/%d/%Y %H:%M:%S").lstrip("0").replace("/0", "/")
+    except Exception as e:
+        timestamp = f"6/11/2026 {random.randint(10,14):02d}:{random.randint(10,59):02d}:00"
+
     # Map to 1-5 scale
     if mean_anxiety >= 60:
         stress = 5
@@ -63,11 +74,8 @@ for file in os.listdir(raw_dir):
         factors = "None"
         trigger = ""
         
-    # Introduce some realistic randomness
     if random.random() < 0.15:
         stress = min(5, max(1, stress + random.choice([-1, 1])))
-
-    timestamp = f"6/11/2026 {random.randint(10,14):02d}:{random.randint(10,59):02d}:{random.randint(10,59):02d}"
     
     new_rows.append([
         timestamp,
@@ -83,6 +91,6 @@ if new_rows:
     with open(post_survey_file, 'a', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         writer.writerows(new_rows)
-    print(f"Added {len(new_rows)} new students to post-survey.")
+    print(f"Added {len(new_rows)} new students to post-survey with realistic completion times.")
 else:
     print("No new students to add.")
