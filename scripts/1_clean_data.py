@@ -9,10 +9,10 @@ SURVEY_FILE = os.path.join(RAW_DIR, "post_survey", "post-survey.csv")
 CLEANED_DIR = os.path.join(BASE_DIR, "data", "processed", "cleaned_sessions")
 
 # Ensure output directories exist
-os.makedirs(os.path.join(CLEANED_DIR, "exam_session_1"), exist_ok=True)
-os.makedirs(os.path.join(CLEANED_DIR, "exam_session_2"), exist_ok=True)
-os.makedirs(os.path.join(CLEANED_DIR, "exam_session_3"), exist_ok=True)
-os.makedirs(os.path.join(CLEANED_DIR, "exam_session_4"), exist_ok=True)
+os.makedirs(os.path.join(CLEANED_DIR, "1st_ct"), exist_ok=True)
+os.makedirs(os.path.join(CLEANED_DIR, "2nd_ct"), exist_ok=True)
+os.makedirs(os.path.join(CLEANED_DIR, "3rd_ct"), exist_ok=True)
+os.makedirs(os.path.join(CLEANED_DIR, "4th_ct"), exist_ok=True)
 
 def load_survey_data():
     survey_dict = {}
@@ -102,9 +102,9 @@ if __name__ == "__main__":
     survey_data = load_survey_data()
     print(f"Loaded survey data for {len(survey_data)} students.")
     
-    process_ct_folder("exam_session_1", survey_data)
-    process_ct_folder("exam_session_2", survey_data)
-    process_ct_folder("exam_session_3", survey_data)
-    process_ct_folder("exam_session_4", survey_data)
+    process_ct_folder("1st_ct", survey_data)
+    process_ct_folder("2nd_ct", survey_data)
+    process_ct_folder("3rd_ct", survey_data)
+    process_ct_folder("4th_ct", survey_data)
     
     print("Data cleaning complete. Cleaned files saved to data/processed/cleaned_sessions.")
