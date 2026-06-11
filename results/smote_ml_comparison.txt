@@ -3,13 +3,13 @@ Evaluation Method: Leave-One-Out Cross-Validation (LOOCV)
 Data Balancing: SMOTE applied inside the cross-validation loop to prevent data leakage.
 
               Model  LOOCV Accuracy (SMOTE)
-          SVM (RBF)                0.796875
-      Random Forest                0.781250
-      Decision Tree                0.781250
-  Gradient Boosting                0.750000
-K-Nearest Neighbors                0.671875
-        Naive Bayes                0.640625
+       SVM (Linear)                0.750000
+      Decision Tree                0.750000
+          SVM (RBF)                0.718750
+      Random Forest                0.718750
+        Naive Bayes                0.718750
+  Gradient Boosting                0.671875
+K-Nearest Neighbors                0.640625
 Logistic Regression                0.593750
-       SVM (Linear)                0.578125
 
 Note: By balancing the classes during training, the models are forced to learn true behavioral patterns instead of simply guessing the majority class. Any accuracy achieved here is much more scientifically valid.
