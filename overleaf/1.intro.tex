@@ -1,0 +1,88 @@
+\chapter{Introduction}
+This chapter presents the project’s background, core objectives, proposed methodology,
+and expected outcomes, establishing the foundation for the real-time anxiety detection
+system.
+
+
+\section{Project Overview}
+
+The project idea under consideration consists of creating and implementing a real-time anxiety detection and intervention system for developers as a plugin for the CodeBlocks IDE. The system passively collects behavioral indicators of coding activity, including keystroke patterns, compile errors, idle time, and the use of undo/redo actions \cite{zhang2023keystroke, epp2015emotion}. A machine learning algorithm is then applied to infer the programmer’s anxiety level based on these extracted features \cite{acm345697, anxietyPrediction2023}. Depending on the detected state, the plugin provides timely interventions such as reminders, feedback messages, or workload pacing suggestions \cite{arean2025jitai}. As a result, anxiety levels are reduced, productivity is improved, and the overall well-being of programmers is enhanced \cite{selfreg2023}.
+
+\section{Motivation}
+
+A mental process, programming comes with the inevitable side effects such as anxiety and frustration, particularly among novices \cite{acm4897123, springer2020}. Being preoccupied with problems can affect problem-solving ability, reduce debugging efficiency, and negatively impact learning as well \cite{stemedu2025}. Despite being designed to facilitate productivity and accuracy, current IDEs are unable to address the emotional states of users, including stress or anxiety, which significantly affect programming performance \cite{mdpi5739}. It is becoming more necessary than ever to develop lightweight and IDE-based solutions capable of detecting and mitigating anxiety in real time \cite{realtimeStress2012}. These tools are expected to benefit both students and professionals in terms of emotional regulation and motivation in coding.
+
+
+
+\section{Objectives}
+The broad objective of the stated project is to design a smart, real-time anxiety detection and management system which shall be implemented in the form of a non-invasive plug-in known as CodeBlocks. This will always be kept in an observation mode for monitoring the coding behavior of the programmers; i.e., their keystroke dynamics, error rate of compilations, idle time periods, and undo/redo operations, etc. shall all be analyzed to understand the anxiety level of the programmer through machine learning models \cite{mdpi389}.
+
+The specific objectives of the project are:
+\begin{itemize}
+    \item To have a real-time non-invasive anxiety tracking system in the form of CodeBlocks plugin embedded in the coding process.
+   
+    \item Behavior measures of coding to be monitored and analyzed will include the following: keystroke speed, error rates, idle time periods, and use of undo/redo operations \cite{bunia2024keystroke}.
+   
+    \item Develop a machine learning model capable of predicting anxiety through analysis of real-time coding behavior \cite{anxietyPrediction2023}.
+   
+    \item Make sure that your intervention engine is dependent on context and is capable of delivering its interventions in real time, as soothing messages or code completion tips \cite{arean2025jitai}.
+   
+    \item Try not to hinder the coding process, and ensure that user productivity and affective well-being stay your top priority \cite{codereview2024}.
+   
+    \item Comparing the performance of the system to both subjective (self-reports about anxiety level) and objective (number of errors, completion time) measurements.
+   
+    \item Ensuring high ethical standards by using only visible data collection techniques, user permission to participate, and anonymous processing.
+\end{itemize}
+
+\section{Methodology}
+In the project workflow, there are different phases involved, which are: System Development, Data Collection, Feature Engineering, Model Training, and Evaluation. As shown in Figure~\ref{fig:methodology}, System Development Phase can be considered as the initial stage which forms the groundwork for the rest of the phases. Next comes Data Collection and Feature Engineering followed by Model Training and Intervention Evaluation, together making up the end-to-end system.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{Methodology.PNG}
+    \caption{Methodology and system workflow for anxiety detection system.}
+    \label{fig:methodology}
+\end{figure}
+
+\subsubsection{1.4.1 System Development}
+In this first stage, the emphasis is on the basic engineering of the application tool. This stage includes the creation of the extension, which acts as the main workspace of the developer. The extension creates three different modules within itself: a data logging module to log data automatically in the background, an anxiety detection module to analyze the behavior captured by the logging module, and an intervention module.
+
+\subsubsection{1.4.2 Data Collection}
+When the basic architecture of the system has been formulated, both quantitative and qualitative data are collected. The data include gathering general parameter data, compile error frequency, and developer idle times. In order to get a trustworthy ground truth for the algorithms, self-report anxiety scales of the users are recorded along with their task performance measurements.
+
+\subsubsection{1.4.3 Feature Engineering}
+The behavioral information that has been acquired in the earlier stage is now cleaned up for making improvements in the predictive models. It is about selecting useful behavioral attributes along with their frequency calculations such as typing behavior or redo/undo rates. Further, it includes normalization of the data along with preprocessing in order to select best predictors of anxiety.
+
+\subsubsection{1.4.4 Model Training}
+During this stage, different models are trained by means of the designed features in order to detect the patterns related to cognitive load and stress. The performance of the models is thoroughly assessed according to the accuracy, precision, and recall parameters. Finally, the most successful model is used for real-time detection purposes.
+
+\subsubsection{1.4.5 Evaluation}
+The last stage involves evaluating the impact and efficiency of the system. The process will include comparing the results of using the developed system by the developers to that of the control group. The success of the system will be measured in terms of actual decrease in the level of anxiety and overall task performance.
+
+\section{Project Outcome}
+The result of the study conducted will be the creation and assessment of a health-focused extension aimed at detecting and tackling anxiety among programmers \cite{mdpi5739}. The extension will possess capabilities for detecting the presence of anxiety in the programmer through the use of machine learning techniques \cite{mdpi389, rahimi2024ai}.
+
+The results of the project and its major achievements include the following:
+\begin{itemize}
+    \item \textbf{Working prototype of the software:} Creation of a working prototype of the IDE application that works effectively;
+   
+    \item \textbf{Using machine learning models for classifying anxiety states:} A working software was created with machine learning techniques being used for detecting different anxiety states;
+   
+    \item \textbf{Real-time monitoring of the user:} An application capable of real-time monitoring of the user with the aim of detecting his/her anxiety state;
+   
+    \item \textbf{Instantaneous feedback in case of an anxiety state:} A developed extension that provided immediate feedback in case the state of anxiety was detected \cite{arean2025jitai};
+   
+    \item \textbf{Experiments proving the influence of the tool:} Conducted tests revealed the positive impact the application had on programmer's activities and emotions.
+   
+    \item \textbf{Mindfulness development of programming applications:} This project represents emotional intelligence trend in programming tools \cite{mdpi5739}.
+\end{itemize}
+
+\section{Organization of the Report}
+\begin{itemize}
+    \item \textbf{Chapter 1:} Provides background, motivation, and project objective.
+    \item \textbf{Chapter 2:} Highlights the literature review on anxiety detection, programming behavior, and intervention techniques.
+    \item \textbf{Chapter 3:} Discusses the process of data acquisition, feature extraction, modeling, and evaluation approaches.
+    \item \textbf{Chapter 4:} Demonstrates the process of developing the extensions and integration of machine learning models.
+    \item \textbf{Chapter 5:} Discusses the results regarding the accuracy and efficiency of the model and intervention.
+    \item \textbf{Chapter 6:} Considers contributions and recommendations for future research.
+\end{itemize}

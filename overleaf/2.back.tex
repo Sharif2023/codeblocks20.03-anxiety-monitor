@@ -1,0 +1,46 @@
+\chapter{Background}
+In this chapter, sufficient background information is provided for the understanding of the rest of the report by examining various applications, research, and defining the research gap that this project intends to fill.
+
+\section{Preliminaries}
+Programming is one highly intellectual activity that can turn out to be stressful for both the students and practitioners of the field. This not only affects the programmer’s productivity due to constant anxiety, but also his motivation, leading to increased time spent on debugging or in worst cases burnout. There are plenty of algorithmic ways used to support programmers which include static tutoring systems, debugging aids or code correctness checkers. However, these do not address the emotional wellbeing of programmers. Advances in areas of machine learning, signal processing techniques for physiology, as well as IDEs, show that there may be hope in measuring emotions in real time \cite{realtimeStress2012, acm3469885}. In current times, it is possible to measure facial expressions, behavior or biometric data and identify the presence of anxiety or stress. This information can be included in an environment such as Visual Studio Code to allow real-time and evidence-based intervention without affecting the programming experience.
+
+\section{Literature Review}
+\subsection{Similar Applications}
+\begin{itemize}
+    \item \textbf{EmotionStream (Personal Informatics):} In the research "I spent 14 hours debugging just one assignment" \cite{mdpi5739}, an example of Personal Informatics (PI) tool is described that enables the analysis of emotions after sessions. However, although relevant to the topic, this tool lacks the automaticity required by the project being discussed.
+    \item \textbf{Developer Mental Health Toolkit (VS Code Extension):} This is an extension that tracks the coding activity and helps in reminding one of micro-breaks, wellness tips, and exercises for reducing stress in the Visual Studio Code itself. It does not, however, have automated anxiety detection and relies on the use of fixed reminders.
+    \item \textbf{Nafas - Breathing Gymnastics Application:} Nafas is a CLI application that computer users use to practice breathing exercises from the terminal. Nafas allows coders to take breaks with simple exercises that are timed without needing them to move from their workstations. Although Nafas is highly effective in managing stress, it does not include any feature of automated detection of anxiety nor interference with the coder when the stress levels are high.
+    \item \textbf{WakaTime (VS Code Extension):} This is an open source VS Code extension that records coding activities and gives real time coding activity analysis. While the extension can self-monitor, it cannot help in monitoring and intervention when the state of anxiety becomes too much.
+\end{itemize}
+
+\subsection{Related Research}
+\begin{itemize}
+    \item \textbf{Programming Anxiety in Education:} Systematic literature reviews have verified that programming anxiety continues to be a significant problem in higher education with severe impacts on persistence and performance \cite{stemedu2025, springer2020}. Nevertheless, studies on this topic have mainly focused on using surveys and interviews without a focus on automated detection.
+    \item \textbf{AI-Aided Interventions:} Although AI copilots are found to decrease programming anxiety \cite{stemedu2025, programmingAnxiety2025}, there is a gap in the use of this intervention, as it is based on support availability rather than automated detection.
+    \item \textbf{Physiological Stress Detection:} In some multimodal wearable sensors research studies, HRV and EDA features are proved to be useful for anxiety detection \cite{acm3653543, acm3469885}. These physiological features may be prone to noise in unconstrained settings, which makes it essential to fuse with contextual IDE data.
+    \item \textbf{Wearable Stress Detection Studies:} Some review articles highlight issues regarding real-world application and user adoption of wearable sensors \cite{mdpi389, core579951358}, suggesting the use of straightforward approaches such as keystroke and eye tracking.
+    \item \textbf{Anxiety Prediction Models Using Programming:} The work done in detection \cite{acm345697} and prediction \cite{anxietyPrediction2023} using Machine Learning proves the basic assumption of Machine Learning (ML). But these models make use of only coarse-grained data, which are not effective in predicting the anxiety of programming.
+    \item \textbf{Well-being of Developers and Industry Context:} Various research studies prove the reality that an enormous number of professional programmers are under stress, experience burnout, and feel imposter syndromes \cite{mdpi5739, codereview2024}.
+    \item \textbf{Multimodal Fusion for Programming Environments:} Multimodal Fusion for Programming Environments \cite{acm3507696, springer98414}, keystrokes \cite{keystroke2023}, and behavioral data \cite{realtimeStress2012} have proven that multimodal fusion makes better detections of struggles as compared to the detection using individual modes.
+\end{itemize}
+
+\section{Gap Analysis}
+Indeed, the proposed methods for real-time anxiety detection have good grounds in previous academic research carried out in areas such as computer programming, mental state tracking, and machine learning. However, until now, there is not any method that incorporates the real-time anxiety detection and intervention process within an IDE environment.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{4.5cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Paper Focus} & \textbf{Current Limitation} & \textbf{Research Gap Addressed} \\ \hline
+Personal Informatics \cite{mdpi5739} & Relies on self-reported data; lacks real-time detection during coding process. & Real-Time Detection in coding environment. \\ \hline
+Programming Anxiety in Higher Education \cite{stemedu2025} & Lack of Standardized/Validated Assessment Tools & Real-time, context-aware intervention. \\ \hline
+Human Stress Detection \cite{mdpi389} & A review paper; does not present a primary study in programming domain. & Specific ML Application for anxiety in the programming domain. \\ \hline
+Code Review Anxiety \cite{codereview2024} & Focuses on code review (post-coding activity); lacks real-time coding focus. & Real-Time Detection during Coding. \\ \hline
+Eye Tracking Data \cite{acm3507696} & Lacks the design and evaluation of an intervention system. & Full-Cycle Intervention System (Detection + Mitigation). \\ \hline
+\end{tabular}
+\caption{Gap Analysis of Reviewed Literature}
+\label{tab:gap_analysis}
+\end{table}
+
+\section{Summary}
+As proved by other previous studies, having access to the assistance of AI can ease the pain and motivate people to program. It is possible to detect people’s emotions through their behavior patterns like typing speed. But no study could come up yet with an idea to create something that would allow detecting anxiety in real-time and intervene. This can be considered a very important gap that can be easily occupied through low cost, non-invasive means and efficiently used to improve programmers' well-being.

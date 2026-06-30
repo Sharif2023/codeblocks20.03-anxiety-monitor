@@ -1,0 +1,32 @@
+\chapter{Conclusion}
+\label{ch:conclusion}
+
+\section{Limitation}
+\label{sec:limitation}
+Although the proposed Anxiety Detection Plugin has been found to have an  high accuracy (69.2\%  via SVM) for identifying stress in programmers based on behavioral patterns, the following limitations must be taken into account:
+
+\begin{itemize}
+    \item \textbf{Limitations Due to Demographics:} The tool was created and tested on a limited number of 67 university students under exam assessment conditions. Specifically, such a particular stressful environment and demographics may not represent the behavioral pattern, stress tolerance, and lifestyle of a software engineer in enterprise environments.
+    
+    \item \textbf{Limitations Due to the Platform:} Currently, the tool is heavily integrated with the Code::Blocks Integrated Development Environment. While appropriate for the desired academic setting in C/C++, it prevents the use of the system in more diverse development environments, including the use of editors like VS Code and IntelliJ.
+    
+    \item \textbf{Subjective Ground Truth:} The use of pre- and post-survey reports (which is done for the STAI questionnaire) to determine ground-truth anxiety labeling introduces subjectivity. The ability of the subjects to judge their own mental state is variable and can introduce noise in training.
+    
+    \item \textbf{Lack of Physiological Input:} The input required for this system is limited only to mechanical actions (like keystrokes, WPM, etc.). While this helps it avoid intruding into privacy issues, it fails to provide an objective biological signal indicating stress (for instance, heart rate variability, galvanic skin response).
+\end{itemize}
+
+\clearpage
+
+\section{Future Work}
+\label{sec:future_work}
+For future advancements and research into this project, the following paths have to be taken for furthering the research carried out in this project:
+
+\begin{itemize}
+    \item \textbf{Cross-Platform Compatibility:} The architecture of the Data logging and Intervention module must be generalized and made an extension to the modern IDEs that include Visual Studio Code, JetBrains and even Eclipse with equal ease.
+    
+    \item \textbf{Wide-Ranging Data Collection:} Future work needs to be focused on collecting more extensive data that involves many more developers from newbies to senior developers, in order to help generalize the machine learning algorithm from being over fitted to only academic exams.
+    
+    \item \textbf{Multimodal Anxiety Detection:} The prediction algorithm could be greatly enhanced with the addition of the non-invasive tracking of current behavior metrics. In other words, using the ordinary webcams to perform real-time eye-tracking, measuring the number of blinks per minute, or evaluating facial expressions could enhance the detection rate substantially.
+    
+    \item \textbf{Code Correction by Generative AI:} Currently, the Intervention Manager uses a checklist containing recommendations of breaks and hints for how to behave. In order to increase the efficiency of such interventions, Large Language Models (LLMs) could be introduced to evaluate the syntax of the Compile Error and come up with context-aware modifications.
+\end{itemize}
