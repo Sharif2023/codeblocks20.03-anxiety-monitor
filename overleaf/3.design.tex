@@ -1,54 +1,209 @@
 \chapter{Project Design}
-The importance of requirement analysis, system design, which includes context and data flow diagrams, as well as project planning and task assignments for this research is stressed in this chapter.
+This chapter highlights the requirement analysis, architectural abstractions, and structural interface design specifications of the system. It presents the functional dependencies, data mapping boundaries via context and data flow diagrams, and details the comprehensive multi-tiered layout architecture of the high-fidelity interactive UI/UX adaptive intervention prototype.
 
 \section{Requirement Analysis}
 \subsection{Functional and Nonfunctional Requirements}
 \subsubsection{Functional Requirements}
 \begin{itemize}
-    \item The system must be capable of detecting programmer anxiety through behavioral and contextual clues.
-    \item The system must be capable of delivering adaptive interventions in the context of VS Code and Code::Blocks 20.03.
-    \item The extension and plugin must be capable of logging events related to programmer anxiety.
-    \item The system must be capable of protecting the privacy of the user.
+    \item The system must execute a non-intrusive background monitoring script capable of passively collecting user typing indicators and window context switches without interfering with primary editor performance.
+    \item The system backend must feature a machine learning classification framework capable of mapping processed temporal and frequency features into distinct anxiety risk states in real time.
+    \item The application infrastructure must define a distinct structural pipeline to log anxiety-related metrics into a local serialized file format for post-session analysis and validation.
+    \item The system must implement robust data boundaries to protect user privacy, processing raw keystroke telemetry locally and excluding literal text or alphanumeric inputs from database compilation.
+    \item The front-end intervention system must present a comprehensive, multi-tiered visual feedback loop implemented as an interactive UI/UX prototype layout designed specifically for desktop IDE environments.
 \end{itemize}
 
 \subsubsection{Nonfunctional Requirements}
 \begin{itemize}
-    \item \textbf{Performance:} The system should have the ability to detect threats and perform countermeasures at the maximum speed.
-    \item \textbf{Usability:} The extension and plugin should occupy minimal space when installing, and it should not hinder the coding process of the programmer.
-    \item \textbf{Scalability:} The system should be able to run several programming classes and accommodate many users at the same time.
-    \item \textbf{Security:} The data that will be collected should be private and anonymous.
+    \item \textbf{Performance:} The passive data extraction workflow must run asynchronously at the operating system level, maintaining zero-latency overhead within a 30-second tumbling batch window to avoid CPU throttling inside the C/C++ compiler context.
+    \item \textbf{Usability:} The visual interface layouts must optimize developer focus, utilizing clean typography and non-intrusive spacing rules to completely eliminate notification fatigue during cognitively demanding tasks.
+    \item \textbf{Scalability:} The architectural framework must remain decoupled, ensuring the underlying feature extraction script and machine learning parameters can scale fluidly across diverse user cohorts and multiple classroom evaluation sessions simultaneously.
+    \item \textbf{Security:} All gathered telemetry matrices must remain anonymous, relying on local session hashes rather than real-world developer identifications to ensure ethical alignment with data safety standards.
 \end{itemize}
 
 \subsection{Context Diagram}
-We illustrate the interaction between the proposed anxiety detection system and the outer environment through the use of a context diagram. The central component of our system includes the VS Code extension and Code::Blocks 20.03 plugin responsible for the collection of data from the Programmer User, including File Keystrokes, File Active m/s, Keystrokes Total, Active m/s Total, Idle m/s Total, Avg Key m/s, Undo Count, Redo Count, Compile Attempts, JS Errors, eye tracking data including blink rate and fixation patterns. In addition to that, the system can collect data from the Coding Environment IDE, which includes environment events and contextual Information.
+The global interactive boundaries between the proposed real-time anxiety tracking framework and external environment entities are mapped completely via a high-level context diagram. The structural core of the layout consists of the background telemetry monitor, which interfaces silently between the programmer user and the active operating system application workspace. The sensor pipeline captures mechanical keyboard streams and IDE context interactions—including window focus changes, active compilation calls (\texttt{gcc.exe}), execution runtime parameters, backspace counts, and idle state durations.
 
-We illustrate a closed loop feedback system, with the extension being the main component responsible for data collection. Data collected by the extension is transferred to the Anxiety Detection Engine for analysis purposes; as a result, analysis results are provided to the Anxiety Alert and Recommendation System, and finally data and events are recorded in Database Logs.
+The closed-loop architecture operates systematically across clear structural bounds. The telemetry collection script acts as the primary data aggregator, capturing raw interaction indicators and forwarding them directly to the backend machine learning classification engine for inference computation. The resulting anxiety risk labels are routed into a local log repository for statistical verification, while simultaneously driving the operational parameters of the theoretical context-aware intervention engine.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{Context1.png}
-    \caption{Context Diagram of the Proposed System}
+    \caption{Context Diagram of the Proposed Real-Time Tracking Framework.}
     \label{fig:context-diagram}
 \end{figure}
 
 \subsection{Data Flow Diagram}
-It should be noted that the suggested approaches to the development of real-time anxiety detection are quite consistent with current findings in the area of programming education, psychological monitoring, and machine learning. The research shows that programming can become more motivational and stress-free when AI techniques are involved \cite{stemedu2025, programmingAnxiety2025}. Emotional states can be predicted through the use of behavioral data like keystrokes \cite{keystroke2023, realtimeStress2012}. The use of automated sensing combined with self-reporting leads to the most accurate results \cite{mdpi5739}. However, so far, no system has been developed that combines the real-time detection and mitigation of anxiety in an IDE. Such research gap might help develop useful systems.
+The structural approach to real-time developer stress monitoring aligns closely with empirical paradigms established in human-computer interaction, pedagogical analytics, and machine learning classification. Prior research confirms that programming motivation increases significantly when supported by adaptive, emotionally intelligent tooling \cite{stemedu2025, programmingAnxiety2025}. Fine-grained mechanical indicators, such as keystroke dynamics and temporal variance, represent highly reliable tracking metrics for inferring underlying affective states \cite{keystroke2023, realtimeStress2012}, while combining continuous passive sensing with self-reported validation metrics provides the highest empirical accuracy \cite{mdpi5739}. The design outlined in this report bridges an essential gap in current software engineering literature: establishing an architectural bridge that links live behavioral telemetry models directly to custom mitigation interfaces mapped via high-fidelity prototyping.
 
-According to Figure \ref{fig:dfd}, there is a breakdown of the overall system architecture into various modules. The system architecture suggests that the programmer activities will be captured by the Capture Input module both from the Programmer and the IDE environments. The user inputs will be captured using keystrokes, logs, and behavioral data. This module enables the system to detect anxiety from the users' inputs through the Detect Anxiety module. This will be done through provision of feedback to the users, including logging data through the Intervene module. The system would use the Log Data module to capture data collected from results of the system interventions.
+As illustrated in Figure~\ref{fig:dfd}, the technical pipeline is broken down into modular operational steps. Module 1.0 (Capture Behavioral and Contextual Input) intercepts raw user data streams from both keyboard interactions and active window states. These inputs are structured into micro-window batches and passed directly to Module 2.0 (Detect Anxiety / Machine Learning Engine), which utilizes a pre-trained Support Vector Machine (SVM) model to classify stress tiers. The classified risk state updates the system activity database logs via Module 4.0, while concurrently prompting Module 3.0 (Trigger Context-Aware Intervention) to display localized adaptive feedback templates optimized for the detected level of cognitive distress.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{Dataflow_Diagram_2.png}
-    \caption{Data Flow Diagram of the Proposed System}
+    \includegraphics[width=0.8\textwidth]{Dataflow_Diagram_2.jpg}
+    \caption{Data Flow Diagram of the Decoupled Tracking and Intervention Pipeline.}
     \label{fig:dfd}
 \end{figure}
 
 \subsection{UI Design}
-User Interface design is aimed at awareness and accessibility. As can be seen in Figure \ref{fig:ui-design}, the "Anxiety Copilot" side panel will give a summary of the current state of the user, providing the current level of anxiety as well as the current state of the user's focus. This UI design has the intervention history, which will serve the purpose of reflection by the developers regarding any stress factors. A very important part of the UI design is the notification toast that suggests a mindful activity or a breathing practice.
+The front-end intervention architecture prioritizes accessible design, non-intrusive notification cadence, and cognitive recovery pacing. The interface is delivered as a high-fidelity interactive prototype mapped across distinct developmental frames to demonstrate the graduation flow of the system. The docked sidebar component, titled 'Anxiety Copilot', provides an ambient summary of the developer's current state, displaying real-time anxiety classifications alongside structural focus trend charts to encourage healthy meta-cognitive awareness during prolonged development intervals. The tracking panel maintains an active intervention history matrix, enabling developers to review previous trigger events and track emotional self-regulation patterns over time.
 
-\begin{figure}[h]
+To provide complete design variety across the machine learning state classifications, the prototype details four separate visual mitigation strategies to eliminate notification fatigue while optimizing cognitive re-anchoring:
+\begin{itemize}
+    \item \textbf{Low Anxiety Frame (low.jpg):} Displays a stable baseline environment. The progress ring glows in a calm neon green, confirming a stable focus trend of $+15\%$. The top menu bar features an ambient green banner displaying an encouraging micro-motivation anchor: \textit{"Great momentum! Your code logic is flowing beautifully—keep up the fantastic work."}
+    \item \textbf{Moderate Anxiety Frame (moderate.jpg):} Triggers when subtle keyboard hesitations or elevated backspace rates emerge. The progress indicator turns amber yellow, showing a focus drop of $-5\%$. A discrete top-screen banner drops down gently below the toolbar, providing a soft cognitive re-anchor: \textit{"Tip: You have deleted multiple expressions recently. Take a soft deep breath, slow down your pace, and review the logic structure step-by-step."}
+    \item \textbf{High Anxiety Frame (high.jpg):} Activates when severe typing latency variance or rapid tool context-switching is classified. The sidebar indicator turns orange-red, signaling a focus trend of $-25\%$. To prompt active emotional regulation, a floating white toast notification slides up into the bottom-right corner of the workspace, presenting an immediate relaxation prompt alongside two interactive control nodes: a flat \texttt{Snooze (5 min)} action button and a high-contrast solid blue \texttt{Start Breathing Exercise} button.
+    \item \textbf{Extreme Anxiety Frame (extreme.jpg):} Enforces a mandatory cognitive reset when a complete typing freeze or recursive compilation panic loop is detected. The entire underlying Code::Blocks editor panel is softly blurred and dimmed behind a dark translucent overlay window. A large, clean focus modal dialog box appears in the screen center, delivering a reassuring text block: \textit{"Hey, pause for a second. Coding is hard, and running into walls is completely normal. Do not let the compiler get inside your head. Let us hit the reset button together."} The center of the dialog modal presents an animated, expanding blue breathing ring pacing a 4-second inhale and exhale sequence, balanced by a primary \texttt{Initiate 2-Minute Guided Break} command block and a secondary prototyping link reading \texttt{Override / Return to Code}.
+\end{itemize}
+
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{UI Design.png}
-    \caption{Proposed User Interface Design for the Extension}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{low.jpg}
+        \caption{Baseline Low Anxiety Interface Style.}
+        \label{fig:ui-low}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{moderate.jpg}
+        \caption{Ambient Moderate Warning Style.}
+        \label{fig:ui-moderate}
+    \end{minipage}
+    
+    \vspace{0.5cm}
+    
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{high.jpg}
+        \caption{Active Intervention Toast Popup Style.}
+        \label{fig:ui-high}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{extreme.jpg}
+        \caption{Full Screen Cognitive Reset Overlay Style.}
+        \label{fig:ui-extreme}
+    \end{minipage}
+    \caption{Proposed User Interface Prototyping Design Matrix for the 'Anxiety Copilot' Project Extension Across All Metric States.}
     \label{fig:ui-design}
 \end{figure}
+
+\section{Detailed Methodology and Design}
+\label{sec:detailed_methodology_and_design}
+
+The systemic architecture of the real-time anxiety tracking engine and the conceptual framework driving the high-fidelity UI/UX adaptive intervention matrices require a decoupled, low-overhead software engineering execution. To ensure that student tracking remains non-invasive, lightweight, and completely transparent, the system design avoids heavy IDE hooks that create version mismatches and resource contention. Instead, the architecture establishes a system-level pipeline that bridges live telemetry collection directly to an optimized machine learning validation loop.
+
+\subsection{Architectural Layer Breakdown}
+The operational pipeline is architected into three distinct structural layers that run in a continuous feedback loop at a 30-second temporal resolution:
+
+\begin{enumerate}
+    \item \textbf{The Data Sensing and Extraction Layer (OS API Bridge):} This layer runs asynchronously within the underlying operating system environment. Rather than injecting native plugins into specific editor compilation setups—which could introduce thread locking or degrade workspace performance—this engine targets the primary OS interaction channels. It intercepts high-frequency user interactions by implementing continuous low-level window loops and key event notifications. This allows the system to determine which binary processes currently occupy active foreground focus (e.g., distinguishing when focus shifts between \texttt{codeblocks.exe}, \texttt{gcc.exe}, or \texttt{cmd.exe}). Concurrently, the mechanical keyboard interaction loop records timing variations between successive key releases without caching literal character arrays, enforcing strict privacy boundaries.
+    
+    \item \textbf{The Feature Engineering and Processing Layer (Intelligence Pipeline):} Once raw tracking matrices are serialized over a 30-second tumbling window, this processing layer transforms unconditioned event counts into clean, multi-dimensional feature coordinates. The primary operations consist of data cleaning, warm-up filtering, and mathematical standardization. This engine isolates specific metrics such as typing speed words-per-minute (WPM), latency variance averages, and focus switch tracking values, formatting them into structured entries for classifier inference.
+    
+    \item \textbf{The UI/UX State Machine Adaptivity Layer (Mitigation Engine):} This layer forms the theoretical core behind the high-fidelity interactive prototype matrices. It maps out explicit visual mitigation pathways tailored to the specific output class computed by the supervised machine learning backend. When stress thresholds are breached, this state machine dynamically dictates feedback parameters across four structural modes (Low, Moderate, High, Extreme), matching interface behaviors to individual cognitive distress markers.
+\end{enumerate}
+
+\subsection{Mathematical Formulation of Behavioral Feature Telemetry}
+To accurately model developer stress, the system translates noisy raw human-computer interaction logs into a high-frequency feature space. For any given 30-second observation interval $\Delta t$, let $K$ represent the total number of recorded key release events, and let $T_i$ represent the precise timestamp of the $i$-th key event. The mathematical equations governing the primary behavioral predictors are formulated as follows:
+
+\subsubsection{1. Mean Typing Velocity ($V_{\text{WPM}}$)}
+The standard calculation for typing velocity measures the rate of alphanumeric output normalized to a words-per-minute metric, assuming an average word layout length of five characters:
+\begin{equation}
+V_{\text{WPM}} = \frac{\left( \frac{K}{5} \right)}{\Delta t \times \frac{1}{60}} = \frac{12 \times K}{\Delta t}
+\end{equation}
+
+\subsubsection{2. Typing Latency Variance ($\sigma^2_{\text{Lat}}$)}
+Let the individual latency interval $L_i$ define the precise duration between two successive key release timestamps, where $L_i = T_i - T_{i-1}$. The mean latency over the window interval is expressed as:
+\begin{equation}
+\mu_{\text{Lat}} = \frac{1}{K-1} \sum_{i=2}^{K} L_i
+\end{equation}
+To isolate erratic, non-rhythmic typing patterns—which serve as strong indicators of underlying cognitive hesitation or situational panic loops—the system calculates typing latency variance:
+\begin{equation}
+\sigma^2_{\text{Lat}} = \frac{1}{K-2} \sum_{i=2}^{K} (L_i - \mu_{\text{Lat}})^2
+\end{equation}
+During preprocessing, to eliminate mechanical outliers caused by external disruptions, the feature values are bounded by a strict upper capping threshold:
+\begin{equation}
+\sigma^2_{\text{Lat, capped}} = \min(\sigma^2_{\text{Lat}}, 30000\,\text{ms})
+\end{equation}
+
+\subsubsection{3. Deletion Percentile Index ($R_{\text{Backspace}}$)}
+Let $B$ represent the explicit aggregate count of backspace or delete events executed during the window sequence. The overall backspace rate percentage is calculated as a relative fraction of global keystroke activities:
+\begin{equation}
+R_{\text{Backspace}} = \left( \frac{B}{K + B} \right) \times 100
+\end{equation}
+
+\subsubsection{4. Spatial Environment Fragmentation ($F_{\text{Switch}}$)}
+Let $W_t$ represent the window descriptor text hash occupying the OS foreground focus at micro-timestamp $t$. The context focus-switching index tracks active environmental toggling, counting transitions where the current focus changes from the previous interval:
+\begin{equation}
+F_{\text{Switch}} = \sum \mathbb{I}(W_t \neq W_{t-\delta})
+\end{equation}
+where $\mathbb{I}$ functions as an indicator variable returning a value of 1 if the conditional argument is true, and 0 otherwise. A significant increase in $F_{\text{Switch}}$ values captures fragmented attention spans, providing a robust, non-intrusive signature of elevated mental workload.
+
+\subsection{Supervised Classification and Dataset Balancing Framework}
+Because the dataset was gathered during live university examinations, the target classes exhibited an inherent, high natural imbalance, with approximately 83\% of observations falling into the high stress zones due to real evaluation pressures. Traditional machine learning models trained on highly imbalanced data will reliably suffer from majority-class bias, achieving false high accuracy rates simply by predicting the dominant label exclusively.
+
+To resolve this imbalance, the system pipeline incorporates a two-stage preprocessing protocol:
+\begin{itemize}
+    \item \textbf{Synthetic Minority Over-sampling Technique (SMOTE):} This method dynamically balances training folds by interpolating synthetic coordinates within the feature space of the minority class (\texttt{LOW} stress). Rather than relying on simple row replication—which leads to overfitting—SMOTE evaluates the $k$-nearest neighbors for a minority sample $x_i$, calculating new nodes along the vector segments:
+    \begin{equation}
+    x_{\text{new}} = x_i + \lambda (x_j - x_i)
+    \end{equation}
+    where $x_j$ is a randomly selected nearest neighbor, and $\lambda$ represents a uniform random variable bounded within $[0, 1]$. This populates the sparse feature zones, balancing the training classes to a clean 50/50 ratio.
+    \item \textbf{Decoupled Cross-Validation Safeguards:} To protect evaluation integrity, SMOTE balancing is executed strictly within the internal training loops of a 10$\times$10 Repeated Stratified K-Fold Cross-Validation cycle. The validation data splits are kept completely free of synthetic parameters, ensuring that the model is tested exclusively against genuine, unconditioned student interaction profiles.
+\end{itemize}
+
+\section{Project Plan}
+\label{sec:project_plan}
+
+The structural execution of this research spans two distinct academic trimesters, mapping out a sequential path from early concept creation and data collection scripts to machine learning engine evaluation and interactive UI/UX prototyping. 
+
+To maintain transparency, the operational roadmap was divided into six key development milestones:
+\begin{itemize}
+    \item \textbf{Milestone 1 (Weeks 1--4): Literature Survey and Tool Selection.} Conducting extensive analysis of existing developer mental health informatics tools, establishing project requirements, and choosing the target IDE workspace ecosystem.
+    \item \textbf{Milestone 2 (Weeks 5--8): Telemetry Hook Script Development.} Constructing the low-level asynchronous background tracking loop to record non-literal keystroke dynamics and window context switches at a 30-second interval.
+    \item \textbf{Milestone 3 (Weeks 9--12): Examination Field Data Collection.} Deploying the automated collector scripts across multiple laboratory workstations to aggregate over 11,000 distinct interaction intervals from a study cohort of 67 first-year computer science students during graded exams.
+    \item \textbf{Milestone 4 (Weeks 13--16): Preprocessing and Dataset Balancing.} Designing the data cleaning pipeline to cap mechanical outliers and deploying SMOTE over-sampling algorithms to resolve natural class imbalances.
+    \item \textbf{Milestone 5 (Weeks 17--20): Machine Learning Pipeline Evaluation.} Training, tuning, and evaluating multiple classification architectures (including SVM, Random Forests, and Naive Bayes) via 10$\times$10 Repeated Stratified Cross-Validation loops.
+    \item \textbf{Milestone 6 (Weeks 21--24): High-Fidelity UI/UX Prototyping.} Wireframing and connecting the multi-tiered adaptive intervention user interface frameworks within Figma, establishing the design specification guidelines for the system.
+\end{itemize}
+
+The comprehensive timeline and overlapping development intervals are illustrated in the project planning chart in Table~\ref{tab:gantt_schedule}.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{|p{4.0cm}|c|c|c|c|c|c|}
+        \hline
+        \textbf{Project Phase / Activity Name} & \textbf{W1--W4} & \textbf{W5--W8} & \textbf{W9--W12} & \textbf{W13--W16} & \textbf{W17--W20} & \textbf{W21--W24} \\ \hline
+        Requirements \& Literature Survey & $\checkmark$ & & & & & \\ \hline
+        Background Hook Infrastructure Development & & $\checkmark$ & & & & \\ \hline
+        Academic Examination Field Data Gathering & & & $\checkmark$ & & & \\ \hline
+        Data Preprocessing \& SMOTE Engineering & & & & $\checkmark$ & & \\ \hline
+        ML Classifier Tuning \& Optimization & & & & & $\checkmark$ & \\ \hline
+        Figma Interface Prototyping \& Final Writing & & & & & & $\checkmark$ \\ \hline
+    \end{tabular}
+    \caption{Project Execution Timeline and Milestone Development Schedule.}
+    \label{tab:gantt_schedule} 
+\end{table}
+
+\section{Task Allocation}
+\label{sec:task_allocation}
+
+To ensure high engineering productivity and maintain clean structural separation across all sub-systems, development tasks were balanced across the six core research group members. Responsibilities were divided based on specific domains: low-level system scripting, machine learning data pipeline optimization, human-centered interaction design, and technical manuscript synthesis.
+
+The specific operational task breakdown and resource management assignments are designated as follows:
+\begin{itemize}
+    \item \textbf{Shariful Islam (ID: 011221078):} Served as the primary coordinator for backend dataset processing. Responsible for building the automated data merging scripts, implementing the warm-up filtering pipeline, and applying the mathematical outlier capping metrics to condition the telemetry dataset.
+    \item \textbf{Md. Mahmudul Hasan (ID: 011221079):} Responsible for the human-centered interaction design track. Conceptualized, wireframed, and connected the multi-tiered high-fidelity interactive intervention prototype models inside Figma, mapping interface screens across low, moderate, high, and extreme anxiety levels.
+    \item \textbf{Md. Ashiquzzaman Khan (ID: 011221080):} Handled the low-level operating system telemetry scripts. Deployed the asynchronous background data extraction hooks, verified active foreground process monitoring loops, and handled localized CSV serialization routines.
+    \item \textbf{Pulok Sikdar (ID: 011221167):} Responsible for conducting extensive literature reviews and compiling the competitive gap analysis matrix. Managed the statistical correlation validation studies comparing rule-engine score trends against self-reported ground truth labels.
+    \item \textbf{Rahat Ahmed Shafi (ID: 011221201):} Headed the machine learning pipeline engineering track. Handled the configuration of classification models, implemented the internal SMOTE over-sampling algorithms within the cross-validation splits, and ran comparative evaluations across the chosen algorithms.
+    \item \textbf{Ahmad Hasan (ID: 011221435):} Managed the technical manuscript synthesis, requirement traceability tracking, and verification frameworks. Maintained alignment with international software compliance guidelines and mapped the system attributes to complex engineering problem criteria.
+\end{itemize}
+
+\section{Summary}
+\label{sec:summary}
+In summary, this chapter established the comprehensive architectural blueprints, mathematical abstractions, and project coordination frameworks that govern this developer well-being research. By detailing the low-level mechanics of the asynchronous operating-system interaction hooks, this section demonstrated how fine-grained interaction profiles are extracted without creating system performance lag or invading developer privacy. 
+
+Furthermore, the integration of mathematical feature modeling formulas and SMOTE dataset balancing provided a reliable foundation for supervised machine learning classification. Finally, the inclusion of systematic milestone schedules and task allocation matrices confirms the structured execution of both the machine learning track and the interactive high-fidelity prototyping design components.
