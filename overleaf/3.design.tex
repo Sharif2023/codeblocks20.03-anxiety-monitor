@@ -1,167 +1,258 @@
 \chapter{Project Design}
 \label{ch:project_design}
-This chapter details the complete architectural blueprint, requirement analysis, behavioral feature engineering specifications, and project execution plan of the proposed passive anxiety detection system. The design is grounded entirely in the actual system built and deployed during the study: a zero-intrusion OS-level monitoring tool for first-year undergraduate students using the Code::Blocks C/C++ IDE during academic examination sessions.
 
+This chapter presents the complete architectural blueprint, requirement analysis, behavioral feature engineering specification, and mathematical formulation framework of the proposed passive anxiety detection system. The design described herein reflects the actual system that was built and deployed during the study: a zero-intrusion, OS-level behavioral monitoring tool for first-year undergraduate students working in the Code::Blocks C/C++ integrated development environment during graded academic examination sessions. No wearable sensors, IDE plugins, or artificial experimental environments were used at any stage.
+
+% ─────────────────────────────────────────────
 \section{Requirement Analysis}
 \label{sec:requirements}
 
 \subsection{Functional Requirements}
-The following functional requirements define the behavioral boundaries of the implemented system:
+The functional requirements define the exact behavioral boundaries of the implemented system:
 
 \begin{itemize}
-    \item The system shall run a non-intrusive background monitoring script that passively captures keystroke timing metrics and active window context switches without interfering with the student's primary Code::Blocks environment.
-    \item The system shall detect and log the state of the compiler executable (\texttt{gcc.exe}) via the Windows \texttt{tasklist} command to track compilation attempts during each 30-second interval.
-    \item The system shall aggregate 18 behavioral features into a structured row and compute a rule-based \texttt{anxiety\_score} (range: 0--100) and categorical \texttt{risk\_level} (LOW, MODERATE, HIGH, CRITICAL) at the end of every 30-second window.
-    \item The system shall serialize all computed feature rows into a local CSV log file, ensuring no literal keystrokes, alphanumeric input, or source code content is recorded.
-    \item The system shall be launchable via a batch (\texttt{.bat}) script so that the researcher can start the monitor on each student workstation silently at the beginning of an exam session.
-    \item The system shall support post-session offline analysis by producing a structured, machine-learning-ready dataset for statistical validation and supervised classification experiments.
+    \item The system shall run a non-intrusive background monitoring process that passively captures keystroke timing metadata and active window context transitions without interfering with the student's primary Code::Blocks programming environment.
+    \item The system shall detect and log the state of the compiler executable (\texttt{gcc.exe}) via the Windows \texttt{tasklist} command to track compilation invocations and success rates during each 30-second observation interval.
+    \item The system shall aggregate 18 behavioral features per interval and compute a rule-based \texttt{anxiety\_score} (range: 0--100) and a categorical \texttt{risk\_level} (\texttt{LOW}, \texttt{MODERATE}, \texttt{HIGH}, \texttt{CRITICAL}) at the end of each 30-second tumbling window.
+    \item The system shall serialize all computed behavioral feature rows into a local Comma-Separated Values (CSV) log file, strictly excluding any literal keystroke characters, alphanumeric input sequences, or source code content from the stored records.
+    \item The system shall be silently deployable via a batch (\texttt{.bat}) script wrapper, enabling the researcher to initialize the monitor on each student workstation at the start of an examination session without student awareness.
+    \item The system shall produce a structured, machine-learning-ready dataset suitable for post-session offline statistical validation and supervised binary classification experiments.
 \end{itemize}
 
 \subsection{Non-Functional Requirements}
 \begin{itemize}
-    \item \textbf{Performance:} The background monitoring process must operate asynchronously at the OS level, consuming negligible CPU time. The 30-second aggregation window must not introduce any perceptible latency into the Code::Blocks compilation environment.
-    \item \textbf{Privacy:} All telemetry must be strictly behavioral and structural. The system must never record literal characters, variable names, code contents, or passwords. Only timing intervals, counts, and window title hashes are permitted.
-    \item \textbf{Scalability:} The script must be deployable across multiple student workstations simultaneously in a university computer lab without any networked infrastructure, cloud services, or IDE plugin installation.
-    \item \textbf{Reproducibility:} The resulting CSV dataset must be structured such that any researcher can independently re-run the full data cleaning, EDA, and ML pipeline to reproduce the reported results.
-    \item \textbf{Portability:} The \texttt{.bat} launcher and the underlying Python script must require only standard Python libraries and Windows API calls, avoiding dependency on commercial software.
+    \item \textbf{Performance:} The background monitoring process must execute asynchronously at the operating system (OS) level, consuming negligible CPU cycles. The 30-second aggregation cycle must not introduce any measurable latency into the Code::Blocks compilation pipeline.
+    \item \textbf{Privacy:} All recorded telemetry must be strictly behavioral and structural. The system must never capture literal characters, variable names, source code snippets, passwords, or any identifiable text. Only timing intervals, event counts, and window title classification hashes may be persisted.
+    \item \textbf{Scalability:} The \texttt{.bat} launcher and monitoring script must be simultaneously deployable across all student workstations in a university computer lab without requiring any networked infrastructure, cloud services, or IDE-specific plugin installation.
+    \item \textbf{Reproducibility:} The resulting CSV dataset structure must be sufficiently standardized that any independent researcher can re-execute the full data cleaning, EDA, and ML pipeline from scratch and reproduce all reported results.
+    \item \textbf{Portability:} The system must rely only on the Python standard library and native Windows API calls, eliminating dependency on commercial software licenses or proprietary SDKs.
+    \item \textbf{Security:} All telemetry matrices must remain fully anonymous. Student session data is identified only by a local session hash rather than any personally identifiable information, ensuring full compliance with institutional ethical data handling standards.
 \end{itemize}
 
+% ─────────────────────────────────────────────
 \section{System Architecture}
 \label{sec:system_architecture}
 
 \subsection{Overview}
-The system is architecturally decoupled into two distinct execution phases: the \textbf{Live Data Collection Phase} (runs on student machines during exams) and the \textbf{Offline Research Analysis Phase} (runs by the researcher after exams). This separation ensures zero interference with the student's workspace and allows the full ML pipeline to be executed at any time after the data has been collected.
+The system is architecturally decoupled into two fully independent execution phases: the \textbf{Live Data Collection Phase}, which runs silently on student machines throughout the duration of each examination, and the \textbf{Offline Research Analysis Phase}, which is executed by the researcher after all exam sessions have concluded. This strict separation guarantees zero runtime interference with the student's primary coding environment and allows the full machine learning pipeline to be re-executed independently of the live monitoring system at any future point.
 
-Figure~\ref{fig:system-architecture} presents the complete runtime architecture of the passive anxiety monitor.
+Figure~\ref{fig:system-architecture} illustrates the complete runtime architecture of the passive anxiety monitor, showing the three parallel sensing threads and the central 30-second aggregator engine.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\textwidth]{00_system_architecture.png}
-    \caption{System Architecture of the Passive Anxiety Monitor for Code::Blocks Programmers.}
+    \caption{Runtime Architecture of the Passive Anxiety Monitor: Three OS-Level Sensing Threads Converging into the 30-Second Behavioral Aggregator.}
     \label{fig:system-architecture}
 \end{figure}
 
 \subsection{Architectural Layer Breakdown}
-
-The live collection pipeline is structured into three parallel sensing threads that converge into a single aggregation engine:
+The live collection pipeline is structured into three parallel sensing threads, all operating concurrently and converging into a single aggregation engine every 30 seconds:
 
 \begin{enumerate}
-    \item \textbf{Keyboard Hook Thread (100 Hz):} This thread attaches a low-level keyboard listener to the Windows OS event queue using the \texttt{WinAPI} hook mechanism. It records the precise timestamp of every key-press and key-release event without capturing the actual character typed. From these timestamps, it continuously computes the inter-keystroke interval (IKI), words-per-minute (WPM) rate, and backspace event count.
+    \item \textbf{Keyboard Hook Thread (100 Hz):} This thread registers a low-level keyboard hook into the Windows OS event queue via the \texttt{SetWindowsHookEx} WinAPI call. It captures the precise high-resolution timestamp of every key-press and key-release event without recording the character value of any key. From these raw timestamp sequences, it continuously derives the inter-keystroke interval (IKI), mean typing velocity in words per minute (WPM), total keystroke count, backspace event count, typing pause events, and idle periods within each window.
 
-    \item \textbf{Window Tracker:} This component polls the \texttt{GetForegroundWindow()} API at regular intervals to determine which application currently holds the user's focus. It classifies the active window into one of three categories: the Code::Blocks editor (\texttt{codeblocks.exe}), a terminal/runtime window (\texttt{cmd.exe}), or an external application (e.g., a PDF reader). Each transition between categories is counted as a \texttt{focus\_switch} event.
+    \item \textbf{Window Focus Tracker:} This component polls the \texttt{GetForegroundWindow()} and \texttt{GetWindowText()} WinAPI functions at a fixed polling interval to determine which process currently holds the foreground focus. It classifies the active window into one of three semantic categories: the Code::Blocks editor (\texttt{codeblocks.exe}), a terminal or runtime console window (\texttt{cmd.exe}), or an external application (e.g., a PDF document viewer used to read the problem description). Each transition between distinct window categories is recorded as a \texttt{focus\_switch} event, and cumulative dwell time in each category is tracked per 30-second window.
 
-    \item \textbf{Compile Detector:} This component runs the Windows \texttt{tasklist} command at regular intervals to check whether \texttt{gcc.exe} is actively executing. It tracks both the frequency of compilation attempts and their outcomes (success or error), contributing directly to the \texttt{compile\_success\_rate} feature.
+    \item \textbf{Compile Event Detector:} This component periodically invokes the Windows \texttt{tasklist} command-line utility to probe the active process list for the presence of \texttt{gcc.exe}. Each confirmed detection is logged as a compilation invocation. The component also tracks the outcome of each compilation attempt, contributing to the \texttt{compile\_success\_rate} and \texttt{compile\_attempts} features.
 \end{enumerate}
 
-At the end of every 30-second tumbling window, the \textbf{30-Second Aggregator Engine} collects the outputs from all three threads and computes the full 18-feature behavioral vector. The rule-based anxiety scoring engine then maps this vector to a scalar \texttt{anxiety\_score} and a categorical \texttt{risk\_level}. The completed row is appended to the student's local CSV log file. The Code::Blocks IDE itself is completely unaffected throughout this entire process.
+At the conclusion of each 30-second tumbling window, the \textbf{30-Second Aggregator Engine} collects the raw event logs from all three threads, computes the complete 18-feature behavioral vector, applies the rule-based anxiety scoring formula, and appends the resulting structured row to the student's local CSV log file. The Code::Blocks IDE and the student's active programming session remain entirely unaffected throughout this process.
 
+% ─────────────────────────────────────────────
 \section{Data Flow Diagram}
 \label{sec:dfd}
 
-The Data Flow Diagram (DFD) in Figure~\ref{fig:dfd} illustrates how raw student interaction data is transformed from live OS events through feature engineering, CSV logging, and finally into the offline ML analysis pipeline.
+The Data Flow Diagram (DFD) in Figure~\ref{fig:dfd} provides a modular view of how raw student interaction events are transformed through successive processing stages into the final machine learning evaluation results. The pipeline is divided into two clearly separated stages to reflect the study's execution model.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\textwidth]{Dataflow_Diagram_2.jpg}
-    \caption{Data Flow Diagram of the Passive Anxiety Detection Pipeline.}
+    \caption{Data Flow Diagram: From Live OS-Level Behavioral Capture to Offline ML Evaluation.}
     \label{fig:dfd}
 \end{figure}
 
-The pipeline operates in two stages:
 \begin{itemize}
-    \item \textbf{Online Stage (During Exam):} Student behavioral events (keystrokes, window switches, compile events) are captured by the OS-level hook and processed by the feature engineering engine in real time to produce a local CSV log.
-    \item \textbf{Offline Stage (Post-Exam):} The individual CSV files from all 67 participants are merged by the researcher, cleaned, labelled with post-exam Likert survey scores, and fed into the full statistical validation and machine learning training pipeline.
+    \item \textbf{Online Stage (During Examination):} Student behavioral events—keystroke timestamps, window focus transitions, and compilation invocations—are intercepted by the OS-level hook and immediately processed by the feature engineering engine in real time. The resulting 18-feature row is appended to the student's local CSV log at the end of each 30-second interval.
+    \item \textbf{Offline Stage (Post-Examination):} After all four exam sessions were completed, the individual CSV log files from all 67 participants were merged by the research team into a unified dataset. This consolidated dataset was then cleaned, labelled with post-exam Likert survey scores, and processed through the complete statistical validation and supervised machine learning pipeline.
 \end{itemize}
 
+% ─────────────────────────────────────────────
 \section{Behavioral Feature Specification}
 \label{sec:feature_spec}
 
-The system captures 18 behavioral metrics per 30-second observation window. These features form the input feature vector for all downstream machine learning models. Table~\ref{tab:features} provides a complete specification of each feature, its unit, and its psychological motivation.
+The system captures 18 behavioral metrics per 30-second observation window. These features collectively constitute the input feature vector for all downstream statistical analyses and machine learning models. Table~\ref{tab:features} provides a complete specification of each feature including its unit of measurement and its grounding in Human-Computer Interaction (HCI) and cognitive psychology research.
 
 \begin{table}[htbp]
     \centering
     \small
-    \caption{Behavioral Feature Specification: 18 Features Extracted per 30-Second Window.}
+    \caption{Complete Behavioral Feature Specification: 18 Features Extracted per 30-Second Observation Window.}
     \label{tab:features}
-    \begin{tabular}{|p{0.28\textwidth}|p{0.12\textwidth}|p{0.50\textwidth}|}
+    \begin{tabular}{|p{0.27\textwidth}|p{0.11\textwidth}|p{0.52\textwidth}|}
         \hline
-        \textbf{Feature Name} & \textbf{Unit} & \textbf{Description / Psychological Motivation} \\ \hline
-        \texttt{keystrokes\_total} & count & Total key-press events. Low values indicate passive reading or freeze states. \\ \hline
-        \texttt{typing\_speed\_wpm} & WPM & Mean typing velocity. Erratic values signal cognitive disruption. \\ \hline
-        \texttt{latency\_variance\_ms} & ms & Variance of inter-keystroke intervals. High variance = irregular, hesitant typing, the strongest anxiety predictor in this study. \\ \hline
-        \texttt{backspace\_count} & count & Raw number of backspace/delete key presses. \\ \hline
-        \texttt{backspace\_rate} & \% & Backspace events as a fraction of total keystrokes. High rates correlate with frustration and self-doubt. \\ \hline
-        \texttt{focus\_switches} & count & Number of active window context transitions. High counts indicate Session Fragmentation. \\ \hline
-        \texttt{time\_in\_codeblocks} & seconds & Duration the Code::Blocks editor held foreground focus in the window. \\ \hline
-        \texttt{time\_in\_terminal} & seconds & Duration spent in \texttt{cmd.exe} or terminal output windows. \\ \hline
-        \texttt{time\_in\_other} & seconds & Duration focused on external applications (e.g., PDF problem sheet). \\ \hline
-        \texttt{idle\_periods} & count & Number of intervals with zero keystrokes for $>$ 5 seconds. \\ \hline
-        \texttt{idle\_ratio} & ratio & Fraction of the 30-second window spent in idle states. \\ \hline
-        \texttt{pause\_count} & count & Number of distinct typing pause events. \\ \hline
-        \texttt{pause\_ratio} & ratio & Fraction of the window time occupied by pauses. \\ \hline
-        \texttt{compile\_attempts} & count & Number of \texttt{gcc.exe} invocations detected in the window. \\ \hline
-        \texttt{compile\_success\_rate} & \% & Ratio of successful compilations to total attempts. Low rates indicate repeated syntax/logic errors under pressure. \\ \hline
-        \texttt{window\_title\_entropy} & bits & Shannon entropy of window title strings, measuring environmental fragmentation diversity. \\ \hline
-        \texttt{anxiety\_score} & 0--100 & Rule-based composite score derived from the above metrics. Serves as the primary validation target. \\ \hline
-        \texttt{risk\_level} & category & Categorical label derived from \texttt{anxiety\_score}: LOW ($<$25), MODERATE (25--50), HIGH (50--75), CRITICAL ($>$75). \\ \hline
+        \textbf{Feature Name} & \textbf{Unit} & \textbf{Description and Psychological Motivation} \\ \hline
+        \texttt{keystrokes\_total} & count & Total key-press events in the window. Low values indicate passive reading or freeze states under cognitive overload. \\ \hline
+        \texttt{typing\_speed\_wpm} & WPM & Mean typing velocity normalized to words per minute. Abrupt fluctuations in WPM signal cognitive disruption. \\ \hline
+        \texttt{latency\_variance\_ms} & ms & Statistical variance of inter-keystroke intervals. High variance captures irregular, hesitant typing rhythms and is the strongest single anxiety predictor found in this study. \\ \hline
+        \texttt{backspace\_count} & count & Raw total of backspace and delete key-press events within the window interval. \\ \hline
+        \texttt{backspace\_rate} & \% & Backspace events expressed as a proportion of total keystrokes. Elevated rates are strongly associated with frustration, self-doubt, and repetitive error correction. \\ \hline
+        \texttt{focus\_switches} & count & Total active window context transitions during the interval. High counts indicate Session Fragmentation caused by impaired working memory under stress. \\ \hline
+        \texttt{time\_in\_codeblocks} & seconds & Duration the Code::Blocks editor held the OS foreground focus during the window. \\ \hline
+        \texttt{time\_in\_terminal} & seconds & Duration spent with a terminal (\texttt{cmd.exe}) or compiler output window in the foreground. \\ \hline
+        \texttt{time\_in\_other} & seconds & Duration focused on external applications such as a PDF problem description viewer. \\ \hline
+        \texttt{idle\_periods} & count & Number of distinct intervals within the window where no key-press events were recorded for more than 5 consecutive seconds. \\ \hline
+        \texttt{idle\_ratio} & ratio & Fraction of the total 30-second window duration occupied by idle periods. \\ \hline
+        \texttt{pause\_count} & count & Number of distinct typing pause events (inter-key gaps exceeding a fixed silence threshold). \\ \hline
+        \texttt{pause\_ratio} & ratio & Fraction of the window duration occupied by pause intervals. Positively correlated with \texttt{idle\_ratio} as confirmed by the correlation heatmap. \\ \hline
+        \texttt{compile\_attempts} & count & Total \texttt{gcc.exe} invocations detected via \texttt{tasklist} during the window interval. \\ \hline
+        \texttt{compile\_success\_rate} & \% & Ratio of successful compilation outcomes to total attempts. Low rates indicate repeated syntax or logic errors under exam pressure. \\ \hline
+        \texttt{window\_title\_entropy} & bits & Shannon entropy computed over the set of distinct window titles observed during the window. Higher values indicate more diverse and fragmented environmental context-switching. \\ \hline
+        \texttt{anxiety\_score} & 0--100 & Rule-based composite scalar score derived from the weighted combination of the above behavioral features. Serves as the primary statistical validation target against self-reported survey labels. \\ \hline
+        \texttt{risk\_level} & category & Categorical label derived from \texttt{anxiety\_score} thresholds: \texttt{LOW} ($<$25), \texttt{MODERATE} (25--50), \texttt{HIGH} (50--75), \texttt{CRITICAL} ($>$75). \\ \hline
     \end{tabular}
 \end{table}
 
+% ─────────────────────────────────────────────
+\section{Mathematical Formulation of Behavioral Feature Telemetry}
+\label{sec:math}
+
+To translate noisy, unconditioned human-computer interaction logs into a structured high-frequency feature space, the system applies a set of formal mathematical definitions to each 30-second observation interval $\Delta t$. Let $K$ represent the total number of recorded key-release events within an interval, and let $T_i$ represent the precise high-resolution timestamp of the $i$-th key event.
+
+\subsection{Mean Typing Velocity ($V_{\text{WPM}}$)}
+The mean typing velocity measures the rate of keyboard output normalized to a standard words-per-minute metric, assuming an average word length of five characters:
+\begin{equation}
+V_{\text{WPM}} = \frac{\left(\frac{K}{5}\right)}{\Delta t \times \frac{1}{60}} = \frac{12 \times K}{\Delta t}
+\end{equation}
+A sudden drop or spike in $V_{\text{WPM}}$ across consecutive windows serves as a reliable indicator of abrupt changes in cognitive engagement or task difficulty.
+
+\subsection{Inter-Keystroke Latency Variance ($\sigma^2_{\text{Lat}}$)}
+Let the individual latency interval $L_i$ define the precise duration between two successive key-release timestamps, such that $L_i = T_i - T_{i-1}$. The mean inter-keystroke latency over the full window interval is:
+\begin{equation}
+\mu_{\text{Lat}} = \frac{1}{K-1} \sum_{i=2}^{K} L_i
+\end{equation}
+The typing latency variance isolates erratic, non-rhythmic typing patterns that serve as the strongest measurable signature of underlying cognitive hesitation or situational panic:
+\begin{equation}
+\sigma^2_{\text{Lat}} = \frac{1}{K-2} \sum_{i=2}^{K} \left(L_i - \mu_{\text{Lat}}\right)^2
+\end{equation}
+To eliminate mechanical outliers caused by external disruptions (such as a student pausing to ask the invigilator a question), the computed variance is bounded by a hard upper-capping threshold during preprocessing:
+\begin{equation}
+\sigma^2_{\text{Lat,\,capped}} = \min\!\left(\sigma^2_{\text{Lat}},\; 30{,}000\;\text{ms}\right)
+\end{equation}
+
+\subsection{Backspace Rate Index ($R_{\text{BS}}$)}
+Let $B$ represent the total count of backspace or delete key-press events recorded within the interval. The backspace rate is expressed as a percentage of all recorded input activity:
+\begin{equation}
+R_{\text{BS}} = \left(\frac{B}{K + B}\right) \times 100
+\end{equation}
+Elevated values of $R_{\text{BS}}$ indicate repetitive error-correction behavior, which HCI research associates strongly with programmer frustration and elevated cognitive load.
+
+\subsection{Spatial Environment Fragmentation Index ($F_{\text{Switch}}$)}
+Let $W_t$ represent the classified window category occupying the OS foreground focus at micro-timestamp $t$ (one of: \texttt{codeblocks}, \texttt{terminal}, \texttt{other}). The context-switching index counts all transitions between distinct window categories within the interval:
+\begin{equation}
+F_{\text{Switch}} = \sum_{t} \mathbb{I}\!\left(W_t \neq W_{t-\delta}\right)
+\end{equation}
+where $\mathbb{I}(\cdot)$ is the indicator function, returning 1 when the condition is true and 0 otherwise. A rapid increase in $F_{\text{Switch}}$ captures the phenomenon of Session Fragmentation, providing a robust and entirely non-intrusive signature of severely elevated mental workload.
+
+\subsection{Rule-Based Anxiety Score ($S_{\text{Anxiety}}$)}
+Before the deployment of supervised machine learning classifiers, a heuristic rule-based engine was constructed to produce a continuous scalar anxiety estimate from the behavioral feature vector. The engine applies a weighted linear combination of the primary distress indicators:
+\begin{equation}
+S_{\text{Anxiety}} = \alpha_1 \cdot \hat{\sigma}^2_{\text{Lat}} + \alpha_2 \cdot R_{\text{BS}} + \alpha_3 \cdot \hat{P}_{\text{ratio}} + \alpha_4 \cdot F_{\text{Switch}} + \alpha_5 \cdot (1 - C_{\text{success}})
+\end{equation}
+where $\hat{\sigma}^2_{\text{Lat}}$ and $\hat{P}_{\text{ratio}}$ are min-max normalized values of the capped latency variance and pause ratio respectively, $C_{\text{success}}$ is the compile success rate, and $\alpha_1$--$\alpha_5$ are empirically determined weighting coefficients. The resulting score is clipped to the range $[0, 100]$ and mapped to a categorical \texttt{risk\_level} via fixed thresholds as specified in Table~\ref{tab:features}.
+
+% ─────────────────────────────────────────────
+\section{Supervised Classification and Dataset Balancing Framework}
+\label{sec:ml_framework}
+
+\subsection{Binary Classification Task Definition}
+The machine learning objective was defined as a binary classification problem: predicting whether a given 30-second behavioral window represents a \textbf{High Stress} state (post-exam Likert survey score $\geq 4$) or a \textbf{Low/Moderate Stress} state (Likert survey score $< 4$). This threshold was selected because survey responses of 4 or 5 on a 5-point scale correspond to clinically significant levels of perceived stress, and because the 4/5 group constituted approximately 83\% of all survey responses, representing the natural dominant class in the examination setting.
+
+\subsection{Class Imbalance Resolution via SMOTE}
+Because the raw training dataset contained a severe natural class imbalance (~83\% High Stress observations), any classifier trained on the unmodified dataset would suffer from majority-class bias, trivially achieving $\sim$83\% accuracy by always predicting ``High Stress.'' To overcome this imbalance trap, the Synthetic Minority Over-sampling Technique (SMOTE) was applied within each training fold.
+
+SMOTE operates by evaluating the $k$-nearest neighbors within the minority class feature space (Low Stress samples $x_i$) and interpolating new synthetic data points along the vector connecting each sample to a randomly selected neighbor $x_j$:
+\begin{equation}
+x_{\text{new}} = x_i + \lambda\,(x_j - x_i), \quad \lambda \sim \mathcal{U}(0,\,1)
+\end{equation}
+This interpolation populates the sparse low-stress regions of the feature space without simply duplicating existing samples, which would cause overfitting. After applying SMOTE, each training fold achieved a perfectly balanced 50/50 class ratio, reducing the trivial random-guessing baseline from 83\% to exactly 50\%.
+
+\subsection{10$\times$10 Repeated Stratified K-Fold Cross-Validation}
+To obtain statistically robust and variance-controlled performance estimates, a 10$\times$10 Repeated Stratified K-Fold Cross-Validation protocol was adopted. In this setup:
+\begin{itemize}
+    \item The dataset was split into 10 stratified folds, preserving the original class distribution within each fold.
+    \item SMOTE was applied exclusively within the \textbf{training portion} of each fold, never on the held-out test split, to completely prevent synthetic data leakage from contaminating the evaluation.
+    \item The entire 10-fold process was independently repeated 10 times with different random seeds, yielding a total of \textbf{100 independent training and evaluation cycles} per model.
+    \item This protocol produces highly stable accuracy estimates with quantified standard deviation, confirming the generalizability of each model's performance across the full dataset.
+\end{itemize}
+
+% ─────────────────────────────────────────────
 \section{Research Methodology}
 \label{sec:methodology}
 
-The overall research methodology followed a five-phase pipeline as illustrated in Figure~\ref{fig:methodology}. Each phase builds directly on the previous, ensuring full traceability from raw OS events to validated machine learning results.
+The overall research methodology followed a structured five-phase pipeline as illustrated in Figure~\ref{fig:methodology}. Each phase is causally dependent on the previous, ensuring complete traceability from raw OS event capture through to final validated machine learning evaluation results.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{Methodology.PNG}
-    \caption{Five-Phase Research Methodology for Passive Anxiety Detection in Academic Programming Examinations.}
+    \caption{Five-Phase Research Methodology Pipeline for Passive Anxiety Detection in Academic Programming Examinations.}
     \label{fig:methodology}
 \end{figure}
 
 \begin{enumerate}
-    \item \textbf{Phase 1 -- System Development:} The core monitoring script was developed using Python and the Windows API. The \texttt{.bat} launcher was created to allow silent one-click deployment on student machines.
-    \item \textbf{Phase 2 -- Data Collection:} The script was deployed across 67 first-year undergraduate student workstations during four separate graded Class Tests. Post-exam Likert surveys (1--5 stress scale) were collected within 5--15 minutes of exam completion.
-    \item \textbf{Phase 3 -- Preprocessing \& EDA:} Individual student CSVs were merged, warm-up rows were filtered, extreme \texttt{latency\_variance\_ms} values were capped at 30,000 ms, and exploratory data analysis was conducted to understand the label distribution and feature correlations.
-    \item \textbf{Phase 4 -- Model Training:} SMOTE was applied within a 10$\times$10 Repeated Stratified K-Fold Cross-Validation loop to balance the 83\% class imbalance and evaluate 8 classification models without data leakage.
-    \item \textbf{Phase 5 -- Evaluation:} Statistical correlation tests (Pearson and Spearman) validated the rule-based anxiety score against ground-truth survey labels. Final ML model performance was compared via mean accuracy across 100 training runs.
+    \item \textbf{Phase 1 — System Development:} The core OS-level monitoring script was developed in Python using native Windows API calls. The \texttt{.bat} script wrapper was engineered to enable silent, single-click deployment on student workstations with no manual configuration steps required from the student.
+
+    \item \textbf{Phase 2 — Data Collection:} The monitoring system was deployed on student workstations across four separate graded Class Test sessions involving 67 first-year undergraduate computer science students (all aged below 25). Within 5--15 minutes of each exam's conclusion, students completed a digital post-exam survey reporting their perceived stress on a 1--5 Likert scale.
+
+    \item \textbf{Phase 3 — Preprocessing and EDA:} The 67 individual CSV log files were merged into a unified dataset. Warm-up rows (zero-keystroke initial intervals) were discarded. Extreme \texttt{latency\_variance\_ms} outliers were capped at 30,000 ms. Exploratory data analysis was then conducted to characterize the label distribution, examine feature-level behavioral profiles across anxiety bands, and analyze inter-feature correlations via a heatmap.
+
+    \item \textbf{Phase 4 — Model Training:} SMOTE balancing was applied within each fold of a 10$\times$10 Repeated Stratified K-Fold Cross-Validation loop. Eight classical supervised machine learning classifiers were trained and evaluated over 100 independent training cycles each.
+
+    \item \textbf{Phase 5 — Evaluation:} Pearson and Spearman correlation tests validated the rule-based \texttt{anxiety\_score} against ground-truth Likert labels at the per-student level. Model accuracy, standard deviation, and feature importance rankings were reported to determine the most effective and interpretable classifier.
 \end{enumerate}
 
+% ─────────────────────────────────────────────
 \section{Project Plan}
 \label{sec:project_plan}
 
-The research was executed over two academic trimesters, structured into five key milestones that track the full lifecycle from system development to final analysis. Table~\ref{tab:gantt_schedule} presents the timeline.
+The research was executed over two academic trimesters, structured across five sequential development milestones spanning a 20-week timeline. Table~\ref{tab:gantt_schedule} presents the Gantt-style schedule mapping each activity to its corresponding delivery window.
 
 \begin{table}[htbp]
     \centering
     \small
-    \caption{Project Execution Timeline and Milestone Schedule.}
+    \caption{Project Execution Timeline and Milestone Delivery Schedule.}
     \label{tab:gantt_schedule}
-    \begin{tabular}{|p{4.2cm}|c|c|c|c|c|}
+    \begin{tabular}{|p{4.5cm}|c|c|c|c|c|}
         \hline
-        \textbf{Project Phase} & \textbf{W1--W4} & \textbf{W5--W8} & \textbf{W9--W12} & \textbf{W13--W16} & \textbf{W17--W20} \\ \hline
-        Literature Survey \& Requirements & $\checkmark$ & & & & \\ \hline
-        OS Hook \& .bat Script Development & & $\checkmark$ & & & \\ \hline
-        Exam Field Data Collection (67 students, 4 sessions) & & & $\checkmark$ & & \\ \hline
-        Data Merging, Cleaning \& EDA & & & & $\checkmark$ & \\ \hline
+        \textbf{Project Phase / Activity} & \textbf{W1--W4} & \textbf{W5--W8} & \textbf{W9--W12} & \textbf{W13--W16} & \textbf{W17--W20} \\ \hline
+        Literature Survey \& Requirements Analysis & $\checkmark$ & & & & \\ \hline
+        OS Hook \& \texttt{.bat} Script Development & & $\checkmark$ & & & \\ \hline
+        Exam Field Data Collection (67 Students, 4 Sessions) & & & $\checkmark$ & & \\ \hline
+        Data Merging, Cleaning \& Exploratory Data Analysis & & & & $\checkmark$ & \\ \hline
         ML Pipeline (SMOTE + 10$\times$10 CV) \& Evaluation & & & & & $\checkmark$ \\ \hline
     \end{tabular}
 \end{table}
 
+% ─────────────────────────────────────────────
 \section{Task Allocation}
 \label{sec:task_allocation}
 
-Development responsibilities were distributed across the six research team members based on domain expertise:
+Development and research responsibilities were systematically distributed across the six team members in accordance with individual technical expertise and domain knowledge:
 
 \begin{itemize}
-    \item \textbf{Shariful Islam (ID: 011221078):} Led the backend dataset processing pipeline. Responsible for building the automated CSV merging scripts, implementing the warm-up filtering step, and applying the mathematical outlier capping to condition the raw telemetry dataset.
-    \item \textbf{Md. Mahmudul Hasan (ID: 011221079):} Managed the exploratory data analysis (EDA), statistical correlation studies (Pearson and Spearman), and the generation of all research visualizations including heatmaps, scatter plots, and distribution charts.
-    \item \textbf{Md. Ashiquzzaman Khan (ID: 011221080):} Developed the low-level OS telemetry hook script. Built the asynchronous keyboard listener, window focus tracker, and compile detector, and handled all localized CSV serialization routines.
-    \item \textbf{Pulok Sikdar (ID: 011221167):} Conducted the literature review and gap analysis. Managed the post-exam Likert survey administration and coordinated data collection logistics across the four exam sessions.
-    \item \textbf{Rahat Ahmed Shafi (ID: 011221201):} Led the machine learning engineering track. Implemented SMOTE balancing, configured the 10$\times$10 Repeated Stratified K-Fold Cross-Validation loop, trained and tuned the eight classification models, and conducted the feature importance analysis.
-    \item \textbf{Ahmad Hasan (ID: 011221435):} Managed the technical manuscript, requirement traceability documentation, and alignment of the project with complex engineering problem criteria and international standards.
+    \item \textbf{Shariful Islam (ID: 011221078):} Led the backend dataset engineering pipeline. Built the automated multi-session CSV merging scripts, designed the warm-up filtering logic, and implemented the mathematical outlier-capping mechanism to produce the clean unified training dataset.
+
+    \item \textbf{Md. Mahmudul Hasan (ID: 011221079):} Led the Exploratory Data Analysis track. Produced all research visualizations including the behavioral feature distribution charts, the correlation heatmap, the session-level stress distribution figure, and the anxiety-versus-survey scatter plot. Conducted the Pearson and Spearman statistical correlation validation studies.
+
+    \item \textbf{Md. Ashiquzzaman Khan (ID: 011221080):} Developed the low-level OS telemetry monitoring script. Implemented the asynchronous keyboard hook thread, the window focus polling tracker, and the compile event detector, as well as all local CSV serialization and session management routines.
+
+    \item \textbf{Pulok Sikdar (ID: 011221167):} Conducted the systematic literature review and identified the research gap. Coordinated all logistical aspects of the four exam-session data collection deployments, including participant briefing, \texttt{.bat} script initialization, and post-exam digital survey administration.
+
+    \item \textbf{Rahat Ahmed Shafi (ID: 011221201):} Led the machine learning engineering track. Implemented the SMOTE balancing pipeline, configured and executed the 10$\times$10 Repeated Stratified K-Fold Cross-Validation framework, trained and evaluated all eight classification models, and performed the Random Forest feature importance analysis.
+
+    \item \textbf{Ahmad Hasan (ID: 011221435):} Managed the technical manuscript synthesis, requirement traceability documentation, and alignment of the project attributes with Complex Engineering Problem (P1--P7) and Complex Engineering Activity (A1--A5) criteria. Maintained compliance with relevant international standards.
 \end{itemize}
 
+% ─────────────────────────────────────────────
 \section{Summary}
 \label{sec:ch3_summary}
-This chapter established the complete design specification of the passive anxiety detection system as it was actually implemented and studied. The architectural blueprint demonstrates how three parallel OS-level sensing threads converge into a 30-second aggregator to produce a privacy-preserving behavioral dataset. The 18-feature specification table provides full transparency into the system's input space, while the five-phase research methodology and project timeline confirm the structured execution of the study from system development through to final ML evaluation.
+
+This chapter established the complete design specification of the passive anxiety detection system as it was implemented and studied. The architectural blueprint demonstrated how three parallel OS-level sensing threads—a keyboard hook, a window focus tracker, and a compile event detector—converge every 30 seconds into a behavioral aggregator that produces an 18-feature privacy-preserving CSV log. The complete feature specification table and accompanying mathematical formulations (WPM, Latency Variance, Backspace Rate, Focus Switch Index, and the rule-based Anxiety Score) provide full scientific transparency over the system's input space and computational model. The SMOTE interpolation formula and 10$\times$10 Repeated Stratified K-Fold Cross-Validation protocol established the rigorous, leakage-free framework under which all machine learning evaluations were conducted. Finally, the structured five-phase research methodology, 20-week Gantt schedule, and individual task allocation matrix confirm the disciplined, reproducible execution of this study from system development through to final evaluation.
