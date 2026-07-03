@@ -112,7 +112,7 @@ The system captures 18 behavioral metrics per 30-second observation window. Thes
 \end{table}
 
 % ─────────────────────────────────────────────
-\section{Mathematical Formulation of Behavioral Feature Telemetry}
+\section[Mathematical Formulation of Features]{Mathematical Formulation of Behavioral Feature Telemetry}
 \label{sec:math}
 
 To translate noisy, unconditioned human-computer interaction logs into a structured high-frequency feature space, the system applies a set of formal mathematical definitions to each 30-second observation interval $\Delta t$. Let $K$ represent the total number of recorded key-release events within an interval, and let $T_i$ represent the precise high-resolution timestamp of the $i$-th key event.
@@ -160,7 +160,7 @@ S_{\text{Anxiety}} = \alpha_1 \cdot \hat{\sigma}^2_{\text{Lat}} + \alpha_2 \cdot
 where $\hat{\sigma}^2_{\text{Lat}}$ and $\hat{P}_{\text{ratio}}$ are min-max normalized values of the capped latency variance and pause ratio respectively, $C_{\text{success}}$ is the compile success rate, and $\alpha_1$--$\alpha_5$ are empirically determined weighting coefficients. The resulting score is clipped to the range $[0, 100]$ and mapped to a categorical \texttt{risk\_level} via fixed thresholds as specified in Table~\ref{tab:features}.
 
 % ─────────────────────────────────────────────
-\section{Supervised Classification and Dataset Balancing Framework}
+\section[Classification and Dataset Balancing]{Supervised Classification and Dataset Balancing Framework}
 \label{sec:ml_framework}
 
 \subsection{Binary Classification Task Definition}
