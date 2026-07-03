@@ -3,30 +3,43 @@
 
 \section{Limitation}
 \label{sec:limitation}
-Although the proposed Anxiety Detection Plugin has been found to have an  high accuracy (69.2\%  via SVM) for identifying stress in programmers based on behavioral patterns, the following limitations must be taken into account:
+Although the proposed passive anxiety detection system achieved a strong mean accuracy of 69.2\% (via SVM-RBF) for classifying exam-time stress in programmers using purely behavioral signals, the following limitations must be acknowledged:
 
 \begin{itemize}
-    \item \textbf{Limitations Due to Demographics:} The tool was created and tested on a limited number of 67 university students under exam assessment conditions. Specifically, such a particular stressful environment and demographics may not represent the behavioral pattern, stress tolerance, and lifestyle of a software engineer in enterprise environments.
-    
-    \item \textbf{Limitations Due to the Platform:} Currently, the tool is heavily integrated with the Code::Blocks Integrated Development Environment. While appropriate for the desired academic setting in C/C++, it prevents the use of the system in more diverse development environments, including the use of editors like VS Code and IntelliJ.
-    
-    \item \textbf{Subjective Ground Truth:} The use of pre- and post-survey reports (which is done for the STAI questionnaire) to determine ground-truth anxiety labeling introduces subjectivity. The ability of the subjects to judge their own mental state is variable and can introduce noise in training.
-    
-    \item \textbf{Lack of Physiological Input:} The input required for this system is limited only to mechanical actions (like keystrokes, WPM, etc.). While this helps it avoid intruding into privacy issues, it fails to provide an objective biological signal indicating stress (for instance, heart rate variability, galvanic skin response).
+    \item \textbf{Limited Cohort Demographics:} The study was conducted exclusively with 67 first-year undergraduate computer science students (all aged below 25) during academic examination sessions at a single institution. This specific demographic and stressful context may not fully generalize to the behavioral patterns, stress tolerance, or working rhythms of experienced professional software engineers in enterprise environments.
+
+    \item \textbf{Platform Dependency:} The monitoring system is currently tightly coupled to the Code::Blocks IDE running on Windows. While this was appropriate for the academic C/C++ setting in which data was collected, it prevents direct deployment in other common development environments such as Visual Studio Code, JetBrains IDEs, or Eclipse, significantly restricting broader adoption.
+
+    \item \textbf{Subjective Ground Truth Labels:} The survey-based Likert scale (1--5) used to establish ground-truth stress labels introduces inherent subjectivity. Students' ability to accurately self-assess their own psychological state immediately following an exam is variable, and this self-report noise may introduce mislabelled samples that reduce the ceiling accuracy of trained models.
+
+    \item \textbf{Absence of Physiological Signals:} The system relies exclusively on mechanical behavioral inputs (keystrokes, window switches, compilation events). While this approach completely eliminates hardware intrusiveness, it forgoes objective physiological indicators of stress—such as heart rate variability, galvanic skin response, or cortisol levels—which would substantially improve classification confidence.
+
+    \item \textbf{Binary Classification Simplification:} The final ML task was reduced to binary classification (High Stress vs. Low/Moderate Stress). This simplification, while scientifically rigorous, does not capture the full psychological spectrum of the four-tier rule-based anxiety categories (LOW, MODERATE, HIGH, CRITICAL) used during live data collection.
 \end{itemize}
 
 \clearpage
 
 \section{Future Work}
 \label{sec:future_work}
-For future advancements and research into this project, the following paths have to be taken for furthering the research carried out in this project:
+Building upon the findings and limitations of this research, the following directions are identified as high-priority areas for future investigation and system extension:
 
 \begin{itemize}
-    \item \textbf{Cross-Platform Compatibility:} The architecture of the Data logging and Intervention module must be generalized and made an extension to the modern IDEs that include Visual Studio Code, JetBrains and even Eclipse with equal ease.
-    
-    \item \textbf{Wide-Ranging Data Collection:} Future work needs to be focused on collecting more extensive data that involves many more developers from newbies to senior developers, in order to help generalize the machine learning algorithm from being over fitted to only academic exams.
-    
-    \item \textbf{Multimodal Anxiety Detection:} The prediction algorithm could be greatly enhanced with the addition of the non-invasive tracking of current behavior metrics. In other words, using the ordinary webcams to perform real-time eye-tracking, measuring the number of blinks per minute, or evaluating facial expressions could enhance the detection rate substantially.
-    
-    \item \textbf{Code Correction by Generative AI:} Currently, the Intervention Manager uses a checklist containing recommendations of breaks and hints for how to behave. In order to increase the efficiency of such interventions, Large Language Models (LLMs) could be introduced to evaluate the syntax of the Compile Error and come up with context-aware modifications.
+    \item \textbf{Real-Time Intervention Module:} The most immediate planned extension is the development of a real-time context-aware intervention engine. Once the ML classifier is integrated into the live monitoring loop, the system can trigger adaptive feedback directly within the programmer's environment based on the detected anxiety class. Planned interventions include:
+    \begin{itemize}
+        \item \textbf{Low Anxiety:} A subtle ambient green status indicator with a positive motivational anchor message.
+        \item \textbf{Moderate Anxiety:} A soft drop-down notification below the toolbar suggesting a brief pause or slower pacing.
+        \item \textbf{High Anxiety:} A floating toast notification offering a structured breathing exercise with a snooze option.
+        \item \textbf{Critical Anxiety:} A full-screen mindfulness overlay with a guided 4-second breathing animation to enforce a mandatory cognitive reset before resuming coding.
+    \end{itemize}
+    This intervention architecture was designed as a high-fidelity prototype but was intentionally excluded from the current research scope to maintain a focused, rigorously validated study.
+
+    \item \textbf{Cross-Platform Compatibility:} Future versions of the data collection and monitoring script should be generalized to support modern IDEs such as Visual Studio Code (via a language-server extension), JetBrains (via a plugin API), and Eclipse, enabling deployment in diverse academic and enterprise software engineering contexts.
+
+    \item \textbf{Expanded and Diverse Dataset:} Future data collection efforts should involve larger cohorts that span multiple year groups, experience levels (from novice to professional), and academic institutions. This would help the ML models generalize beyond the specific behavioral patterns of first-year exam-stress scenarios.
+
+    \item \textbf{Multimodal Anxiety Detection:} The predictive accuracy of the system could be substantially enhanced by incorporating non-invasive multimodal signals. For example, webcam-based eye-tracking (blink rate, gaze fixation), facial expression analysis via standard RGB cameras, and mouse dynamics could be added as complementary behavioral channels alongside keystroke telemetry.
+
+    \item \textbf{Generative AI-Assisted Code Feedback:} In conjunction with the intervention system, Large Language Models (LLMs) could be integrated to analyze compiler error outputs and generate context-aware, encouraging explanations when a student enters a high-stress state, providing targeted cognitive support rather than generic mindfulness prompts.
+
+    \item \textbf{Deep Learning Models:} Future evaluations should extend the ML comparison to include sequence-aware deep learning architectures such as Long Short-Term Memory (LSTM) networks or Transformer-based time-series classifiers, which may better capture the temporal dependencies in the 30-second behavioral sequences.
 \end{itemize}
