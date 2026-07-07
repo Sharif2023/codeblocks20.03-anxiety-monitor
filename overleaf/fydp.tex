@@ -1,0 +1,156 @@
+\documentclass[a4paper,11pt]{report}
+
+\usepackage{makeidx}
+\usepackage{url}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb} % Required for math symbols (\checkmark and \times)
+\usepackage{booktabs} % Required for professional table rules (\toprule, etc.)
+\usepackage[noend,ruled,noline,linesnumbered,algochapter]{algorithm2e}
+\usepackage[margin=3cm]{geometry}
+\usepackage{setspace} 
+\usepackage{fancyhdr}
+
+% Page layout configuration
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\rhead{\nouppercase\leftmark}
+\lhead{\nouppercase\rightmark}
+\cfoot{\thepage} % Put page number in the center footer
+
+\makeindex
+\onehalfspacing 
+
+% Hyperref configuration (Loaded last for safety)
+\usepackage[linktoc=page]{hyperref}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=black, 
+    citecolor=black,  
+    urlcolor=black    
+}
+
+\renewcommand*\contentsname{Table of Contents}
+
+\begin{document}
+
+% ================= FRONT MATTER =================
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% Title Page
+\input{0.0.title.tex}
+\clearpage
+
+% Abstract
+\input{0.1.abstract.tex}
+\clearpage
+
+% Acknowledgements
+\input{0.2.ack.tex}
+\clearpage
+
+% Lists and Indices
+\phantomsection
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+\clearpage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\clearpage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\clearpage
+
+% ================= MAIN MATTER =================
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{1.intro.tex}
+\input{2.back.tex}
+\input{3.design.tex}
+\input{4.implementation.tex}
+\input{5.sic.tex}
+\input{6.conclusion.tex}
+\clearpage
+
+% ================= BACK MATTER =================
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\renewcommand\bibname{References}
+
+\begin{thebibliography}{99}
+
+\bibitem{mdpi5739} A. Chandrasekaran, L. Bielicke, D. Shah, H. Janakiraman, and M. L. Mauriello, ``'I spent 14 hours debugging just one assignment': Toward Computer-Mediated Personal Informatics for Computer Science Student Mental Health,'' in \emph{Proc. CHI Conf. on Human Factors in Computing Systems (CHI '25)}, 2025. doi: 10.1145/3706598.3713269. 
+
+\bibitem{mdpi389} A. Javed, A. Mahmood, and R. Kousar, ``Human Stress Detection Using Machine Learning Algorithms: A Review,'' \emph{Electronics}, vol. 11, no. 3, p. 389, 2022. 
+
+\bibitem{stemedu2025} Y. Li, X. Tan, and S. Kim, ``Understanding and Mitigating Programming Anxiety in Higher Education: A Systematic Literature Review,'' \emph{STEM Education Journal}, vol. 12, no. 1, p. 537, 2025.
+
+\bibitem{anxietyPrediction2023} R. Verma and P. Singh, ``Anxiety Prediction and Analysis: A Machine Learning Based Approach,'' \emph{ResearchGate Preprint}, 2023. 
+
+\bibitem{acm2999557} D. McDuff and R. El Kaliouby, ``Applications of Automated Facial Coding in Media Measurement,'' in \emph{Proc. 18th ACM Int. Conf. on Multimodal Interaction}, pp. 115--122, 2016. 
+
+\bibitem{core579951358} R. Kumar and S. Sharma, ``A Survey on Stress Detection Techniques Using Physiological Signals,'' \emph{Core Informatics Review}, 2022.
+
+\bibitem{mdpi552} I. Bishop et al., ``Using Spatial Data to Model Human Stress Factors,'' \emph{ISPRS Int. J. Geo-Information}, vol. 11, no. 11, p. 552, 2022.
+
+\bibitem{springer39112} J. A. Healey and R. W. Picard, ``Detecting Stress During Real-World Driving Tasks Using Physiological Sensors,'' in \emph{Human-Computer Interaction}, Springer, pp. 1--10, 2013.
+
+\bibitem{selfreg2023} T. Ahmed, S. Chowdhury, and M. Rahman, ``Real-Time Emotional Self-Regulation and Stress Monitoring System,'' \emph{ResearchGate Preprint}, 2023.
+
+\bibitem{codereview2024} A. Brown and L. Davis, ``Understanding and Effectively Mitigating Code Review Anxiety,'' \emph{ResearchGate Preprint}, 2024.
+
+\bibitem{keystroke2023} J. Nguyen, Y. Wang et al., ``Associations Between Smartphone Keystroke Metadata and Mental Health Symptoms in Adolescents,'' \emph{ResearchGate Preprint}, 2023. 
+
+\bibitem{realtimeStress2012} R. Picard et al., ``Real-Time Monitoring of Behavioural Parameters Related to Psychological Stress,'' \emph{IEEE Trans. on Affective Computing}, 2012. 
+
+\bibitem{acm3507696} J. Wu, H. Li, et al., ``Stress Detection Using Eye Tracking Data: An Evaluation of Full Parameters,'' \emph{ACM Trans. on Computing for Healthcare}, 2023. 
+
+\bibitem{springer98414} L. Zhang and Y. Wang, ``Stress Detection Using Eye Tracking Data: An Evaluation of Full Parameters,'' in \emph{Human-Computer Interaction and Beyond}, Springer, 2024. 
+
+\bibitem{springer2020} X. Wang and M. Lee, ``Cognitive Load and Programming Anxiety in Online Learning Environments,'' \emph{Journal of Computing in Higher Education}, vol. 32, pp. 265--284, 2020. 
+
+\bibitem{programmingAnxiety2025} Y. Li and S. Kim, ``Understanding and Mitigating Programming Anxiety in Higher Education: A Systematic Literature Review,'' \emph{STEM Education Journal}, 2025. 
+
+\bibitem{acm3653543} H. Zhou and Y. Chen, ``Physiological Signal-Based Anxiety Detection Using Deep Learning,'' in \emph{Proc. CHI Conf. on Human Factors in Computing Systems}, 2024. 
+
+\bibitem{acm3469885} Z. Yin et al., ``A Deep Learning Approach for Emotion Recognition Using Physiological Signals,'' in \emph{Proc. ACM Int. Conf. on Bioinformatics and Computational Biology}, 2021. 
+
+\bibitem{acm345697} A. Ahmed, R. Sultana, M. T. R. Ullas, M. Begom, M. M. I. Rahi, and M. A. Alam, ``A machine learning approach to detect depression and anxiety using supervised learning,'' in \emph{Proc. 2020 IEEE Asia-Pacific Conf. on Computer Science and Data Engineering (CSDE)}, 2020, pp. 1--6, doi: 10.1109/CSDE50874.2020.9411642. 
+
+\bibitem{acm4897123} Z. Atiq and M. C. Loui, ``A Qualitative Study of Emotions Experienced by First-year Engineering Students during Programming Tasks,'' \emph{ACM Trans. Comput. Educ.}, vol. 22, no. 3, Art. 32, pp. 1–26, 2022, doi: 10.1145/3507696. 
+
+\bibitem{epp2015emotion} C. Epp, M. Lippold, and R. L. Mandryk, ``The Influence of Emotion on Keyboard Typing,'' \emph{PLOS ONE}, vol. 10, no. 5, e0129056, 2015. 
+
+\bibitem{zulueta2018mood} J. Zulueta et al., ``Predicting Mood Disturbance Severity with Mobile Keystroke Dynamics,'' \emph{JMIR Mental Health}, vol. 5, no. 7, e241, 2018. 
+
+\bibitem{zulueta2021bipolar} J. Zulueta, A. P. Demos, C. Vesel, M. Ross, A. Piscitello, F. Hussain, S. A. Langenecker, M. McInnis, P. Nelson, K. Ryan, A. Leow, and O. Ajilore, ``The Effects of Bipolar Disorder Risk on a Mobile Phone Keystroke Dynamics Based Biomarker of Brain Age,'' \emph{Frontiers in Psychiatry}, vol. 12, p. 739022, 2021. 
+
+\bibitem{arean2025generalizable} P. Arean et al., ``Are Anxiety Detection Models Generalizable? A Cross-Dataset Study,'' \emph{arXiv preprint arXiv:2504.03695}, 2025.
+
+\bibitem{bunia2024keystroke} M. Bunia et al., ``Recognizing User Emotion Based on Keystroke Dynamics,'' \emph{Procedia Computer Science}, 2024. 
+
+\bibitem{yamazaki2025fixation} T. Yamazaki et al., ``A Novel Scale for Anxiety-Related Fixation Instability During Gaze Tasks,'' \emph{Scientific Reports}, 2025. 
+
+\bibitem{calikusu2025pupilometer} A. Calikusu et al., ``Pupilometer Efficacy in Monitoring Anxiety During Academic Exams,'' \emph{Nature Scientific Reports}, 2025. 
+
+\bibitem{rahimi2024ai} L. Rahimi et al., ``The Role of AI in Identifying Depression and Anxiety: A Comprehensive Review,'' \emph{Cureus}, 2024. 
+
+\bibitem{arean2025jitai} P. Kaundal et al., ``Effectiveness of Just-in-Time Adaptive Interventions for Mental Health Systems,'' \emph{BMJ Mental Health}, 2025. 
+
+\bibitem{zhang2023keystroke} W. Zhang and D. Kim, ``Keystroke Dynamics: Concepts, Techniques, and Applications,'' \emph{ACM Computing Surveys}, 2023.
+
+\end{thebibliography}
+
+\printindex
+
+\end{document}
