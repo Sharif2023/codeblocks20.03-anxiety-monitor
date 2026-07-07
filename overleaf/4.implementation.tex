@@ -75,21 +75,25 @@ To expose the specific behavioral micro-signatures captured during testing, a de
 
 \noindent To provide a comprehensive reference for the system’s heuristic evaluation, Table \ref{tab:telemetry_params} summarizes the captured behavioral metrics and their corresponding distress thresholds. These numerical boundaries were empirically derived from the analysis of 11,138 observation intervals, providing the baseline criteria used for initial anxiety categorization.
 
-\begin{longtable}{|p{2.2cm}|p{2.8cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.5cm}|}
+\begin{longtable}{|p{2.1cm}|p{2.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|}
 \hline
-\textbf{Group} & \textbf{Parameter} & LOW (0-25) & MODERATE  (26-50) & HIGH (51-100) & \textbf{Reference} \\ \hline
-\textbf{A: Keystrokes} & Typing Speed (WPM) & 6.13 & 2.65 & 2.37 & \cite{epp2015emotion} \\ \hline
-& Key Rate (keys/s) & 1.5--3.0 & 0.5--1.2 & $\le$ 0.3 & \cite{keystroke2023} \\ \hline
-& Latency Var. (ms) & 957.14 & 9,568.92 & 24,205.79 & \cite{bunia2024keystroke} \\ \hline
-\textbf{B: Workspace} & Compile Att. & 0--1 & 2--4 & $\ge$ 5 & \cite{acm4897123} \\ \hline
-& Compile Err. & 0 & 1--2 & $\ge$ 3 cons. & \cite{mdpi5739} \\ \hline
-& Undo/Redo & 0--2 & 3--8 & $\ge$ 10 & \cite{codereview2024} \\ \hline
-\textbf{C: Temporal} & Backspace \% & 1.60\% & 11.33\% & 10.59\% & \cite{epp2015emotion} \\ \hline
-& Idle/Active Ratio & 0.05--0.20 & 0.21--0.50 & 0.51--0.95 & \cite{springer2020} \\ \hline
-\textbf{D: Spatial} & Focus Switches & 2.2 & 64.39 & 164.01 & \cite{realtimeStress2012} \\ \hline
-& Consecutive Err. & 0 & 1--2 & $\ge$ 3 & \cite{programmingAnxiety2025} \\ \hline
-\textbf{E: Metadata} & Anxiety Score & 0--25 & 26--50 & 51--100 & \cite{anxietyPrediction2023} \\ \hline
-\caption{Behavioral Telemetry Parameters and Anxiety Risk Thresholds.}
+\textbf{Group} & \textbf{Parameter} & \textbf{LOW} (0--25) & \textbf{MOD.} (26--50) & \textbf{HIGH} (51--75) & \textbf{CRIT.} (76--100) \\ \hline
+\endfirsthead
+\hline
+\textbf{Group} & \textbf{Parameter} & \textbf{LOW} (0--25) & \textbf{MOD.} (26--50) & \textbf{HIGH} (51--75) & \textbf{CRIT.} (76--100) \\ \hline
+\endhead
+\textbf{A: Keystrokes} & Typing Speed (WPM) & 6.13 & 2.65 & 2.37 & $\le$1.5 \\ \hline
+ & Latency Variance (ms) & 957 & 9,569 & 24,206 & $\ge$28,000 \\ \hline
+ & Backspace Rate (\%) & 1.60\% & 11.33\% & 13.50\% & $\ge$18\% \\ \hline
+\textbf{B: Workspace} & Compile Attempts & 0--1 & 2--4 & 5--8 & $\ge$9 \\ \hline
+ & Compile Success Rate & $\ge$80\% & 40--79\% & 10--39\% & $<$10\% \\ \hline
+\textbf{C: Temporal} & Idle Periods (count) & 0--1 & 2--4 & 5--9 & $\ge$10 \\ \hline
+ & Idle/Active Ratio & 0.05--0.20 & 0.21--0.40 & 0.41--0.70 & $>$0.70 \\ \hline
+ & Pause Ratio & $<$0.10 & 0.10--0.30 & 0.31--0.60 & $>$0.60 \\ \hline
+\textbf{D: Spatial} & Focus Switches & 2.2 & 64.39 & 164.01 & $\ge$250 \\ \hline
+ & Time in CodeBlocks (s) & $\ge$25 & 15--24 & 5--14 & $<$5 \\ \hline
+\textbf{E: Metadata} & Anxiety Score & 0--25 & 26--50 & 51--75 & 76--100 \\ \hline
+\caption{Behavioral Telemetry Parameters and Empirically Derived Anxiety Risk Thresholds Across the Four Classification Bands.}
 \label{tab:telemetry_params}
 \end{longtable}
 

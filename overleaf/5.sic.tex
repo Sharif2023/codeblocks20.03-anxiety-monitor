@@ -1,64 +1,92 @@
 \chapter{Standards and Design Constraints}
 \label{ch:standards_and_design_constraints}
 
-The development process of the real-time machine learning anxiety detection engine involved strict engineering requirements together with international regulatory standards and multiple design specifications which researchers used to create and train and test the system. The system operates through supervised machine learning while it collects basic software telemetry data and creates human-computer interaction experiences which need evaluators to assess system performance against privacy needs and operational costs and moral development standards. The chapter presents a complete evaluation which connects all project characteristics to the international standards for Complex Engineering Problems (P1–P7) and Complex Engineering Activities (A1–A5).
+The development and evaluation of the passive anxiety detection system involved strict adherence to international engineering standards, ethical data management principles, and multiple practical design constraints. Because the system operates at the intersection of supervised machine learning, OS-level behavioral telemetry, and human psychological measurement, its design choices must be evaluated not only against conventional software engineering benchmarks but also against the complex human-centered and ethical criteria that govern affective computing research. This chapter presents a complete compliance mapping, design constraint analysis, and complex engineering problem verification for the project.
 
-\section{Compliance with the Standards}
-The architectural execution of this project follows established international protocols for software and hardware-software interaction and digital communication to achieve universal interoperability and maintain systematic data security and enforce strict ethical boundaries and ensure technical reliability.
+\section{Compliance with Standards}
+\label{sec:standards}
 
-\subsection{Software Standards}
-The system telemetry collection components and machine learning data structures follow the essential international software engineering standards which serve as their foundation:
+\subsection{Software Engineering Standards}
+The telemetry collection pipeline and machine learning data processing components are aligned with the following foundational software engineering standards:
+
 \begin{itemize}
-    \item \textbf{IEEE 830-1998 (Recommended Practice for Software Requirements Specifications):} The asynchronous background data capture engine receives its functional dependencies and data logging states and architectural limits through this standardized method. The tracking pipeline operates through this protocol which ensures deterministic operation while preventing race conditions and memory allocation conflicts from affecting primary development workspaces.
-    \item \textbf{IEEE 7000-2021 (Standard Model Process for Addressing Ethical Concerns During System Design):} The framework operates with highly sensitive cognitive and affective metadata which requires this standard to define ethical guidelines for emotional data management. The system operates within defined operational boundaries which require users to provide consent while developers must extract features with complete transparency and process all data through local workstations which operate independently from other systems.
-    \item \textbf{ISO/IEC 27001 (Information Security Management Systems):} The security standard requires passive logging loop operation because it monitors basic user activities and tracks every modification made to window settings. The system protects data pipelines from unauthorized outside access and malicious script attempts because of its complete compliance with this security standard.
+    \item \textbf{IEEE 830-1998 (Software Requirements Specifications):} The functional and non-functional requirements of the background monitoring script—including the 30-second window aggregation cycle, the 18-feature output schema, and the silent \texttt{.bat} launcher behavior—were formally specified in accordance with this standard. Compliance ensures deterministic, traceable operation and prevents race conditions from affecting the primary Code::Blocks development environment.
+
+    \item \textbf{IEEE 7000-2021 (Ethical Concerns During System Design):} Because the system processes sensitive cognitive and affective behavioral metadata from real human participants, this standard was adopted as the governing framework for ethical data handling. All telemetry extraction boundaries are explicitly defined: no literal keystrokes, source code characters, or alphanumeric input sequences are ever recorded. Only timing intervals, event counts, and window classification labels are persisted, ensuring full transparency and minimizing privacy exposure.
+
+    \item \textbf{ISO/IEC 27001 (Information Security Management Systems):} All student behavioral data is stored exclusively in local CSV files on the individual student workstation. No data is transmitted over any network channel during or after the monitoring session. Post-session data collection is performed manually by the researcher via physical file transfer, maintaining complete isolation from external access threats and ensuring compliance with institutional data security obligations.
 \end{itemize}
 
-\subsection{Hardware-Software Interaction Standards}
-The telemetry tracker runs on the operating system layer so it does not need any special physical biometric equipment which makes it compliant with vital human-machine interaction requirements.:
+\subsection{Human-System Interaction Standards}
+The passive monitoring architecture is designed in alignment with established human-system interaction principles:
+
 \begin{itemize}
-    \item \textbf{ISO 9241-210:2019 (Ergonomics of Human-System Interaction  Human-Centered Design for Interactive Systems):} This establishes as its fundamental standard. The standard requires passive software monitoring solutions to reduce user mental effort while keeping their work activities unbroken and preserving complete visibility into system operations that operate independently from routine programming activities.
-    \item \textbf{POSIX API Compatibility Standards:} The data extraction script uses standard Windows API functions and asynchronous thread abstractions to perform its low-level hooking operations. The background telemetry tracking routine operates with minimal CPU usage because it avoids hardware execution overhead and compiler pipeline delays which occur inside the primary development environment.
+    \item \textbf{ISO 9241-210:2019 (Human-Centred Design for Interactive Systems):} This standard requires that monitoring tools minimize user cognitive burden, preserve task continuity, and remain fully transparent in their operation. The passive monitoring system satisfies all three requirements: the \texttt{.bat} launcher operates with zero visible interface, the background hook adds no measurable latency to the Code::Blocks compilation pipeline, and no interaction from the student is ever required or expected during data collection.
+
+    \item \textbf{Windows API Compatibility (WinAPI):} The low-level keyboard hook and window focus tracking components utilize native Windows API calls (\texttt{SetWindowsHookEx}, \texttt{GetForegroundWindow}), ensuring full compatibility with standard Windows 10/11 university workstation configurations without requiring elevated administrator privileges or custom driver installation.
 \end{itemize}
 
-\subsection{Communication and Data Exchange Standards}
-The system uses established interface protocols which enable quick dependable secure communication between the data logging engine and the machine learning model processing backend:
+\subsection{Data Handling and Ethical Research Standards}
 \begin{itemize}
-    \item \textbf{TLS 1.3 and HTTPS (Transport Layer Security Protocols):} The system protects data exchanges through advanced encryption layers which defend against man-in-the-middle attacks during all local routing operations and model loading activities and external configuration update processes.
-    \item \textbf{RESTful Architectural Principles:} The internal data pipeline which connects the background collection hook to the Python-driven classification engine operates through lightweight API routing systems which provide high-performance capabilities. The established design approach enables local process communication through 30-second window feature matrix transfers which produce zero latency variations.
+    \item \textbf{Informed Consent Protocol:} All 67 student participants were briefed by the supervising research team on the purpose of the data collection prior to the commencement of each examination session. Participation was voluntary, and all data was anonymized at the point of collection using session-level identifiers rather than personal names or student ID numbers.
+
+    \item \textbf{Post-Exam Survey Ethics:} The Likert-scale stress survey was administered within 5--15 minutes of exam completion to maximize psychological recall accuracy. Students were clearly informed that survey responses would not affect their academic grades in any way, eliminating social-desirability bias in self-reporting.
 \end{itemize}
 
 \section{Design Constraints}
-The operational deployment of an emotionally intelligent development ecosystem is bound by distinct engineering constraints that govern how the underlying technical solution functions under real-world conditions.
+\label{sec:constraints}
 
 \subsection{Economic Constraint}
-The current psychological informatics and stress-monitoring systems depend on expensive biometric equipment which includes multi-channel EEG caps and clinical Galvanic Skin Response (GSR) modules and advanced multi-spectrum hardware eye-trackers. The financial expenses create a structural obstacle which blocks academic laboratories from adopting this technology and early career professionals from accessing it. The project encounters a strict financial limitation which mandates complete reliance on standard student workstation mechanical input devices because it cannot use any extra hardware components.
+Conventional psychological informatics and physiological stress-monitoring systems depend on expensive biometric hardware, including multi-channel EEG caps (typically \$3,000--\$15,000 per unit), clinical Galvanic Skin Response (GSR) wristbands, and high-resolution eye-tracking rigs. The financial overhead of such equipment creates an insurmountable structural barrier for academic laboratories operating under standard university budget allocations. This project was developed and deployed under a strict zero-capital constraint: the entire data collection and analysis pipeline was built exclusively on software components, utilizing the standard student keyboards, workstations, and operating systems already present in the university computing lab.
 
 \subsection{Environmental Constraint}
-The standard C/C++ development environment serves as the fundamental software deployment target for this well-being execution environment which operates through an optimized system that integrates with Code::Blocks desktop environment and command-line interfaces. The system operates in unregulated situations where it needs to maintain its performance during university exam rooms with many students and computer science laboratory activities and home-based work environments that keep changing. The predictive machine learning models need to handle random human-computer interaction data without causing system errors or needing fixed workspace arrangements.
+The system is designed to operate exclusively within the Code::Blocks C/C++ IDE environment on Windows workstations, as this reflects the specific academic context in which the data was collected. The deployment environment is inherently unregulated: student behaviors vary widely, exam room temperatures, seating configurations, and keyboard hardware differ between sessions, and background noise from other students is present. The monitoring system must remain robust and consistent under all these variable real-world conditions without requiring any standardized physical setup or controlled lab configuration.
 
 \subsection{Ethical Constraint}
-The management process of user interaction telemetry data creates instant privacy risks which need to be handled through system design at the fundamental level. The background data extraction hook maintains ethical standards by stopping the logging process when it encounters literal text strings and alphanumeric keystroke combinations and code block contents. The system depends on structural behavior patterns which it monitors through frequency counts and timing data to track non-literal variables like typing speed and backspace rate and window focus switching behavior. The data boundary protects all proprietary source code and personal passcodes and sensitive communication records because it prevents their storage and exposure while meeting all user data protection standards.
+The management of user behavioral interaction telemetry data creates immediate privacy obligations that must be addressed at the architectural level. The background data extraction hook is specifically designed to exclude all literal text characters, alphanumeric keystroke sequences, and code content from its logging arrays. The system operates exclusively on structural behavioral patterns—tracking non-literal variables such as inter-keystroke timing intervals, backspace event counts, window focus transition timestamps, and compilation event frequencies. This data boundary ensures that no proprietary source code, personal credentials, or sensitive communication content can be captured, stored, or exposed, maintaining full compliance with institutional ethical data protection standards.
 
 \subsection{Health and Safety Constraint}
-The system faces urgent privacy problems because it needs to manage user interaction telemetry data which demands immediate architectural privacy safeguards. The background data extraction hook excludes all literal text strings together with alphanumeric keystroke combinations and code block contents from its logging arrays to meet ethical requirements. The system depends entirely on structural behavioral patterns which it tracks through non-literal variables that include typing speed metrics and backspace usage and window focus activity. The data boundary protects all proprietary source code and personal passcodes and sensitive communication logs from any form of recording which maintains complete agreement with strict user data 0.05\%.
+Because the monitoring system operates on real human participants under exam stress conditions, specific care was taken to ensure that the system itself does not exacerbate participant anxiety. The complete invisibility of the monitoring script to the student eliminates the ``observer effect''---the phenomenon where participants alter their natural behavior upon awareness of being monitored. All student interaction data was de-identified immediately upon collection, and individual-level data was accessible only to the core research team under a defined data access protocol approved by the institutional faculty supervisor.
 
-\subsection{Social Constraints}
-The field of computer science academia together with software engineering industry faces a major shortage of forward-looking mental health services and emotional backing tools which result in early-career burnout and imposter syndrome and ongoing workplace stress for many professionals. The project tackles social restrictions through its development of a scalable software-based system which tracks emotional states and mental workload without requiring physical interference. The project verifies that passive software analytics systems correctly identify user stress periods which enables future development environments to use well-being diagnostics as their fundamental software development process element.
+\subsection{Social Constraint}
+The computer science academic community and software engineering industry face a significant shortfall in forward-looking mental health support infrastructure, contributing to elevated rates of early-career burnout, imposter syndrome, and chronic workplace stress among programmers. This project responds to this social constraint by developing a scalable, software-only behavioral analytics system capable of passively flagging student distress without requiring physical intervention, specialized clinical staff, or dedicated mental health hardware. The findings validate that passive behavioral monitoring can serve as a non-invasive early warning mechanism embedded within existing educational infrastructure.
 
-\subsection{Sustainability and Maintenance Constraints}
-The machine learning classification pipeline uses open-source data analytics frameworks which help maintain long-term usability and support unrestricted software development while avoiding expensive corporate licenses and expensive technical debt. The software architecture enables educational institutions together with independent developers to maintain their freedom when they want to adjust Support Vector Machine (SVM) algorithm parameters and perform maintenance tasks.
+\subsection{Sustainability and Maintenance Constraint}
+The machine learning classification pipeline is built entirely on open-source Python libraries (Scikit-learn, Pandas, Imbalanced-learn), ensuring long-term maintainability without dependency on commercial software licenses or subscription services. The modular architecture of the pipeline—with clearly separated data merging, preprocessing, SMOTE balancing, and model evaluation stages—enables any future researcher to independently update individual components (e.g., replacing the SVM classifier with a deep learning model) without rebuilding the entire system from scratch.
 
 \section{Cost Analysis and Feasibility Model}
-The real-time anxiety detection system receives its technical framework through an architecture which focuses on creating an affordable solution that all institutions can easily implement. The project reached its development goal without spending any money \$0.00 (Zero BDT) because the team chose to build the solution through software-based methods.
+\label{sec:cost}
 
-\noindent The system depends on its built-in mechanical framework which uses standard computer keyboards together with operating system window descriptions that appear as default tools in university computer labs and developer workstations. The data analysis framework together with machine learning pipeline operates through open-source mathematical environments which provide free access without any commercial licensing fees or runtime subscription costs. Because the installation process requires nothing more than executing a lightweight script wrapper, deploying the tool across thousands of student machines costs absolutely nothing. The complete absence of expenses allows this system to develop an infinitely expandable and cost-effective solution which academic institutions with limited funds can implement.
+The passive anxiety detection system was developed and deployed at a total direct financial cost of \textbf{\$0.00 (zero taka)}. Table~\ref{tab:cost_analysis} provides an itemized breakdown demonstrating how each component of the system avoided commercial expenditure.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Itemized Cost Analysis of the Passive Anxiety Detection System.}
+    \label{tab:cost_analysis}
+    \begin{tabular}{|p{4.5cm}|p{4.5cm}|p{3.5cm}|}
+        \hline
+        \textbf{System Component} & \textbf{Implementation Approach} & \textbf{Cost} \\ \hline
+        Data Collection Hardware & Standard university lab keyboards and workstations (pre-existing) & \$0.00 \\ \hline
+        Monitoring Script Runtime & Python 3 (open-source, MIT license) & \$0.00 \\ \hline
+        OS Keyboard Hook & Native Windows API (WinAPI) — no SDK required & \$0.00 \\ \hline
+        Data Storage & Local CSV files on student workstations & \$0.00 \\ \hline
+        ML Pipeline & Scikit-learn, Pandas, Imbalanced-learn (open-source) & \$0.00 \\ \hline
+        Statistical Analysis & SciPy, Matplotlib (open-source) & \$0.00 \\ \hline
+        Network Infrastructure & None required — fully offline system & \$0.00 \\ \hline
+        \textbf{Total Project Cost} & & \textbf{\$0.00} \\ \hline
+    \end{tabular}
+\end{table}
+
+\noindent This zero-cost architecture is a key contribution of this research. By demonstrating that a statistically validated, machine-learning-based anxiety detection system can be built entirely without hardware procurement or commercial software licenses, this project establishes a replicable and financially accessible blueprint for universities worldwide, including institutions in low-resource settings where EEG or biometric monitoring equipment is entirely out of reach.
 
 \section{Complex Engineering Problem Mapping}
-The development and evaluation of this real-time developer tracking solution qualifies as a \textbf{Complex Engineering Problem} under international engineering accreditation rubrics, as it integrates advanced machine learning classification, low-level operating system hooks, and data preprocessing principles to resolve an abstract, human-centered challenge.
+\label{sec:cep}
 
-\subsection{Complex Problem Solving (P1–P7)}
-Table~\ref{tab:p_solve} outlines the explicit verification mapping of the project's characteristics against recognized complex problem-solving criteria (P1–P7).
+The development and evaluation of this passive developer tracking system qualifies as a \textbf{Complex Engineering Problem} under international engineering accreditation rubrics, as it integrates advanced machine learning classification, low-level OS hooks, statistical signal validation, and human-centered research ethics to resolve an abstract, psychologically grounded challenge.
+
+\subsection{Complex Problem Solving (P1--P7)}
+Table~\ref{tab:p_solve} presents the verified mapping of the project's characteristics against the seven recognized Complex Engineering Problem criteria (P1--P7).
 
 \begin{table}[htbp]
     \centering
@@ -66,31 +94,35 @@ Table~\ref{tab:p_solve} outlines the explicit verification mapping of the projec
     \begin{tabular}{|c|c|c|c|c|c|c|}
         \hline
         \textbf{P1} & \textbf{P2} & \textbf{P3} & \textbf{P4} & \textbf{P5} & \textbf{P6} & \textbf{P7} \\ \hline
-        \begin{tabular}{@{}c@{}}Depth of \\ Knowledge\end{tabular} & 
-        \begin{tabular}{@{}c@{}}Range of \\ Conflicting \\ Requirements\end{tabular} & 
-        \begin{tabular}{@{}c@{}}Depth of \\ Analysis\end{tabular} & 
-        \begin{tabular}{@{}c@{}}Familiarity \\ of Issues\end{tabular} & 
-        \begin{tabular}{@{}c@{}}Extent of \\ Applicable \\ Codes\end{tabular} & 
-        \begin{tabular}{@{}c@{}}Extent of \\ Stakeholder \\ Involvement\end{tabular} & 
+        \begin{tabular}{@{}c@{}}Depth of \\ Knowledge\end{tabular} &
+        \begin{tabular}{@{}c@{}}Conflicting \\ Requirements\end{tabular} &
+        \begin{tabular}{@{}c@{}}Depth of \\ Analysis\end{tabular} &
+        \begin{tabular}{@{}c@{}}Familiarity \\ of Issues\end{tabular} &
+        \begin{tabular}{@{}c@{}}Applicable \\ Standards\end{tabular} &
+        \begin{tabular}{@{}c@{}}Stakeholder \\ Involvement\end{tabular} &
         \begin{tabular}{@{}c@{}}Inter- \\ dependence\end{tabular} \\ \hline
         $\checkmark$ & $\checkmark$ & $\checkmark$ & $\times$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\ \hline
     \end{tabular}
-    \caption{Mapping Project Attributes to Complex Problem Solving Requirements.}
+    \caption{Mapping Project Attributes to Complex Engineering Problem Solving Criteria (P1--P7).}
     \label{tab:p_solve}
 \end{table}
 
-The specific engineering justifications for the checked criteria in Table~\ref{tab:p_solve} include:
 \begin{itemize}
-    \item \textbf{P1 (Depth of Knowledge):} The core problem needs advanced engineering knowledge which includes levels K4, K5, and K8. The development team needs to unite supervised machine learning principles which include hyper-parameter optimization for non-linear SVM kernels with operating system hooks that log user interactions asynchronously and human-computer interaction theories to build psychological state models from basic interaction information.
-    \item \textbf{P2 (Range of Conflicting Requirements):} The system architecture operates by solving an essential engineering problem which requires system equilibrium. The system needs to generate high-frequency continuous features which should operate throughout various application windows to achieve maximum stress classification accuracy. The system needs to keep user privacy at its highest level but it must also run CPU cycles efficiently during main development environment operations to prevent code compilation from becoming too slow.
-    \item \textbf{P3 (Depth of Analysis):} Human anxiety exists as an intangible mental condition which creates personal experiences that follow no direct path so it cannot be represented through basic linear models or conventional diagnostic algorithms. The system demands detailed mathematical evaluation which uses SMOTE for data duplication and multidimensional classification systems to detect high-frequency typing patterns that appear in real-world data streams which contain background noise.
-    \item \textbf{P5 (Extent of Applicable Codes):} International standards and software regulations establish rigid boundaries which restrict the design process work. The design process operates under international standards and software guidelines which include IEEE 7000-2021 for ethical AI data boundaries and ISO/IEC 27001 for user telemetry security and ISO 9241-210:2019 to ensure non-intrusive system usability.
-    \item \textbf{P6 (Extent of Stakeholder Involvement):} The system needs ongoing interaction with various unique stakeholder groups which consist of first-year computer science students who take timed tests and university faculty members who monitor their students' progress and academic defense committees who verify the baseline classifier results.
-    \item \textbf{P7 (Inter-dependence):} The project sub-systems exhibit exceptionally high interaction dependencies. The feature engineering pipeline experiences data shortages because the background OS script wrapper encounters data collection failures and timing issues which lead to unreliable data flow. The machine learning backend fails to perform accurate classification because the feature engineering pipeline lacks sufficient data to operate properly.
+    \item \textbf{P1 — Depth of Knowledge:} The project requires advanced multi-domain engineering knowledge spanning supervised machine learning (SVM hyperplane optimization, SMOTE interpolation), operating system API programming (asynchronous WinAPI keyboard hooks), statistical signal validation (Pearson and Spearman correlation), and applied cognitive psychology (mapping inter-keystroke timing variance to psychological arousal models). No single engineering discipline provides sufficient knowledge to address all aspects of the problem.
+
+    \item \textbf{P2 — Range of Conflicting Requirements:} The system architecture must simultaneously satisfy fundamentally competing engineering objectives. Maximum classification accuracy demands high-frequency, richly detailed behavioral feature extraction across all application window contexts. However, strict user privacy protection requires that no literal character data or identifiable content is ever recorded. Simultaneously, minimal CPU overhead must be maintained to ensure that the monitoring process never delays compiler execution in the primary Code::Blocks workspace. Resolving these three conflicting constraints required careful asynchronous thread design and a precisely scoped feature extraction boundary.
+
+    \item \textbf{P3 — Depth of Analysis:} Human anxiety is an inherently non-linear, context-dependent, and subjectively experienced psychological state. It cannot be reliably captured through simple threshold rules or basic linear classifiers. The project demands deep mathematical analysis, including the construction of a rule-based anxiety scoring engine with weighted feature normalization, application of the SMOTE interpolation formula for minority class synthesis, and evaluation of eight classifiers across 100 independent cross-validation runs to produce statistically reliable, variance-quantified performance estimates.
+
+    \item \textbf{P5 — Extent of Applicable Standards:} The design process operates under multiple overlapping international standards simultaneously. IEEE 7000-2021 governs the ethical boundaries of affective data extraction. ISO/IEC 27001 constrains the data storage and access control architecture. ISO 9241-210:2019 defines the non-intrusiveness and transparency requirements for the human-system interaction. Navigating these standards concurrently while maintaining technical performance constitutes a non-trivial multi-constraint engineering problem.
+
+    \item \textbf{P6 — Stakeholder Involvement:} The system directly involves three distinct stakeholder groups with different and partially conflicting interests: (1) first-year computer science students who are the data subjects and whose cognitive experience must not be disrupted; (2) university faculty and exam invigilators who oversee the deployment environment and whose cooperation is required for ethical approval; and (3) the academic research committee who demand rigorous statistical validation, reproducible results, and compliance with thesis documentation standards.
+
+    \item \textbf{P7 — Inter-dependence:} The project sub-systems exhibit tight causal dependencies. If the \texttt{.bat} launcher fails to initialize on a student workstation, no CSV log is produced for that session, directly reducing the dataset size and degrading ML model generalizability. If the data merging pipeline introduces a labeling error during post-exam CSV consolidation, the Likert survey ground truth labels are misaligned, and all downstream classification results become invalid. Each sub-system failure propagates irreversibly through the full research pipeline.
 \end{itemize}
 
-\subsection{Complex Engineering Activities (A1–A5)}
-Table~\ref{tab:e_act} documents the mapping of the research activities against international criteria for complex engineering activities (A1–A5).
+\subsection{Complex Engineering Activities (A1--A5)}
+Table~\ref{tab:e_act} documents the mapping of research activities against the five international criteria for Complex Engineering Activities (A1--A5).
 
 \begin{table}[htbp]
     \centering
@@ -98,24 +130,27 @@ Table~\ref{tab:e_act} documents the mapping of the research activities against i
     \begin{tabular}{|c|c|c|c|c|}
         \hline
         \textbf{A1} & \textbf{A2} & \textbf{A3} & \textbf{A4} & \textbf{A5} \\ \hline
-        \begin{tabular}{@{}c@{}}Range of \\ Resources\end{tabular} & 
-        \begin{tabular}{@{}c@{}}Level of \\ Interaction\end{tabular} & 
-        \begin{tabular}{@{}c@{}}Innovation\end{tabular} & 
-        \begin{tabular}{@{}c@{}}Consequences for \\ Society \& Environment\end{tabular} & 
+        \begin{tabular}{@{}c@{}}Range of \\ Resources\end{tabular} &
+        \begin{tabular}{@{}c@{}}Level of \\ Interaction\end{tabular} &
+        \begin{tabular}{@{}c@{}}Innovation\end{tabular} &
+        \begin{tabular}{@{}c@{}}Consequences for \\ Society \& Environment\end{tabular} &
         \begin{tabular}{@{}c@{}}Familiarity\end{tabular} \\ \hline
         $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\times$ \\ \hline
     \end{tabular}
-    \caption{Mapping Research Activities to Complex Engineering Activities.}
+    \caption{Mapping Research Activities to Complex Engineering Activity Criteria (A1--A5).}
     \label{tab:e_act}
 \end{table}
 
-\noindent The specific technical justifications for the verified engineering activities in Table~\ref{tab:e_act} are detailed below:
 \begin{itemize}
-    \item \textbf{A1 (Scope of Resources):} The execution of this research requires coordinating a wide array of diverse resources, including specialized Python machine learning infrastructure, live student data streams captured during timed conditions, localized dataset serialization frameworks, and a cohort of human research participants for validation.
-    \item \textbf{A2 (Degree of Interaction):} The engineering process involves deep interdisciplinary collaboration between backend machine learning optimization (tuning classification hyperplanes) and data preprocessing tracking pipelines to deliver a cohesive, unified solution that models user stress.
-    \item \textbf{A3 (Innovation):} The system introduces an innovative paradigm shift in developer tooling. It moves beyond traditional post-hoc personal informatics tools and intrusive wearable hardware, delivering an end-to-end framework that connects automated real-time feature classification directly with subject-independent universal models.
-    \item \textbf{A4 (Consequences for Society and Environment):} The implementation of this solution results in major social changes which affect public life. The system provides a non-invasive framework which enables students to decrease their anxiety while students learn better retention and software engineers avoid professional burnout. The system tackles vital ethical problems which emerge from personal computer emotional telemetry data processing methods.
+    \item \textbf{A1 — Range of Resources:} The research required the coordinated utilization of diverse technical and human resources: a Python-based machine learning pipeline, a Windows API behavioral telemetry engine, a cohort of 67 live human research participants, four separate graded examination sessions coordinated with university faculty, and post-exam Likert survey administration logistics. Managing these heterogeneous resources simultaneously under academic time constraints constitutes a complex engineering activity.
+
+    \item \textbf{A2 — Level of Interaction:} The project required sustained interdisciplinary collaboration across OS-level systems programming (the \texttt{.bat} hook development), data engineering (CSV merging and outlier conditioning), statistical analysis (Pearson/Spearman correlation validation), and machine learning (SMOTE + 10$\times$10 cross-validation pipeline). Each sub-discipline informed the design constraints of the others, requiring continuous iterative coordination across the full research team.
+
+    \item \textbf{A3 — Innovation:} The system introduces a novel paradigm for developer well-being instrumentation. Unlike prior approaches that depend on physiological wearable hardware or subject-dependent personalized calibration, this framework delivers a fully software-based, subject-independent universal classifier trained on real exam-stress behavioral data from a live cohort. The combination of a rule-based heuristic scoring engine validated against a 10$\times$10 leakage-free cross-validation ML pipeline represents a methodologically original contribution to the HCI and educational analytics fields.
+
+    \item \textbf{A4 — Consequences for Society and Environment:} The deployment of this system has direct positive societal implications. It provides academic institutions with a zero-cost mechanism to passively identify student programmers who are experiencing examination anxiety at clinically significant levels, enabling early pedagogical intervention before performance degradation or course dropout occurs. Environmentally, the entirely software-based, zero-hardware architecture eliminates e-waste generation and toxic battery disposal concerns that accompany biometric wearable device deployments at scale.
 \end{itemize}
 
 \section{Summary}
-The research team established strict technical requirements together with environmental standards and financial limitations and ethical rules which control the design and evaluation processes of their real-time anxiety tracking system. The system operates through a software-based framework which allows it to measure developer well-being at zero cost while following international software engineering standards and protecting user data through abstract feature extraction methods. The research framework demonstrates its academic and technical strength through the direct correlation between system attributes and Complex Engineering Problem criteria.
+\label{sec:ch5_summary}
+This chapter established the complete compliance and constraint framework governing the passive anxiety detection system. The architecture aligns with three international standards—IEEE 830-1998, IEEE 7000-2021, and ISO/IEC 27001—while being explicitly designed to satisfy the conflicting engineering constraints of maximal privacy protection, zero CPU overhead, and deployment-ready ecological validity within real university examination environments. The zero-cost itemized feasibility model confirms the financial accessibility of the system at institutional scale. The verified mappings against Complex Engineering Problem criteria P1--P7 and Complex Engineering Activity criteria A1--A5 formally establish the academic and technical rigor of this research within international engineering accreditation standards.
