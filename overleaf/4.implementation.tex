@@ -100,7 +100,7 @@ To expose the specific behavioral micro-signatures captured during testing, a de
 \noindent This mapping validates that while the binary classification model handles the final prediction, the underlying heuristic engine provides a granular, descriptive profiling capability that tracks the progression of developer distress in real-time.
 
 \section{Validation Against Self-Reported Stress}
-Before training machine learning models, statistical correlation tests were run to confirm the presence of reliable psychological stress markers within the passive logging telemetry. The localized continuous index from the heuristic rule engine was validated against the users' self-reported Likert ground truth labels. 
+Before training machine learning models, statistical correlation tests were run to confirm the presence of reliable psychological stress markers within the passive logging telemetry. The localized continuous index from the heuristic rule engine was validated against the users' self-reported Likert ground truth labels \cite{likert1932}.
 
 \noindent By flattening the 11,138 intervals into average behavioral matrices for each of the 67 students, two formal correlation tests were calculated:
 \begin{itemize}
@@ -133,8 +133,8 @@ Once the presence of a statistical signal in the behavioral data was verified, t
 
 \noindent Because the dataset suffered from a heavy majority-class distribution (~83\% high stress records), standard unmitigated classifiers would become biased, achieving a false accuracy baseline of 83\% simply by predicting the majority class label exclusively. To overcome this class imbalance trap, the training framework incorporated two strict preprocessing and validation safeguards:
 \begin{itemize}
-    \item \textbf{SMOTE Balancing}: The Synthetic Minority Over-sampling Technique was applied to interpolate new data nodes within the minority feature coordinates (low stress), establishing a mathematically balanced, 50/50 dataset for model training.
-    \item \textbf{10$\times$10 Repeated Stratified K-Fold Cross-Validation}: To eliminate evaluation bias, cross-validation split the data over 100 separate evaluation loops. Crucially, SMOTE was executed strictly inside the training split folds of each fold loop, preventing data leakage from the validation test splits into the learning phase.
+    \item \textbf{SMOTE Balancing}: The Synthetic Minority Over-sampling Technique \cite{chawla2002smote} was applied to interpolate new data nodes within the minority feature coordinates (low stress), establishing a mathematically balanced, 50/50 dataset for model training. SMOTE was applied using the \texttt{imbalanced-learn} library integrated into the Scikit-learn pipeline \cite{scikitlearn}.
+    \item \textbf{10$\times$10 Repeated Stratified K-Fold Cross-Validation}: To eliminate evaluation bias, cross-validation split the data over 100 separate evaluation loops. Crucially, SMOTE was executed strictly inside the training split folds of each fold loop, preventing data leakage from the validation test splits into the learning phase \cite{smoteLeakage}.
 \end{itemize}
 
 \subsection{Model Performance Analysis}
