@@ -73,15 +73,14 @@ To expose the specific behavioral micro-signatures captured during testing, a de
 
 \noindent Under severe cognitive pressure, the system logs chaotic interaction parameters within the \texttt{HIGH} and \texttt{CRITICAL} anxiety classification bands. Typing velocity slumps to its lowest operational mean of $2.37$ WPM, accompanied by an absolute plateau in the text buffer. Crucially, \texttt{latency\_variance\_ms} spikes to an extreme average of $24,205.79$ milliseconds, capturing a pattern of long, frozen stalls followed by frantic bursts of typing as the exam timer runs out. Deletion rates remain elevated at a mean backspace rate of $10.59\%$, while the focus-switching metric accelerates to a substantial mean of $164.01$ window toggles per interval. This extreme level of environment toggling reflects total session fragmentation, indicating that high anxiety limits working memory capacity and forces developers to constantly switch focus between windows to re-verify syntax errors and compile logs.
 
-\noindent To provide a comprehensive reference for the system’s heuristic evaluation, Table \ref{tab:telemetry_params} summarizes the captured behavioral metrics and their corresponding distress thresholds. These numerical boundaries were empirically derived from the analysis of 11,138 observation intervals, providing the baseline criteria used for initial anxiety categorization.
+\noindent To provide a comprehensive reference for the system’s heuristic evaluation, Table \ref{tab:telemetry_params} summarizes the captured behavioral metrics and their corresponding distress thresholds. Crucially, these numerical boundaries were not arbitrarily assigned. They were empirically reverse-engineered by grouping the 11,138 observation intervals based on the students' ground-truth Likert survey responses (e.g., intervals from students who reported '4' on the 5-point Likert scale formed the baseline averages for the \texttt{HIGH} anxiety band). The final calculated anxiety score operates on a normalized 0--100 scale, which is divided into four equal statistical quartiles (25 points each) to ensure balanced risk classification.
 
-\begin{longtable}{|p{1.8cm}|p{2.8cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{2.2cm}|}
+\begin{table}[hbt!]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{2.2cm}|p{3.2cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{2.0cm}|p{2.2cm}|}
 \hline
-\textbf{Group} & \textbf{Parameter} & LOW (0--25) & MOD. (26--50) & HIGH (51--75) & CRIT. (76--100) & \textbf{Reference} \\ \hline
-\endfirsthead
-\hline
-\textbf{Group} & \textbf{Parameter} & LOW (0--25) & MOD. (26--50) & HIGH (51--75) & CRIT. (76--100) & \textbf{Reference} \\ \hline
-\endhead
+\textbf{Group} & \textbf{Parameter} & \textbf{LOW} \newline (0--25) & \textbf{MOD.} \newline (26--50) & \textbf{HIGH} \newline (51--75) & \textbf{CRIT.} \newline (76--100) & \textbf{Reference} \\ \hline
 A: Keystrokes & Typing Speed (WPM) & 6.13 & 2.65 & 2.37 & $\le$1.5 & \cite{epp2015emotion} \\ \hline
  & Latency Variance (ms) & 957 & 9,569 & 24,206 & $\ge$28,000 & \cite{bunia2024keystroke} \\ \hline
  & Backspace Rate (\%) & 1.60\% & 11.33\% & 13.50\% & $\ge$18\% & \cite{epp2015emotion} \\ \hline
@@ -93,10 +92,15 @@ C: Temporal & Idle Periods (count) & 0--1 & 2--4 & 5--9 & $\ge$10 & \cite{spring
 D: Spatial & Focus Switches & 2.2 & 64.39 & 164.01 & $\ge$250 & \cite{realtimeStress2012} \\ \hline
  & Time in CodeBlocks (s) & $\ge$25 & 15--24 & 5--14 & $<$5 & \cite{acm3507696} \\ \hline
 E: Metadata & Anxiety Score & 0--25 & 26--50 & 51--75 & 76--100 & \cite{anxietyPrediction2023} \\ \hline
+\end{tabular}%
+}
 \caption{Behavioral Telemetry Parameters and Empirically Derived Anxiety Risk Thresholds Across the Four Classification Bands.}
 \label{tab:telemetry_params}
-\end{longtable}
+\end{table}
 
+\noindent \textbf{Table Note on Threshold Interpretation:} The column headers in the table represent the four equal statistical quartiles of the \textbf{final calculated Anxiety Score}, which is normalized on a 0--100 scale to ensure balanced risk classification. In contrast, the numerical values within the individual cells represent the \textbf{raw telemetry thresholds} required to trigger that classification during a 30-second window.
+
+\vspace{0.5cm}
 \noindent This mapping validates that while the binary classification model handles the final prediction, the underlying heuristic engine provides a granular, descriptive profiling capability that tracks the progression of developer distress in real-time.
 
 \section{Validation Against Self-Reported Stress}
